@@ -31,6 +31,8 @@ window.PORTFOLIO_CERTIFICATES.push({
           "Netzwerk-Technologien: Protokolle, DHCP, DNS, VPN, HTTPS, TLS, DMZ, Topologien, WLAN und Fehlersuche",
           "Router und Switches konfigurieren, Clients und Server einbinden, Anbindung an die Cloud",
           "Systemtechnik: Betriebssysteme, Server und Datenbanken",
+          "Virtualisierung mit VMware: Windows Server 2022 und Windows Clients aufgesetzt und betrieben",
+          "IT-Betrieb (Operations): Geräte und Identitäten mit Microsoft Intune und Entra ID verwalten",
           "Sicherheit von Netzwerk und Infrastruktur",
           "Projektmanagement: Vorgehen, Termin-, Ressourcen- und Kostenplanung, Problemlösung",
           "Kommunikation: Präsentation, Verhandlung, aktives Zuhören, Hotline und First Level Support"
@@ -40,6 +42,8 @@ window.PORTFOLIO_CERTIFICATES.push({
           "Network technologies: protocols, DHCP, DNS, VPN, HTTPS, TLS, DMZ, topologies, Wi-Fi and troubleshooting",
           "Configuring routers and switches, integrating clients and servers, connecting to the cloud",
           "Systems engineering: operating systems, servers and databases",
+          "Virtualization with VMware: set up and ran Windows Server 2022 and Windows clients",
+          "IT operations: managing devices and identities with Microsoft Intune and Entra ID",
           "Network and infrastructure security",
           "Project management: approach, scheduling, resource and cost planning, problem solving",
           "Communication: presenting, negotiating, active listening, hotline and first level support"
@@ -79,7 +83,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   ],
 
   skills: {
-    de: ["Client-Technologie", "Netzwerk-Technologien", "Router und Switches", "Systemtechnik und Server", "Netzwerksicherheit", "Projektmanagement", "Kommunikation und Support"],
-    en: ["Client technology", "Network technologies", "Routers and switches", "Systems engineering and servers", "Network security", "Project management", "Communication and support"]
+    de: ["Client-Technologie", "Netzwerk-Technologien", "Router und Switches", "Systemtechnik und Server", "VMware und Windows Server 2022", "Intune und Entra ID", "Netzwerksicherheit", "Projektmanagement", "Kommunikation und Support"],
+    en: ["Client technology", "Network technologies", "Routers and switches", "Systems engineering and servers", "VMware and Windows Server 2022", "Intune and Entra ID", "Network security", "Project management", "Communication and support"]
   }
 });

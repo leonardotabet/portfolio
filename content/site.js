@@ -85,7 +85,8 @@ window.SITE = {
         { label: "Entra Connect", match: ["entra connect"] },
         { label: "Azure Files", match: ["azure files"] },
         { label: "Azure Virtual Desktop", match: ["azure virtual desktop"] },
-        { label: "Hyper-V", match: ["hyper-v"] }
+        { label: "Hyper-V", match: ["hyper-v"] },
+        { label: "VMware", match: ["vmware"] }
       ]
     },
     {
@@ -201,8 +202,8 @@ window.SITE = {
       text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden, Security+ in Vorbereitung. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900, Security+ in preparation. Diploma in January 2027." },
       detail: {
         did: {
-          de: ["Systemtechnik mit Windows Server, Active Directory, Gruppenrichtlinien und Azure", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt, Security+ zusätzlich aus eigener Initiative"],
-          en: ["Systems engineering with Windows Server, Active Directory, Group Policy and Azure", "Network technologies from DHCP, DNS and VPN to routers, switches and security", "Project management and communication in support", "Earned international certifications within the program, Security+ on top on my own initiative"]
+          de: ["Systemtechnik mit Windows Server 2022 und Windows Clients auf VMware, Active Directory, Gruppenrichtlinien und Azure", "IT-Betrieb mit Microsoft Intune und Entra ID", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt, Security+ zusätzlich aus eigener Initiative"],
+          en: ["Systems engineering with Windows Server 2022 and Windows clients on VMware, Active Directory, Group Policy and Azure", "IT operations with Microsoft Intune and Entra ID", "Network technologies from DHCP, DNS and VPN to routers, switches and security", "Project management and communication in support", "Earned international certifications within the program, Security+ on top on my own initiative"]
         },
         gain: {
           de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt in der Praxis umsetzen, im Betrieb und im Lab"],
