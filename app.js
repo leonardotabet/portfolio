@@ -483,7 +483,7 @@
         if (it.cert) {
           chip = el("button", "skill-chip to-cert", label);
           chip.type = "button";
-          chip.title = ui("skillCertHint");
+          chip.title = pick(it.hint) || ui("skillCertHint");
           var tag = el("span", "skill-count cert", it.cert);
           tag.setAttribute("aria-hidden", "true");
           chip.appendChild(tag);

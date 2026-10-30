@@ -75,6 +75,8 @@ window.SITE = {
         { label: "VLAN", match: ["vlan"] },
         { label: { de: "Routing und Switching", en: "Routing and switching" }, match: ["router", "switch", "routing"] },
         { label: "VPN", match: ["vpn"] },
+        { label: "Cisco Packet Tracer", cert: "N+" },
+        { label: "Wireshark", cert: "N+" },
         { label: "Firewall", match: ["firewall"] }
       ]
     },
@@ -97,7 +99,7 @@ window.SITE = {
         { label: "Power Automate", match: ["power automate"] },
         { label: "Jira Service Management", match: ["jira"] },
         { label: "Confluence", match: ["confluence"] },
-        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, cert: "A+" }
+        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Betriebsabläufe nach ITIL", en: "Backed by CompTIA A+: ITIL-aligned operational procedures" } }
       ]
     }
   ],
@@ -236,7 +238,7 @@ window.SITE = {
     skillFilter: { de: "Projekte mit", en: "Projects with" },
     skillReset: { de: "Alle anzeigen", en: "Show all" },
     skillHint: { de: "Passende Projekte zeigen", en: "Show matching projects" },
-    skillCertHint: { de: "Belegt durch CompTIA A+: Betriebsabläufe nach ITIL", en: "Backed by CompTIA A+: ITIL-aligned operational procedures" },
+    skillCertHint: { de: "Zum passenden Zertifikat", en: "Go to the matching certification" },
     navContact: { de: "Kontakt", en: "Contact" },
     ctaContact: { de: "Kontakt aufnehmen", en: "Get in touch" },
     ctaProjects: { de: "Projekte ansehen", en: "View projects" },
