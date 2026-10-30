@@ -88,7 +88,8 @@ window.SITE = {
         { label: "Azure Files", match: ["azure files"] },
         { label: "Azure Virtual Desktop", match: ["azure virtual desktop"] },
         { label: "Hyper-V", match: ["hyper-v"] },
-        { label: "VMware", match: ["vmware"] }
+        { label: "VMware", match: ["vmware"] },
+        { label: { de: "GPO-Migration nach Intune", en: "GPO migration to Intune" }, match: ["gpo-migration", "gpo migration"] }
       ]
     },
     {

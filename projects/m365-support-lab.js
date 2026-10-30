@@ -17,6 +17,7 @@ window.PORTFOLIO_PROJECTS.push({
       "Fünf Testbenutzer in dynamischen Gruppen, Lizenzen werden über Gruppen zugewiesen",
       "Eine virtuelle Windows 11 Maschine (Hyper-V), die Entra ID beitritt und sich in Intune registriert",
       "Compliance-Richtlinie, Konfigurationsprofil und App-Zuweisung in Intune",
+      "GPO-Migration nach Intune: Gruppenrichtlinien mit Group Policy Analytics auswerten und im Settings Catalog als Richtlinien umsetzen",
       "MFA, Self-Service-Kennwortzurücksetzung und eine Conditional-Access-Richtlinie im Modus „Nur Bericht“",
       "Offboarding in der richtigen Reihenfolge: Anmeldung sperren, Postfach sichern, Gerät zurücksetzen, Lizenz entfernen",
       "Ein Jira Service Management Projekt mit Anfragetypen, Warteschlangen und Eskalationsvorlage"
@@ -25,6 +26,7 @@ window.PORTFOLIO_PROJECTS.push({
       "Five test users in dynamic groups, with licenses assigned by group",
       "A Windows 11 virtual machine (Hyper-V) that joins Entra ID and enrolls in Intune",
       "A compliance policy, a configuration profile and an app assignment in Intune",
+      "GPO migration to Intune: analyze group policies with Group Policy Analytics and rebuild them as Settings Catalog policies",
       "MFA, self-service password reset and a Conditional Access policy in report-only mode",
       "Offboarding in the right order: block sign-in, secure the mailbox, wipe the device, remove the license",
       "A Jira Service Management project with request types, queues and an escalation template"
@@ -35,7 +37,7 @@ window.PORTFOLIO_PROJECTS.push({
     en: "Continuously extended: each building block gets screenshots and a short write-up."
   },
 
-  tools: ["Entra ID", "Intune", "Microsoft 365 Admin Center", "Exchange Online", "Conditional Access", "Jira Service Management", "Hyper-V"],
+  tools: ["Entra ID", "Intune", "Microsoft 365 Admin Center", "Exchange Online", "Conditional Access", "Group Policy Analytics", "Jira Service Management", "Hyper-V"],
 
   images: []
 });
