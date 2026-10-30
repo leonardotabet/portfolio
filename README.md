@@ -23,3 +23,7 @@ fonts/                          Source Serif 4, IBM Plex Sans (selbst gehostet)
 ## Hosting
 
 GitHub Pages aus `main`, Custom Domain über Infomaniak DNS (A, AAAA, CNAME für www), HTTPS erzwungen, DNSSEC aktiv.
+
+## Cache
+
+CSS und JS werden mit `?v=…` in `index.html` geladen. Nach Änderungen an `style.css`, `app.js` oder Inhaltsdateien die Zahl dort erhöhen (z. B. Datum und Uhrzeit), sonst zeigen Browser bis zu 10 Minuten die alte Version.
