@@ -5,7 +5,7 @@ window.PORTFOLIO_PROJECTS.push({
 
   title:    { de: "App für die Foto-Dokumentation von Uhren", en: "Watch photo documentation app" },
   subtitle: { de: "Ein manueller Ablauf, ersetzt durch eine App mit automatischer Sicherung.", en: "A manual process, replaced by an app with automatic backups." },
-  context:  { de: "Umgesetzt bei der Arbeit", en: "Delivered at work" },
+  context:  { de: "Umgesetzt im Konzernumfeld", en: "Delivered within the corporate group" },
   period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
 
   text: {

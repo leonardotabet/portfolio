@@ -25,28 +25,28 @@ window.SITE = {
     role: { de: "IT Support und Systemtechnik", en: "IT support and systems engineering" },
     intro: {
       de: [
-        "Ich unterstütze Mitarbeitende bei Windows 11 und Microsoft 365 und betreue Endgeräte über ihren ganzen Lebenszyklus, von der Einrichtung bis zur Rückgabe. Intune und Conditional Access baue ich in einem eigenen Lab auf und dokumentiere es hier."
+        "Ich arbeite in der IT eines Schweizer Uhrenunternehmens im Konzernumfeld, mit Microsoft 365, Azure, hybridem Active Directory und Intune für iPhone und iPad. Dort unterstütze ich Mitarbeitende im 1st und 2nd Level und betreue Endgeräte über ihren ganzen Lebenszyklus. Die Administration dahinter baue ich zusätzlich in Praxis-Labs komplett selbst auf und dokumentiere sie hier."
       ],
       en: [
-        "I support staff with Windows 11 and Microsoft 365 and look after devices across their whole lifecycle, from setup to return. I am building Intune and Conditional Access in my own lab and document it here."
+        "I work in IT at a Swiss watch company within an international corporate group, with Microsoft 365, Azure, hybrid Active Directory and Intune for iPhone and iPad. There I support staff at 1st and 2nd level and look after devices across their whole lifecycle. On top of that I build the administration behind it end to end in hands-on labs and document it here."
       ]
     },
     photoAlt: { de: "Porträt von Leonardo Tabet", en: "Portrait of Leonardo Tabet" },
     facts: [
       { label: { de: "Standort", en: "Location" }, value: { de: "Aargau, Schweiz", en: "Aargau, Switzerland" } },
       { label: { de: "Fliessende Sprachen", en: "Fluent languages" }, value: { de: "Deutsch und Englisch", en: "German and English" } },
-      { label: { de: "Schwerpunkt", en: "Focus" }, value: { de: "Windows 11, Microsoft 365, Entra ID", en: "Windows 11, Microsoft 365, Entra ID" } },
+      { label: { de: "Praxis", en: "Experience" }, value: { de: "Konzern-IT mit Microsoft 365, Azure und Intune", en: "Corporate IT with Microsoft 365, Azure and Intune" } },
       { label: { de: "Weiterbildung", en: "Education" }, value: { de: "Dipl. ICT System Engineer, Abschluss Januar 2027", en: "Diploma ICT System Engineer, due January 2027" } }
     ]
   },
 
   about: {
     de: [
-      "Ich habe in der Industrie, als Selbständiger und im IT-Betrieb gearbeitet. Dabei wurde mir klar, dass mir die technische Arbeit am meisten liegt. Die Erfahrung aus Industrie und Kundenkontakt nehme ich bewusst mit.",
+      "Heute arbeite ich in der IT eines Konzerns, mit Microsoft 365, Azure, hybridem Active Directory und Intune im täglichen Einsatz. Davor war ich in der Industrie und als Selbständiger tätig. Die Erfahrung aus 24/7-Betrieb und Kundenkontakt nehme ich bewusst mit.",
       "Der Pfad zeigt, was hinter jeder Station steckt: unten der Anfang, oben das Aktuelle. Die Details zeigen, was ich dort gemacht habe und welche Projekte und Zertifikate es belegen."
     ],
     en: [
-      "I have worked in industry, in my own business and in IT operations. Along the way I realized that technical work suits me best. I deliberately carry the experience from industry and client work with me.",
+      "Today I work in IT within a corporate group, with Microsoft 365, Azure, hybrid Active Directory and Intune in daily use. Before that I worked in industry and ran my own business. I deliberately carry the experience from 24/7 operations and client work with me.",
       "The path shows what lies behind each step: the start at the bottom, the present at the top. The details show what I did there and which projects and certifications prove it."
     ]
   },
@@ -157,13 +157,14 @@ window.SITE = {
     },
     {
       when: { de: "2026", en: "2026" },
-      tag: { de: "IT-Betrieb", en: "IT operations" },
-      title: { de: "IT-Team eines Schweizer Uhrenunternehmens", en: "IT team of a Swiss watch company" },
-      text: { de: "Endgeräte, Microsoft 365, Telefonie, WLAN und Power Apps. Alles in Confluence dokumentiert.", en: "Devices, Microsoft 365, phone system, Wi-Fi and Power Apps. Everything documented in Confluence." },
+      tag: { de: "Konzern-IT", en: "Corporate IT" },
+      title: { de: "IT im Konzernumfeld", en: "IT within a corporate group" },
+      text: { de: "Schweizer Uhrenunternehmen in einem internationalen Konzern. Microsoft 365, Azure, hybrides Active Directory, Intune für iPhone und iPad, Netzwerk und Telefonie.", en: "Swiss watch company within an international corporate group. Microsoft 365, Azure, hybrid Active Directory, Intune for iPhone and iPad, networking and telephony." },
       detail: {
         did: {
           de: [
-            "1st und 2nd Level Support für Windows Clients, Microsoft 365, Drucker und Telefonie, vor Ort und remote",
+            "Gearbeitet in einer Konzernumgebung mit Microsoft 365, Azure, hybridem Active Directory und Intune für iPhone und iPad",
+            "1st und 2nd Level Support für Windows Clients, Microsoft 365, mobile Geräte, Drucker und Telefonie, vor Ort und remote",
             "Die gesamte IT während einer Abwesenheit selbständig betreut, vom Anwender-Support bis zur Infrastruktur",
             "Netzwerk mit VLAN, DHCP, Firewall und WLAN betreut, Telefonie-Ausfall über Ports und Subnetze gelöst",
             "Zugriffe über Entra ID Gruppen und Berechtigungen im Dynamics 365 ERP verwaltet",
@@ -172,7 +173,8 @@ window.SITE = {
             "Foto-Dokumentation der Uhren mit Power Apps, Power Automate und SharePoint neu aufgebaut, inklusive Schulung"
           ],
           en: [
-            "1st and 2nd level support for Windows clients, Microsoft 365, printers and telephony, on site and remote",
+            "Worked in a corporate environment with Microsoft 365, Azure, hybrid Active Directory and Intune for iPhone and iPad",
+            "1st and 2nd level support for Windows clients, Microsoft 365, mobile devices, printers and telephony, on site and remote",
             "Ran the entire IT on my own during an absence, from user support to infrastructure",
             "Looked after the network with VLAN, DHCP, firewall and Wi-Fi, solved a phone outage through ports and subnets",
             "Managed access through Entra ID groups and permissions in the Dynamics 365 ERP",
@@ -182,11 +184,11 @@ window.SITE = {
           ]
         },
         gain: {
-          de: ["IT-Betrieb im Konzernumfeld mit klaren Prozessen", "Verantwortung übernehmen, auch wenn niemand sonst da ist", "Dokumentation in Confluence, die das Team wirklich nutzt"],
-          en: ["IT operations inside a corporate group with clear processes", "Taking responsibility, even when nobody else is around", "Documentation in Confluence that the team actually uses"]
+          de: ["IT-Betrieb im Konzernumfeld mit klaren Prozessen", "Was ich im Betrieb erlebe, baue ich als Administrator im Praxis-Lab komplett selbst auf", "Verantwortung übernehmen, auch wenn niemand sonst da ist", "Dokumentation in Confluence, die das Team wirklich nutzt"],
+          en: ["IT operations inside a corporate group with clear processes", "What I see in operations, I build end to end as an administrator in hands-on labs", "Taking responsibility, even when nobody else is around", "Documentation in Confluence that the team actually uses"]
         },
         note: { de: "Arbeitszeugnis: Erwartungen durchgehend übertroffen", en: "Reference letter: expectations exceeded throughout" },
-        projects: ["uhren-foto-app", "wlan-netzwerk"],
+        projects: ["uhren-foto-app", "wlan-netzwerk", "azure-hybrid-lab", "m365-support-lab"],
         certs: ["A+", "N+"]
       }
     },
@@ -201,8 +203,8 @@ window.SITE = {
           en: ["Systems engineering with Windows Server, Active Directory, Group Policy and Azure", "Networking and IT security", "Project management", "Earned international certifications alongside the programme"]
         },
         gain: {
-          de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt im eigenen Lab umsetzen"],
-          en: ["Planning, building and documenting infrastructure from scratch", "Turning theory from school straight into my own lab"]
+          de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt in der Praxis umsetzen, im Betrieb und im Lab"],
+          en: ["Planning, building and documenting infrastructure from scratch", "Turning theory from school straight into practice, at work and in the lab"]
         },
         note: { de: "Bestätigung der Schule: bisher sehr gute Leistungen", en: "Confirmed by the school: very good results so far" },
         projects: ["windows-server-ad-lab", "m365-support-lab"],

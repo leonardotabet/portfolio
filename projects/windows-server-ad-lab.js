@@ -5,7 +5,7 @@ window.PORTFOLIO_PROJECTS.push({
 
   title:    { de: "Windows-Server-Infrastruktur: AD DS, DNS, DHCP und GPO", en: "Windows Server infrastructure: AD DS, DNS, DHCP and GPO" },
   subtitle: { de: "Eine komplette Domäne von Grund auf, weitgehend per PowerShell aufgebaut.", en: "A complete domain built from scratch, largely with PowerShell." },
-  context:  { de: "Lab im Diplomlehrgang ICT System Engineer (SIW)", en: "Lab in the ICT System Engineer diploma program (SIW)" },
+  context:  { de: "Praxis-Lab im Diplomlehrgang ICT System Engineer (SIW)", en: "Hands-on lab in the ICT System Engineer diploma program (SIW)" },
   period:   { de: "Oktober 2026", en: "October 2026" },
 
   text: {

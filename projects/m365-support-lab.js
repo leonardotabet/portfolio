@@ -5,12 +5,12 @@ window.PORTFOLIO_PROJECTS.push({
 
   title:    { de: "Microsoft 365 Support Lab", en: "Microsoft 365 support lab" },
   subtitle: { de: "Ein Firmen-Tenant mit den Abläufen eines Service Desks, vom Onboarding bis zum Ticket.", en: "A company tenant with real service desk workflows, from onboarding to tickets." },
-  context:  { de: "Eigenes Lab", en: "Own lab" },
+  context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
   period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
 
   text: {
-    de: ["Ich baue einen Microsoft 365 Tenant von Grund auf und setze darin die typischen Abläufe eines Service Desks um: neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets."],
-    en: ["I am building a Microsoft 365 tenant from scratch and implementing the typical service desk workflows in it: new staff, devices, access rules, leavers and tickets."]
+    de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets."],
+    en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets."]
   },
   points: {
     de: [

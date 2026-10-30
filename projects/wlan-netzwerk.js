@@ -5,7 +5,7 @@ window.PORTFOLIO_PROJECTS.push({
 
   title:    { de: "WLAN und Netzwerk im Betrieb", en: "Wi-Fi and network operations" },
   subtitle: { de: "Netzwerkbetrieb in einem Konzernnetz, vom WLAN bis zur Firewall-Anfrage.", en: "Network operations inside a group network, from Wi-Fi to firewall requests." },
-  context:  { de: "Umgesetzt bei der Arbeit, im Team", en: "Delivered at work, as part of the team" },
+  context:  { de: "Umgesetzt im Konzernumfeld, im Team", en: "Delivered within the corporate group, as part of the team" },
   period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
 
   text: {

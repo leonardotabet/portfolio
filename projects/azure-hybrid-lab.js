@@ -4,16 +4,16 @@ window.PORTFOLIO_PROJECTS.push({
   status: "done",
 
   title:    { de: "Azure Hybrid Lab", en: "Azure hybrid lab" },
-  subtitle: { de: "Lokales Active Directory und Microsoft Cloud, verbunden wie in vielen Firmen.", en: "On-premises Active Directory and the Microsoft cloud, connected as in many companies." },
-  context:  { de: "Eigenes Lab", en: "Own lab" },
+  subtitle: { de: "Lokales Active Directory und Microsoft Cloud, verbunden wie im Konzern und in vielen Firmen.", en: "On-premises Active Directory and the Microsoft cloud, connected as in my corporate group and many companies." },
+  context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
   period:   { de: "2025 bis 2026", en: "2025 to 2026" },
 
   text: {
     de: [
-      "Ich habe Schritt für Schritt eine hybride Umgebung aufgebaut, wie sie viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu Dateiablage und virtuelle Desktops aus Azure. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom lokalen Active Directory bis in die Cloud."
+      "Hybrides Active Directory mit Entra ID und Azure ist in meinem Konzern im Einsatz. Im Lab habe ich eine solche Umgebung Schritt für Schritt selbst aufgebaut, wie sie auch viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu Dateiablage und virtuelle Desktops aus Azure. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom lokalen Active Directory bis in die Cloud."
     ],
     en: [
-      "Step by step I built a hybrid environment like the ones many Swiss SMEs run: a domain controller with Active Directory synced to Entra ID, plus file storage and virtual desktops from Azure. The result is an end-to-end hybrid identity: one user, one password, from on-premises Active Directory to the cloud."
+      "Hybrid Active Directory with Entra ID and Azure is in use in my corporate group. In the lab I built such an environment myself, step by step, like the ones many Swiss SMEs run: a domain controller with Active Directory synced to Entra ID, plus file storage and virtual desktops from Azure. The result is an end-to-end hybrid identity: one user, one password, from on-premises Active Directory to the cloud."
     ]
   },
   points: { de: [], en: [] },
