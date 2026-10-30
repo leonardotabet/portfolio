@@ -133,7 +133,11 @@
 
     var actions = el("div", "actions");
     actions.appendChild(link("#kontakt", ui("ctaContact"), "btn"));
-    actions.appendChild(link("#projekte", ui("ctaProjects")));
+    var more = link("#projekte", ui("ctaProjects"), "btn btn-ghost");
+    var arrow = el("span", "btn-arrow");
+    arrow.setAttribute("aria-hidden", "true");
+    more.appendChild(arrow);
+    actions.appendChild(more);
     box.appendChild(actions);
 
     var facts = el("dl", "facts");

@@ -67,6 +67,19 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin-top:1.5rem}
 .btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;padding:.75rem 1.25rem;border-radius:3px;box-shadow:0 6px 16px rgba(18,40,75,.18)}
 .btn:hover{background:#0B1B35;color:#fff}
+.btn-ghost{position:relative;display:inline-flex;align-items:center;gap:.65rem;background:var(--bg);color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy);overflow:hidden;isolation:isolate;transition:color .25s ease,box-shadow .25s ease}
+.btn-ghost::before{content:"";position:absolute;inset:0;background:var(--navy);transform:scaleY(0);transform-origin:bottom;transition:transform .3s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--bg);color:#fff;box-shadow:inset 0 0 0 1.5px var(--navy),0 8px 20px rgba(18,40,75,.2)}
+.btn-ghost:hover::before,.btn-ghost:focus-visible::before{transform:scaleY(1)}
+.btn-arrow{position:relative;width:12px;height:14px;flex:none}
+.btn-arrow::before{content:"";position:absolute;left:5px;top:0;width:2px;height:12px;background:currentColor;border-radius:1px}
+.btn-arrow::after{content:"";position:absolute;left:2px;bottom:1px;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .btn-arrow{animation:nudge 2.2s ease-in-out infinite}
+  .btn-ghost:hover .btn-arrow{animation:nudge .9s ease-in-out infinite}
+  @keyframes nudge{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(3px)}}
+}
 .facts{display:grid;grid-template-columns:1fr;margin:2.5rem 0 0;border-top:1px solid var(--rule)}
 .facts div{padding:.85rem 0;border-bottom:1px solid var(--rule)}
 .facts dt{font-size:.8125rem;color:var(--muted)}
