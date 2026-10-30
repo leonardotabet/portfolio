@@ -140,6 +140,10 @@ button.skill-chip[aria-pressed="true"] .skill-count{background:rgba(255,255,255,
 .skill-filter button:hover{border-color:var(--navy)}
 #project-list .tile.dim{opacity:.32;filter:grayscale(.6)}
 #project-list .tile.hit{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy),0 14px 30px rgba(18,40,75,.12)}
+.skill-count.cert{background:#EAF1EC;color:#1F5E37;font-weight:700;padding:0 .45rem}
+button.skill-chip.to-cert:hover .skill-count.cert{background:#1F8A4C;color:#fff}
+#cert-list .tile.pulse{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy),0 16px 34px rgba(18,40,75,.18)}
+@media (prefers-reduced-motion:no-preference){#cert-list .tile.pulse{animation:certpulse 1.2s ease-in-out 2}@keyframes certpulse{50%{box-shadow:0 0 0 7px rgba(18,40,75,.18),0 16px 34px rgba(18,40,75,.18)}}}
 .tile-highlight{display:inline-flex;align-self:flex-start;align-items:center;gap:.45rem;margin:0 0 .75rem;padding:.25rem .65rem;border-radius:999px;background:#EAF1EC;color:#1F5E37;font-size:.8125rem;font-weight:600}
 .tile-highlight::before{content:"";width:6px;height:6px;border-radius:50%;background:#1F8A4C}
 

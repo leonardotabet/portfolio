@@ -240,6 +240,7 @@
   function tile(opts) {
     var art = el("article", "tile reveal");
     if (opts.search) art.setAttribute("data-search", opts.search);
+    if (opts.badge) art.setAttribute("data-badge", opts.badge);
     var top = el("div", "tile-top");
     if (opts.badge) {
       var b = el("span", "tile-badge", opts.badge);
@@ -339,6 +340,16 @@
     }
     if (scroll) document.getElementById("projekte").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
+  function showCert(badge) {
+    var t = document.querySelector('#cert-list .tile[data-badge="' + badge + '"]');
+    if (!t) return;
+    t.classList.add("in");
+    t.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    t.classList.remove("pulse");
+    void t.offsetWidth;
+    t.classList.add("pulse");
+    setTimeout(function () { t.classList.remove("pulse"); }, 2600);
+  }
   function renderSkills() {
     var root = document.getElementById("skills-list");
     if (!root) return;
@@ -353,7 +364,15 @@
         var count = matchingTiles(terms).length;
         var li = el("li");
         var chip;
-        if (count) {
+        if (it.cert) {
+          chip = el("button", "skill-chip to-cert", label);
+          chip.type = "button";
+          chip.title = ui("skillCertHint");
+          var tag = el("span", "skill-count cert", it.cert);
+          tag.setAttribute("aria-hidden", "true");
+          chip.appendChild(tag);
+          chip.addEventListener("click", function () { showCert(it.cert); });
+        } else if (count) {
           chip = el("button", "skill-chip", label);
           chip.type = "button";
           chip.setAttribute("data-key", gi + "-" + ii);

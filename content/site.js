@@ -94,7 +94,7 @@ window.SITE = {
         { label: "Power Automate", match: ["power automate"] },
         { label: "Jira Service Management", match: ["jira"] },
         { label: "Confluence", match: ["confluence"] },
-        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, match: ["itil"] }
+        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, cert: "A+" }
       ]
     }
   ],
@@ -153,6 +153,7 @@ window.SITE = {
     skillFilter: { de: "Projekte mit", en: "Projects with" },
     skillReset: { de: "Alle anzeigen", en: "Show all" },
     skillHint: { de: "Passende Projekte zeigen", en: "Show matching projects" },
+    skillCertHint: { de: "Belegt durch CompTIA A+: Betriebsabläufe nach ITIL", en: "Backed by CompTIA A+: ITIL-aligned operational procedures" },
     navContact: { de: "Kontakt", en: "Contact" },
     ctaContact: { de: "Kontakt aufnehmen", en: "Get in touch" },
     ctaProjects: { de: "Projekte ansehen", en: "View projects" },
