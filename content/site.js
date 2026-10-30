@@ -73,6 +73,8 @@ window.SITE = {
         { label: "Group Policy", match: ["group policy", "gpo"] },
         { label: { de: "WLAN", en: "Wi-Fi" }, match: ["wlan", "wi-fi"] },
         { label: "VLAN", match: ["vlan"] },
+        { label: { de: "Routing und Switching", en: "Routing and switching" }, match: ["router", "switch", "routing"] },
+        { label: "VPN", match: ["vpn"] },
         { label: "Firewall", match: ["firewall"] }
       ]
     },
@@ -199,8 +201,8 @@ window.SITE = {
       text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden, Security+ in Vorbereitung. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900, Security+ in preparation. Diploma in January 2027." },
       detail: {
         did: {
-          de: ["Systemtechnik mit Windows Server, Active Directory, Gruppenrichtlinien und Azure", "Netzwerktechnik und IT-Sicherheit", "Projektmanagement", "Internationale Zertifikate parallel zur Weiterbildung abgelegt"],
-          en: ["Systems engineering with Windows Server, Active Directory, Group Policy and Azure", "Networking and IT security", "Project management", "Earned international certifications alongside the programme"]
+          de: ["Systemtechnik mit Windows Server, Active Directory, Gruppenrichtlinien und Azure", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt, Security+ zusätzlich aus eigener Initiative"],
+          en: ["Systems engineering with Windows Server, Active Directory, Group Policy and Azure", "Network technologies from DHCP, DNS and VPN to routers, switches and security", "Project management and communication in support", "Earned international certifications within the program, Security+ on top on my own initiative"]
         },
         gain: {
           de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt in der Praxis umsetzen, im Betrieb und im Lab"],

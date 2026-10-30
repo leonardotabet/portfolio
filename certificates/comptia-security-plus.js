@@ -14,8 +14,8 @@ window.PORTFOLIO_CERTIFICATES.push({
     en: "Recognizing threats, securing systems and handling security incidents correctly in daily operations."
   },
   didThis: {
-    de: "Vorbereitung über die SIW mit CompTIA CertMaster Learn und Practice. Zusammen mit A+ und Network+ ergibt das die Designation CompTIA Secure Infrastructure Specialist.",
-    en: "Preparing through SIW with CompTIA CertMaster Learn and Practice. Together with A+ and Network+ this leads to the CompTIA Secure Infrastructure Specialist designation."
+    de: "Zusätzlich zum Diplomlehrgang, aus eigener Initiative. Vorbereitung mit CompTIA CertMaster Learn und Practice. Zusammen mit A+ und Network+ ergibt das die Designation CompTIA Secure Infrastructure Specialist.",
+    en: "On top of my diploma program, on my own initiative. Preparing with CompTIA CertMaster Learn and Practice. Together with A+ and Network+ this leads to the CompTIA Secure Infrastructure Specialist designation."
   },
   atWork: {
     de: "Sicherheit gehört für mich zu jedem Handgriff im Betrieb. Meine Richtung ist Identität und Zugriff (IAM): sichere Konfiguration, saubere Berechtigungen und richtiges Handeln bei Vorfällen.",
