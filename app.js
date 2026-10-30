@@ -136,6 +136,7 @@
     var more = link("#projekte", ui("ctaProjects"), "btn btn-ghost");
     var arrow = el("span", "btn-arrow");
     arrow.setAttribute("aria-hidden", "true");
+    arrow.innerHTML = '<svg viewBox="0 0 12 14" width="12" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1.5v10.5M1.75 7.75 6 12l4.25-4.25"/></svg>';
     more.appendChild(arrow);
     actions.appendChild(more);
     box.appendChild(actions);
