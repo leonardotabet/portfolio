@@ -127,12 +127,12 @@
     root.appendChild(photo);
 
     var box = el("div", "hero-text");
-    text(box, "p", h.status, "status-pill");
     box.appendChild(el("h1", "", SITE.name || ""));
     text(box, "p", h.role, "role");
     text(box, "p", h.direction, "direction");
     list(h.intro).forEach(function (p) { var n = el("p", "intro", p); if (isTodo(p)) n.classList.add("todo"); box.appendChild(n); });
 
+    text(box, "p", h.status, "status-pill");
     var actions = el("div", "actions");
     actions.appendChild(link("#kontakt", ui("ctaContact"), "btn"));
     var more = link("#projekte", ui("ctaProjects"), "btn btn-ghost");
