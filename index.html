@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonardo Tabet, IT Support und Systemtechnik</title>
+<meta name="description" content="Leonardo Tabet aus dem Aargau. IT Support und Systemtechnik: Werdegang, Projekte und Zertifikate.">
+<meta property="og:title" content="Leonardo Tabet, IT Support und Systemtechnik">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312284B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23fff' text-anchor='middle'%3ELT%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-ui="skip">Zum Inhalt springen</a>
+<div id="edit-banner" class="edit-banner" hidden></div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">Leonardo Tabet</a>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <nav class="nav" aria-label="Navigation">
+      <ul>
+        <li><a href="#ueber-mich" data-ui="navAbout">Über mich</a></li>
+        <li><a href="#projekte" data-ui="navProjects">Projekte</a></li>
+        <li><a href="#zertifikate" data-ui="navCerts">Zertifikate</a></li>
+        <li><a href="#kontakt" data-ui="navContact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero-band"><div id="top" class="wrap hero"></div></div>
+
+  <section id="ueber-mich" class="about" aria-labelledby="h-about">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-about" data-ui="aboutTitle">Über mich</h2>
+      </div>
+      <div class="about-grid">
+        <div id="about-text" class="about-text"></div>
+        <div id="path-wrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projekte" aria-labelledby="h-projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-projects" data-ui="projectsTitle">Projekte</h2>
+        <p data-ui="projectsIntro"></p>
+      </div>
+      <div id="project-list"></div>
+    </div>
+  </section>
+
+  <section id="zertifikate" aria-labelledby="h-certs">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="h-certs" data-ui="certsTitle">Zertifikate</h2>
+        <p data-ui="certsIntro"></p>
+      </div>
+      <div id="cert-list"></div>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="h-contact">
+    <div class="wrap narrow">
+      <h2 id="h-contact" data-ui="contactTitle">Kontakt</h2>
+      <div id="contact-block"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p data-ui="footer"></p></div>
+</footer>
+
+<noscript>
+  <p class="wrap noscript">Diese Seite braucht JavaScript, um die Inhalte anzuzeigen. This page needs JavaScript to show its content.</p>
+</noscript>
+
+<script src="content/site.js"></script>
+<script src="content/index.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
