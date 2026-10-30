@@ -20,6 +20,33 @@ window.PORTFOLIO_PROJECTS.push({
 
   sections: [
     {
+      title: { de: "Was ich daraus kann", en: "What I can do now" },
+      text: {
+        de: "Aus dem Lab ist ein fester Ablauf geworden, den ich jederzeit wieder aufbauen kann:",
+        en: "The lab turned into a repeatable process that I can rebuild at any time:"
+      },
+      points: {
+        de: [
+          "Azure Grundlagen aufbauen: Ressourcengruppe, VNet, NSG und VMs bereitstellen",
+          "Einen Domänencontroller aufsetzen: Active Directory, DNS, OUs, Benutzer und Gruppen",
+          "Hybride Identität einrichten: Entra Connect mit Kennwort-Hash-Synchronisierung, inklusive UPN-Suffix",
+          "Azure Files mit AD-Anmeldung (Kerberos) und RBAC absichern und den Zugriff testen",
+          "Azure Virtual Desktop mit einem Session Host betreiben, der der Domäne beigetreten ist",
+          "Typische Fehler selbst lösen: öffentliche IP in der NSG, DNS im VNet, vCPU-Kontingent, Anmeldung bei Entra Connect",
+          "Ressourcen kostenbewusst betreiben: VMs deallokieren, ungenutzte öffentliche IPs entfernen, Disks auf Standard-HDD umstellen"
+        ],
+        en: [
+          "Build the Azure basics: deploy a resource group, VNet, NSG and VMs",
+          "Set up a domain controller: Active Directory, DNS, OUs, users and groups",
+          "Configure hybrid identity: Entra Connect with password hash sync, including the UPN suffix",
+          "Secure Azure Files with AD sign-in (Kerberos) and RBAC, and test the access",
+          "Run Azure Virtual Desktop with a domain-joined session host",
+          "Solve typical issues myself: public IP in the NSG, DNS in the VNet, vCPU quota, Entra Connect sign-in",
+          "Run resources cost-consciously: deallocate VMs, remove unused public IPs, switch disks to Standard HDD"
+        ]
+      }
+    },
+    {
       title: { de: "Teil 1: Windows Server in Azure", en: "Part 1: Windows Server in Azure" },
       points: {
         de: [
@@ -63,12 +90,14 @@ window.PORTFOLIO_PROJECTS.push({
       title: { de: "Fehlersuche, die ich gelöst habe", en: "Troubleshooting I solved" },
       points: {
         de: [
+          "Kein Zugriff auf die VM: In der NSG-Regel war eine falsche öffentliche IP freigegeben, Regel auf die richtige Adresse korrigiert",
           "Session Host konnte der Domäne nicht beitreten: DNS des virtuellen Netzwerks auf den Domänencontroller umgestellt, danach klappte der Beitritt",
           "Domänenbeitritt erst im UPN-Format (benutzer@corp.local) akzeptiert",
           "Entra Connect verlangte ein natives Cloud-Administratorkonto des Tenants, angelegt und erfolgreich verbunden",
           "vCPU-Kontingent der Region ausgeschöpft: Ressourcen bereinigt und den Session Host passend dimensioniert"
         ],
         en: [
+          "No access to the VM: the NSG rule allowed the wrong public IP, corrected the rule to the right address",
           "The session host could not join the domain: pointed the virtual network's DNS to the domain controller, after which the join succeeded",
           "Domain join only accepted the UPN format (user@corp.local)",
           "Entra Connect required a native cloud admin account of the tenant, created it and connected successfully",
