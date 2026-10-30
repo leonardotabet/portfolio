@@ -1,4 +1,5 @@
 window.PORTFOLIO_PROJECTS.push({
+  id: "azure-hybrid-lab",
   order: 4,
   status: "done",
 

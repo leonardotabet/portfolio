@@ -1,4 +1,5 @@
 window.PORTFOLIO_PROJECTS.push({
+  id: "wlan-netzwerk",
   order: 5,
   status: "done",
 

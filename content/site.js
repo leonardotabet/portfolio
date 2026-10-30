@@ -43,11 +43,11 @@ window.SITE = {
   about: {
     de: [
       "Ich habe in der Industrie, als Selbständiger und im IT-Betrieb gearbeitet. Dabei wurde mir klar, dass mir die technische Arbeit am meisten liegt. Die Erfahrung aus Industrie und Kundenkontakt nehme ich bewusst mit.",
-      "Der Pfad zeigt meinen Werdegang auf einen Blick: unten der Anfang, oben das Aktuelle. Alle Stationen mit Details stehen im Lebenslauf."
+      "Der Pfad zeigt, was hinter jeder Station steckt: unten der Anfang, oben das Aktuelle. Die Details zeigen, was ich dort gemacht habe und welche Projekte und Zertifikate es belegen."
     ],
     en: [
       "I have worked in industry, in my own business and in IT operations. Along the way I realized that technical work suits me best. I deliberately carry the experience from industry and client work with me.",
-      "The path shows my background at a glance: the start at the bottom, the present at the top. Every step in detail is in my CV."
+      "The path shows what lies behind each step: the start at the bottom, the present at the top. The details show what I did there and which projects and certifications prove it."
     ]
   },
 
@@ -100,36 +100,114 @@ window.SITE = {
   ],
 
   // oldest first, rendered newest on top
+  // detail: opens with "Details ansehen"; projects = project ids, certs = badges
   path: [
     {
       when: { de: "2018 bis 2022", en: "2018 to 2022" },
       tag: { de: "Industrie", en: "Industry" },
       title: { de: "Kunststofftechnologe EFZ", en: "Plastics technologist, Swiss VET diploma" },
-      text: { de: "Grossanlagen im 24/7-Betrieb. Störungen eingrenzen und beheben, damit die Produktion weiterläuft.", en: "Large production lines running 24/7. Isolating and fixing faults so production keeps running." }
+      text: { de: "Grossanlagen im 24/7-Betrieb. Störungen eingrenzen und beheben, damit die Produktion weiterläuft.", en: "Large production lines running 24/7. Isolating and fixing faults so production keeps running." },
+      detail: {
+        did: {
+          de: ["Produktionsanlagen eingerichtet, betreut und in Betrieb genommen", "Störungen an Maschinen und Peripherie eingegrenzt und behoben", "Berufslehre mit dem eidgenössischen Fähigkeitszeugnis abgeschlossen"],
+          en: ["Set up, ran and commissioned production lines", "Isolated and fixed faults on machines and peripherals", "Completed the apprenticeship with the Swiss federal VET diploma"]
+        },
+        gain: {
+          de: ["Systematische Fehlersuche: erst eingrenzen, dann gezielt beheben", "Ruhe in einem Betrieb, der nie stillstehen darf", "Saubere Übergaben, damit die nächste Schicht sofort weiterarbeiten kann"],
+          en: ["Systematic troubleshooting: isolate first, then fix precisely", "Staying calm in an operation that must never stop", "Clean handovers so the next shift can continue right away"]
+        },
+        link: { de: "Genau so gehe ich heute an IT-Störungen heran.", en: "This is exactly how I approach IT incidents today." }
+      }
     },
     {
       when: { de: "2023 bis 2025", en: "2023 to 2025" },
       tag: { de: "Selbständig", en: "Self-employed" },
       title: { de: "Eigenes Unternehmen, E-Mail-Automatisierung", en: "Own business, email automation" },
-      text: { de: "Zwei Jahre B2B-Kampagnen mit direktem Kundenkontakt. Domains und DNS-Einträge selbst eingerichtet.", en: "Two years of B2B campaigns working directly with clients. Set up domains and DNS records myself." }
+      text: { de: "B2B-Kampagnen mit direktem Kundenkontakt. Domains und DNS-Einträge selbst eingerichtet.", en: "B2B campaigns working directly with clients. Set up domains and DNS records myself." },
+      detail: {
+        did: {
+          de: ["Kampagnen für Unternehmenskunden mit Instantly.ai automatisiert", "Domains und Mailversand eingerichtet: SMTP und DNS mit CNAME, SPF, DKIM und DMARC", "Kunden von der ersten Anfrage bis zur Umsetzung direkt betreut"],
+          en: ["Automated campaigns for business clients with Instantly.ai", "Set up domains and mail delivery: SMTP and DNS with CNAME, SPF, DKIM and DMARC", "Looked after clients directly from the first request to delivery"]
+        },
+        gain: {
+          de: ["DNS und E-Mail-Authentifizierung aus der Praxis", "Technik so erklären, dass Kunden sie verstehen", "Selbständig planen und Verantwortung für das Ergebnis tragen"],
+          en: ["DNS and email authentication from hands-on practice", "Explaining technology so clients understand it", "Planning on my own and owning the result"]
+        },
+        link: { de: "Diese Website läuft auf meiner eigenen Domain, mit SPF, DKIM, DMARC, DNSSEC und HTTPS nach Best Practice.", en: "This website runs on my own domain, with SPF, DKIM, DMARC, DNSSEC and HTTPS set up following best practice." },
+        certs: ["N+"]
+      }
     },
     {
       when: { de: "2025", en: "2025" },
       tag: { de: "IT-Ausbildung", en: "IT training" },
       title: { de: "Start in der IT", en: "Starting in IT" },
-      text: { de: "IT-Ausbildung neben der Arbeit als Mechaniker. Erste Labs zu Windows, Netzwerk und Cloud.", en: "IT training alongside work as a mechanic. First labs on Windows, networking and cloud." }
+      text: { de: "IT-Ausbildung neben der Arbeit als Mechaniker. Erste Labs zu Windows, Netzwerk und Cloud.", en: "IT training alongside work as a mechanic. First labs on Windows, networking and cloud." },
+      detail: {
+        did: {
+          de: ["Weiterbildung zum Dipl. ICT System Engineer neben der Arbeit als Mechaniker im 24/7 Schichtbetrieb gestartet", "Anlagen eingerichtet, Störungen behoben und Schichtübergaben verantwortet", "Erste eigene Labs zu Windows Server, Netzwerk und Microsoft Azure aufgebaut"],
+          en: ["Started the Diploma ICT System Engineer alongside working as a mechanic in 24/7 shifts", "Set up machines, fixed faults and handled shift handovers", "Built my first own labs on Windows Server, networking and Microsoft Azure"]
+        },
+        gain: {
+          de: ["Neues schnell lernen und direkt im Lab anwenden", "Disziplin, Arbeit und Weiterbildung parallel zu stemmen"],
+          en: ["Learning new topics fast and applying them right away in a lab", "The discipline to handle work and education side by side"]
+        },
+        projects: ["azure-hybrid-lab"],
+        certs: ["AZ"]
+      }
     },
     {
       when: { de: "2026", en: "2026" },
       tag: { de: "IT-Betrieb", en: "IT operations" },
       title: { de: "IT-Team eines Schweizer Uhrenunternehmens", en: "IT team of a Swiss watch company" },
-      text: { de: "Endgeräte, Microsoft 365, Telefonie, WLAN und Power Apps. Alles in Confluence dokumentiert.", en: "Devices, Microsoft 365, phone system, Wi-Fi and Power Apps. Everything documented in Confluence." }
+      text: { de: "Endgeräte, Microsoft 365, Telefonie, WLAN und Power Apps. Alles in Confluence dokumentiert.", en: "Devices, Microsoft 365, phone system, Wi-Fi and Power Apps. Everything documented in Confluence." },
+      detail: {
+        did: {
+          de: [
+            "1st und 2nd Level Support für Windows Clients, Microsoft 365, Drucker und Telefonie, vor Ort und remote",
+            "Die gesamte IT während einer Abwesenheit selbständig betreut, vom Anwender-Support bis zur Infrastruktur",
+            "Netzwerk mit VLAN, DHCP, Firewall und WLAN betreut, Telefonie-Ausfall über Ports und Subnetze gelöst",
+            "Zugriffe über Entra ID Gruppen und Berechtigungen im Dynamics 365 ERP verwaltet",
+            "ERP-System auf Hyper-V ohne Datenverlust wiederhergestellt",
+            "Tickets und Changes über die Prozesse des Konzerns eskaliert, nach ITIL",
+            "Foto-Dokumentation der Uhren mit Power Apps, Power Automate und SharePoint neu aufgebaut, inklusive Schulung"
+          ],
+          en: [
+            "1st and 2nd level support for Windows clients, Microsoft 365, printers and telephony, on site and remote",
+            "Ran the entire IT on my own during an absence, from user support to infrastructure",
+            "Looked after the network with VLAN, DHCP, firewall and Wi-Fi, solved a phone outage through ports and subnets",
+            "Managed access through Entra ID groups and permissions in the Dynamics 365 ERP",
+            "Restored the ERP system on Hyper-V without data loss",
+            "Escalated tickets and changes through the group processes, following ITIL",
+            "Rebuilt the watch photo documentation with Power Apps, Power Automate and SharePoint, including training"
+          ]
+        },
+        gain: {
+          de: ["IT-Betrieb im Konzernumfeld mit klaren Prozessen", "Verantwortung übernehmen, auch wenn niemand sonst da ist", "Dokumentation in Confluence, die das Team wirklich nutzt"],
+          en: ["IT operations inside a corporate group with clear processes", "Taking responsibility, even when nobody else is around", "Documentation in Confluence that the team actually uses"]
+        },
+        note: { de: "Arbeitszeugnis: Erwartungen durchgehend übertroffen", en: "Reference letter: expectations exceeded throughout" },
+        projects: ["uhren-foto-app", "wlan-netzwerk"],
+        certs: ["A+", "N+"]
+      }
     },
     {
       when: { de: "2026 bis 2027", en: "2026 to 2027" },
       tag: { de: "Weiterbildung", en: "Education" },
       title: { de: "Dipl. ICT System Engineer", en: "Diploma ICT System Engineer" },
-      text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden, Security+ in Vorbereitung. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900, Security+ in preparation. Diploma in January 2027." }
+      text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden, Security+ in Vorbereitung. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900, Security+ in preparation. Diploma in January 2027." },
+      detail: {
+        did: {
+          de: ["Systemtechnik mit Windows Server, Active Directory, Gruppenrichtlinien und Azure", "Netzwerktechnik und IT-Sicherheit", "Projektmanagement", "Internationale Zertifikate parallel zur Weiterbildung abgelegt"],
+          en: ["Systems engineering with Windows Server, Active Directory, Group Policy and Azure", "Networking and IT security", "Project management", "Earned international certifications alongside the programme"]
+        },
+        gain: {
+          de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt im eigenen Lab umsetzen"],
+          en: ["Planning, building and documenting infrastructure from scratch", "Turning theory from school straight into my own lab"]
+        },
+        note: { de: "Bestätigung der Schule: bisher sehr gute Leistungen", en: "Confirmed by the school: very good results so far" },
+        projects: ["windows-server-ad-lab", "m365-support-lab"],
+        certs: ["DIP", "S+"]
+      }
     },
     {
       open: true,
@@ -140,126 +218,6 @@ window.SITE = {
     }
   ],
 
-  // CV dialog in "Über mich", newest first
-  cv: {
-    profile: {
-      de: "IT-Supporter im Konzernumfeld mit Praxis im 1st und 2nd Level Support: Windows Clients, Microsoft 365 mit Teams und SharePoint, Netzwerk und Telefonie. Kenntnisse in Exchange Online, Entra ID und Intune. Strukturierte Eskalation und saubere Dokumentation in Confluence. Abschluss als Dipl. ICT System Engineer SIW im Januar 2027.",
-      en: "IT supporter in a corporate group with hands-on 1st and 2nd level support: Windows clients, Microsoft 365 with Teams and SharePoint, networking and telephony. Knowledge of Exchange Online, Entra ID and Intune. Structured escalation and clear documentation in Confluence. Graduating as Diploma ICT System Engineer SIW in January 2027."
-    },
-    experience: [
-      {
-        when: { de: "Aug. 2026 bis heute", en: "Aug 2026 to present" },
-        role: { de: "IT-Support Specialist (50%)", en: "IT support specialist (50%)" },
-        org: { de: "Schweizer Uhrenunternehmen im Konzernumfeld", en: "Swiss watch company within a corporate group" },
-        points: {
-          de: [
-            "1st und 2nd Level Support für Windows Clients und Microsoft 365, vor Ort und remote",
-            "Netzwerk mit VLAN, DHCP, Firewall und WLAN (Omada)",
-            "Zugriffe über Entra ID Gruppen, Rollen und Berechtigungen im Dynamics 365 ERP",
-            "Asset und Lifecycle Management der Geräte, Eskalation an das NOC des Konzerns",
-            "Power Platform Projekt mit Power Apps und Power Automate, inklusive Schulung und Dokumentation in Confluence"
-          ],
-          en: [
-            "1st and 2nd level support for Windows clients and Microsoft 365, on site and remote",
-            "Networking with VLAN, DHCP, firewall and Wi-Fi (Omada)",
-            "Access through Entra ID groups, roles and permissions in the Dynamics 365 ERP",
-            "Asset and lifecycle management of devices, escalation to the group NOC",
-            "Power Platform project with Power Apps and Power Automate, including user training and documentation in Confluence"
-          ]
-        }
-      },
-      {
-        when: { de: "Feb. 2026 bis Juli 2026", en: "Feb 2026 to Jul 2026" },
-        role: { de: "Praktikum IT Management", en: "IT management internship" },
-        org: { de: "Schweizer Uhrenunternehmen im Konzernumfeld", en: "Swiss watch company within a corporate group" },
-        points: {
-          de: [
-            "Die gesamte IT während einer Abwesenheit selbständig betreut, vom Anwender-Support bis zur Infrastruktur",
-            "1st und 2nd Level Support für Drucker, Netzwerk, WLAN und Innovaphone Telefonie",
-            "Telefonie-Ausfall über Ports und Subnetze eingegrenzt und behoben",
-            "ERP-System (AX auf Hyper-V) ohne Datenverlust wiederhergestellt",
-            "Tickets und Changes über die Prozesse des Konzerns eskaliert, nach ITIL",
-            "Netzwerkinfrastruktur mit WLAN und Firewall unterhalten, Dokumentation in Confluence"
-          ],
-          en: [
-            "Ran the entire IT on my own during an absence, from user support to infrastructure",
-            "1st and 2nd level support for printers, network, Wi-Fi and Innovaphone telephony",
-            "Isolated and fixed a phone system outage through ports and subnets",
-            "Restored the ERP system (AX on Hyper-V) without data loss",
-            "Escalated tickets and changes through the group processes, following ITIL",
-            "Maintained the network infrastructure with Wi-Fi and firewall, documentation in Confluence"
-          ]
-        },
-        note: { de: "Arbeitszeugnis: Erwartungen durchgehend übertroffen", en: "Reference letter: expectations exceeded throughout" }
-      },
-      {
-        when: { de: "Apr. 2025 bis Nov. 2025", en: "Apr 2025 to Nov 2025" },
-        role: { de: "Mechaniker im 24/7 Schichtbetrieb", en: "Mechanic in 24/7 shift operation" },
-        org: { de: "Industrieunternehmen in der Zentralschweiz", en: "Manufacturing company in central Switzerland" },
-        points: {
-          de: [
-            "Produktionsanlagen eingerichtet, umgestellt und bis zur Erststückprüfung in Betrieb genommen",
-            "Störungen behoben, defekte Teile ersetzt und repariert",
-            "Schichtübergaben verantwortet, ruhig und sicher auch unter Druck",
-            "Start der IT-Weiterbildung parallel zur Arbeit"
-          ],
-          en: [
-            "Set up and changed over production lines and brought them into operation up to first article inspection",
-            "Fixed faults, replaced and repaired defective parts",
-            "Handled shift handovers, calm and reliable under pressure",
-            "Started my IT education alongside work"
-          ]
-        }
-      },
-      {
-        when: { de: "Aug. 2023 bis März 2025", en: "Aug 2023 to Mar 2025" },
-        role: { de: "Selbständig: B2B E-Mail-Automatisierung", en: "Self-employed: B2B email automation" },
-        org: { de: "Eigenes Unternehmen", en: "Own business" },
-        points: {
-          de: [
-            "Kampagnen für Unternehmenskunden mit Instantly.ai automatisiert",
-            "Domains und Mailversand eingerichtet: SMTP und DNS mit CNAME, SPF, DKIM und DMARC",
-            "Direkter Kundenkontakt von der Anfrage bis zur Umsetzung"
-          ],
-          en: [
-            "Automated campaigns for business clients with Instantly.ai",
-            "Set up domains and mail delivery: SMTP and DNS with CNAME, SPF, DKIM and DMARC",
-            "Direct client contact from the first request to delivery"
-          ]
-        }
-      }
-    ],
-    education: [
-      {
-        when: { de: "Mai 2025 bis Jan. 2027", en: "May 2025 to Jan 2027" },
-        role: { de: "Dipl. ICT System Engineer SIW", en: "Diploma ICT System Engineer SIW" },
-        org: { de: "SIW Höhere Fachschule, berufsbegleitend", en: "SIW college of higher education, part-time" },
-        points: {
-          de: ["Systemtechnik mit Windows Server, Active Directory und Azure", "Netzwerktechnik und IT-Sicherheit", "Projektmanagement"],
-          en: ["Systems engineering with Windows Server, Active Directory and Azure", "Networking and IT security", "Project management"]
-        },
-        note: { de: "Bestätigung der Schule: bisher sehr gute Leistungen", en: "Confirmed by the school: very good results so far" }
-      },
-      {
-        when: { de: "Aug. 2018 bis Juli 2022", en: "Aug 2018 to Jul 2022" },
-        role: { de: "Kunststofftechnologe EFZ", en: "Plastics technologist, Swiss VET diploma" },
-        org: { de: "Berufslehre in der Industrie", en: "Apprenticeship in industry" },
-        points: {
-          de: ["Grossanlagen im 24/7 Betrieb eingerichtet und betreut", "Störungen eingegrenzt und behoben, damit die Produktion weiterläuft"],
-          en: ["Set up and ran large production lines operating 24/7", "Isolated and fixed faults so production keeps running"]
-        }
-      }
-    ],
-    languages: [
-      { de: "Deutsch: Muttersprache", en: "German: native" },
-      { de: "Englisch: fliessend", en: "English: fluent" }
-    ],
-    extras: [
-      { de: "Führerausweis Kat. B", en: "Driving licence, category B" },
-      { de: "Referenzen auf Anfrage", en: "References on request" }
-    ]
-  },
-
   contactIntro: { de: "Ich antworte auf Deutsch oder Englisch.", en: "I reply in German or English." },
 
   ui: {
@@ -269,7 +227,7 @@ window.SITE = {
     navSkills: { de: "Kenntnisse", en: "Skills" },
     navAbout: { de: "Über mich", en: "About me" },
     skillsTitle: { de: "Kenntnisse", en: "Skills" },
-    skillsIntro: { de: "Ein Klick auf eine Kenntnis zeigt die Projekte und die Stationen im Lebenslauf, in denen ich sie eingesetzt habe.", en: "Click a skill to see the projects and the roles in my CV where I used it." },
+    skillsIntro: { de: "Ein Klick auf eine Kenntnis zeigt die Projekte und die Stationen im Werdegang, in denen ich sie eingesetzt habe.", en: "Click a skill to see the projects and the career steps where I used it." },
     skillFilter: { de: "Projekte mit", en: "Projects with" },
     skillReset: { de: "Alle anzeigen", en: "Show all" },
     skillHint: { de: "Passende Projekte zeigen", en: "Show matching projects" },
@@ -302,21 +260,17 @@ window.SITE = {
     certExpected: { de: "Abschluss erwartet", en: "Expected" },
     verifyLink: { de: "Bestätigung beim Aussteller ansehen", en: "View verification by the issuer" },
     cvLink: { de: "Lebenslauf (PDF)", en: "CV (PDF)" },
-    cvOpen: { de: "Lebenslauf ansehen", en: "View CV" },
-    cvTitle: { de: "Lebenslauf", en: "Curriculum vitae" },
-    cvExperience: { de: "Berufserfahrung", en: "Work experience" },
-    cvEducation: { de: "Aus- und Weiterbildung", en: "Education" },
-    cvCerts: { de: "Zertifikate", en: "Certifications" },
-    cvSkills: { de: "Kenntnisse", en: "Skills" },
-    cvLanguages: { de: "Sprachen", en: "Languages" },
-    cvMore: { de: "Weiteres", en: "Other" },
-    cvHits: { de: "Markiert: Stationen mit", en: "Highlighted: roles involving" },
-    cvInCv: { de: "Im Lebenslauf", en: "In my CV" },
-    cvSkillHint: { de: "Im Lebenslauf zeigen", en: "Show in my CV" },
-    cvCertHint: { de: "Zum Zertifikat", en: "Go to certification" },
     details: { de: "Details ansehen", en: "View details" },
     close: { de: "Schliessen", en: "Close" },
     labelShots: { de: "Screenshots", en: "Screenshots" },
+    pathDid: { de: "Was ich gemacht habe", en: "What I did" },
+    pathGain: { de: "Was ich daraus mitnehme", en: "What I take from it" },
+    pathProof: { de: "Belege", en: "Proof" },
+    pathProjects: { de: "Projekte", en: "Projects" },
+    pathCerts: { de: "Zertifikate", en: "Certifications" },
+    pathInPath: { de: "Im Werdegang", en: "In my career path" },
+    pathSkillHint: { de: "Im Werdegang zeigen", en: "Show in my career path" },
+    pathHits: { de: "Stationen mit", en: "Steps involving" },
     pathTop: { de: "heute", en: "today" },
     pathBottom: { de: "Start", en: "start" },
     pathLabel: { de: "Werdegang als Pfad, neueste Station oben", en: "Career path, most recent step at the top" },

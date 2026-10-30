@@ -241,6 +241,7 @@
     var art = el("article", "tile reveal");
     if (opts.search) art.setAttribute("data-search", opts.search);
     if (opts.badge) art.setAttribute("data-badge", opts.badge);
+    if (opts.id) art.setAttribute("data-id", opts.id);
     var top = el("div", "tile-top");
     if (opts.badge) {
       var b = el("span", "tile-badge", opts.badge);
@@ -304,8 +305,7 @@
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
     if (e.target.closest("#skill-filter .sf-reset")) { activeSkill = null; applySkillFilter(false); }
-    var cvBtn = e.target.closest("#skill-filter .sf-cv");
-    if (cvBtn && activeSkill) openCV(cvBtn, activeSkill);
+    if (e.target.closest("#skill-filter .sf-path") && activeSkill) showPath(activeSkill);
   });
   function skillLabel(it) { return pick(it.label !== undefined ? it.label : it); }
   function skillTerms(it) {
@@ -340,10 +340,10 @@
       bar.hidden = false;
       bar.querySelector(".sf-label").textContent = ui("skillFilter") + " " + activeSkill.label + " (" + hits.length + ")";
       bar.querySelector(".sf-reset").textContent = ui("skillReset");
-      var nCv = cvCount(activeSkill.terms);
-      var cvb = bar.querySelector(".sf-cv");
-      cvb.hidden = !nCv;
-      cvb.textContent = ui("cvInCv") + " (" + nCv + ")";
+      var nPath = pathCount(activeSkill.terms);
+      var pb = bar.querySelector(".sf-path");
+      pb.hidden = !nPath;
+      pb.textContent = ui("pathInPath") + " (" + nPath + ")";
     }
     if (scroll) document.getElementById("projekte").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
@@ -357,110 +357,114 @@
     t.classList.add("pulse");
     setTimeout(function () { t.classList.remove("pulse"); }, 2600);
   }
-  // CV dialog
-  function cvSearch(e) { return JSON.stringify([e.role, e.org, e.points, e.note]).toLowerCase(); }
-  function cvEntries() { var cv = SITE.cv || {}; return [].concat(cv.experience || [], cv.education || []); }
-  function cvHit(e, terms) { var h = cvSearch(e); return terms.some(function (w) { return h.indexOf(w) > -1; }); }
-  function cvCount(terms) { return cvEntries().filter(function (e) { return cvHit(e, terms); }).length; }
-  function openCV(opener, skill) {
-    var cv = SITE.cv || {};
+  // career path details
+  function stepSearch(s) { return JSON.stringify([s.title, s.text, s.detail]).toLowerCase(); }
+  function stepHit(s, terms) { var h = stepSearch(s); return terms.some(function (w) { return h.indexOf(w) > -1; }); }
+  function pathCount(terms) { return (SITE.path || []).filter(function (s) { return s.detail && stepHit(s, terms); }).length; }
+  function openProof(selector) {
+    closeDialog();
+    setTimeout(function () {
+      var t = document.querySelector(selector);
+      if (!t) return;
+      t.classList.add("in");
+      t.scrollIntoView({ behavior: "auto", block: "center" });
+      var b = t.querySelector(".tile-btn");
+      if (b) b.click();
+    }, 230);
+  }
+  function proofButton(badge, title, sub, onClick) {
+    var bt = el("button", "proof");
+    bt.type = "button";
+    var bd = el("span", "tile-badge" + (badge ? "" : " proj"), badge || "");
+    if (!badge) bd.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6.5h12"/></svg>';
+    bd.setAttribute("aria-hidden", "true");
+    bt.appendChild(bd);
+    var tx = el("span", "proof-text");
+    tx.appendChild(el("span", "proof-name", title));
+    if (sub) tx.appendChild(el("span", "proof-sub", sub));
+    bt.appendChild(tx);
+    var ar = el("span", "proof-arrow", "›");
+    ar.setAttribute("aria-hidden", "true");
+    bt.appendChild(ar);
+    bt.addEventListener("click", onClick);
+    return bt;
+  }
+  function openStep(s, opener) {
+    var d = s.detail || {};
     openDialog(function (box) {
-      box.classList.add("cv");
-      var head = el("header", "detail-head cv-head");
-      if (usableUrl(SITE.photo)) {
-        var im = el("img", "cv-photo"); im.src = SITE.photo; im.alt = ""; im.width = 84; im.height = 84;
-        im.onerror = function () { im.remove(); };
-        head.appendChild(im);
-      }
-      var ht = el("div", "cv-head-text");
-      ht.appendChild(el("p", "cv-kicker", ui("cvTitle")));
-      var h = el("h3", "", SITE.name || ""); h.id = "detail-title"; ht.appendChild(h);
-      text(ht, "p", (SITE.hero || {}).role, "sub");
-      head.appendChild(ht);
-      var acts = el("div", "cv-actions");
-      if (SITE.email && SITE.email.user) acts.appendChild(link("mailto:" + SITE.email.user + "@" + SITE.email.domain, ui("ctaContact"), "btn"));
-      if (usableUrl(SITE.cv)) acts.appendChild(link(SITE.cv, ui("cvLink"), "btn btn-ghost"));
-      else if (EDIT) acts.appendChild(el("span", "todo", ui("cvLink") + ": " + SITE.cv));
-      head.appendChild(acts);
+      var head = el("header", "detail-head");
+      var tp = el("div", "tile-top");
+      text(tp, "span", s.tag, "step-tag");
+      var w = clean(s.when); if (w) tp.appendChild(el("span", "tile-when", w));
+      head.appendChild(tp);
+      var h = el("h3", "", pick(s.title)); h.id = "detail-title"; head.appendChild(h);
+      text(head, "p", s.text, "sub");
       box.appendChild(head);
-      if (skill) box.appendChild(el("p", "cv-hint", ui("cvHits") + " " + skill.label));
-
-      var cols = el("div", "detail-cols cv-cols");
+      var cols = el("div", "detail-cols");
       var main = el("div", "detail-main");
-      text(main, "p", cv.profile, "cv-profile");
-      [["experience", "cvExperience"], ["education", "cvEducation"]].forEach(function (pair) {
-        var items = cv[pair[0]] || [];
-        if (!items.length) return;
-        main.appendChild(el("h4", "cv-h", ui(pair[1])));
-        var ol = el("ol", "cv-list");
-        items.forEach(function (e) {
-          var li = el("li", "cv-item");
-          if (skill) li.classList.add(cvHit(e, skill.terms) ? "hit" : "dim");
-          text(li, "p", e.when, "cv-when");
-          var b = el("div", "cv-body");
-          text(b, "h5", e.role);
-          text(b, "p", e.org, "cv-org");
-          var pts = list(e.points);
-          if (pts.length) {
-            var ul = el("ul", "points");
-            pts.forEach(function (t) { ul.appendChild(el("li", "", t)); });
-            b.appendChild(ul);
-          }
-          text(b, "p", e.note, "cv-note");
-          li.appendChild(b);
-          ol.appendChild(li);
-        });
-        main.appendChild(ol);
+      [["did", "pathDid"], ["gain", "pathGain"]].forEach(function (pair) {
+        var pts = list(d[pair[0]]);
+        if (!pts.length) return;
+        var b = el("div", "block");
+        b.appendChild(el("h4", "", ui(pair[1])));
+        var ul = el("ul", "points");
+        pts.forEach(function (t) { ul.appendChild(el("li", "", t)); });
+        b.appendChild(ul);
+        main.appendChild(b);
       });
+      text(main, "p", d.link, "step-link");
+      text(main, "p", d.note, "step-note");
       cols.appendChild(main);
 
-      var side = el("aside", "side cv-side");
-      var certs = sorted(window.PORTFOLIO_CERTIFICATES || []);
-      if (certs.length) {
-        side.appendChild(el("h4", "cv-h", ui("cvCerts")));
-        var cl = el("ul", "cv-certs");
-        certs.forEach(function (c) {
-          var li = el("li");
-          var bt = el("button", "cv-cert");
-          bt.type = "button";
-          bt.title = ui("cvCertHint");
-          if (c.badge) bt.appendChild(el("span", "tile-badge", c.badge));
-          var tx = el("span", "cv-cert-text");
-          tx.appendChild(el("span", "cv-cert-name", pick(c.name)));
-          var st = CERT_STATUS[c.status] || CERT_STATUS.passed;
-          var d = clean(c.date);
-          tx.appendChild(el("span", "cv-cert-date", c.status === "passed" ? d : ui(st[1]) + (d ? ", " + d : "")));
-          bt.appendChild(tx);
-          bt.addEventListener("click", function () { closeDialog(); setTimeout(function () { showCert(c.badge); }, 230); });
-          li.appendChild(bt);
-          cl.appendChild(li);
-        });
-        side.appendChild(cl);
+      var projs = (d.projects || []).map(function (id) {
+        return (window.PORTFOLIO_PROJECTS || []).filter(function (p) { return p.id === id; })[0];
+      }).filter(Boolean);
+      var certs = (d.certs || []).map(function (bdg) {
+        return (window.PORTFOLIO_CERTIFICATES || []).filter(function (c) { return c.badge === bdg; })[0];
+      }).filter(Boolean);
+      if (projs.length || certs.length) {
+        var side = el("aside", "side proofs");
+        side.appendChild(el("h4", "", ui("pathProof")));
+        if (projs.length) {
+          side.appendChild(el("p", "proof-label", ui("pathProjects")));
+          projs.forEach(function (p) {
+            side.appendChild(proofButton("", pick(p.title), clean(p.context), function () { openProof('#project-list .tile[data-id="' + p.id + '"]'); }));
+          });
+        }
+        if (certs.length) {
+          side.appendChild(el("p", "proof-label", ui("pathCerts")));
+          certs.forEach(function (c) {
+            var st = CERT_STATUS[c.status] || CERT_STATUS.passed;
+            var dt = clean(c.date);
+            var subt = c.status === "passed" ? dt : ui(st[1]) + (dt ? ", " + dt : "");
+            side.appendChild(proofButton(c.badge, pick(c.name), subt, function () { openProof('#cert-list .tile[data-badge="' + c.badge + '"]'); }));
+          });
+        }
+        cols.appendChild(side);
       }
-      if ((SITE.skills || []).length) {
-        side.appendChild(el("h4", "cv-h", ui("cvSkills")));
-        SITE.skills.forEach(function (grp) {
-          var p = el("p", "cv-skillline");
-          p.appendChild(el("strong", "", pick(grp.title)));
-          p.appendChild(document.createTextNode((grp.items || []).map(skillLabel).join(", ")));
-          side.appendChild(p);
-        });
-      }
-      [["languages", "cvLanguages"], ["extras", "cvMore"]].forEach(function (pair) {
-        var items = (cv[pair[0]] || []).map(clean).filter(Boolean);
-        if (!items.length) return;
-        side.appendChild(el("h4", "cv-h", ui(pair[1])));
-        var ul = el("ul", "cv-plain");
-        items.forEach(function (t) { ul.appendChild(el("li", "", t)); });
-        side.appendChild(ul);
-      });
-      cols.appendChild(side);
       box.appendChild(cols);
     }, opener);
-    if (skill) {
-      var first = dialog.querySelector(".cv-item.hit");
-      if (first) setTimeout(function () { first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }); }, 320);
-    }
+  }
+  var pathTimer = null;
+  function showPath(skill) {
+    var steps = document.querySelectorAll(".path .step");
+    var first = null;
+    Array.prototype.forEach.call(steps, function (li) {
+      var s = (SITE.path || [])[+li.getAttribute("data-i")];
+      var hit = !!(s && s.detail && stepHit(s, skill.terms));
+      li.classList.toggle("hit", hit);
+      li.classList.toggle("dim", !hit);
+      li.classList.add("in");
+      if (hit && !first) first = li;
+    });
+    var path = document.querySelector(".path");
+    if (path) path.setAttribute("data-hits", ui("pathHits") + " " + skill.label);
+    (first || document.getElementById("ueber-mich")).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    clearTimeout(pathTimer);
+    pathTimer = setTimeout(function () {
+      Array.prototype.forEach.call(steps, function (li) { li.classList.remove("hit", "dim"); });
+      if (path) path.removeAttribute("data-hits");
+    }, 5000);
   }
   function renderSkills() {
     var root = document.getElementById("skills-list");
@@ -498,14 +502,11 @@
           var n = el("span", "skill-count", String(count));
           n.setAttribute("aria-label", count + " " + ui("navProjects"));
           chip.appendChild(n);
-        } else if (cvCount(terms)) {
-          chip = el("button", "skill-chip to-cv", label);
+        } else if (pathCount(terms)) {
+          chip = el("button", "skill-chip", label);
           chip.type = "button";
-          chip.title = ui("cvSkillHint");
-          var cvTag = el("span", "skill-count cv", "CV");
-          cvTag.setAttribute("aria-hidden", "true");
-          chip.appendChild(cvTag);
-          (function (c) { c.addEventListener("click", function () { openCV(c, { label: label, terms: terms }); }); })(chip);
+          chip.title = ui("pathSkillHint");
+          (function (c) { c.addEventListener("click", function () { showPath({ label: label, terms: terms }); }); })(chip);
         } else {
           chip = el("span", "skill-chip static", label);
         }
@@ -531,6 +532,7 @@
         summary: clean(p.subtitle) || firstText(p.text),
         chips: p.tools || [],
         search: searchText(p),
+        id: p.id,
         detail: function (box) {
           var head = el("header", "detail-head");
           var tp = el("div", "tile-top");
@@ -632,19 +634,10 @@
       if (isTodo(p)) n.classList.add("todo");
       root.appendChild(n);
     });
-    var cvb = el("button", "btn btn-ghost cv-open");
-    cvb.type = "button";
-    var ic = el("span", "cv-icon");
-    ic.setAttribute("aria-hidden", "true");
-    ic.innerHTML = '<svg viewBox="0 0 16 18" width="16" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h7l3.5 3.5v11.5H3z"/><path d="M10 1.5V5h3.5M5.75 9h5M5.75 12h5"/></svg>';
-    cvb.appendChild(ic);
-    cvb.appendChild(document.createTextNode(ui("cvOpen")));
-    cvb.addEventListener("click", function () { openCV(cvb, null); });
-    root.appendChild(cvb);
 
     var wrap = document.getElementById("path-wrap");
     wrap.textContent = "";
-    var steps = (SITE.path || []).slice().reverse();
+    var steps = (SITE.path || []).map(function (s, i) { s._i = i; return s; }).slice().reverse();
     if (!steps.length) return;
 
     var box = el("div", "path");
@@ -658,7 +651,8 @@
 
     var ol = el("ol", "steps");
     steps.forEach(function (s) {
-      var li = el("li", "step reveal" + (s.open ? " open" : ""));
+      var li = el("li", "step reveal" + (s.open ? " open" : "") + (s.detail ? " has-detail" : ""));
+      li.setAttribute("data-i", s._i);
       var dot = el("span", "dot");
       dot.setAttribute("aria-hidden", "true");
       li.appendChild(dot);
@@ -674,6 +668,14 @@
       card.appendChild(head);
       text(card, "h3", s.title);
       text(card, "p", s.text);
+      if (s.detail) {
+        var db = el("button", "tile-btn step-btn", ui("details"));
+        db.type = "button";
+        db.setAttribute("aria-haspopup", "dialog");
+        db.addEventListener("click", function () { openStep(s, db); });
+        card.appendChild(db);
+        card.addEventListener("click", function (e) { if (!e.target.closest("a,button")) openStep(s, db); });
+      }
       li.appendChild(card);
       ol.appendChild(li);
     });

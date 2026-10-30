@@ -1,5 +1,6 @@
 // copy, rename, add the name (without .js) to content/index.js
 window.PORTFOLIO_PROJECTS.push({
+  id: "dateiname",        // same as the file name
   order: 10,              // 1 = top
   status: "progress",     // progress | done
 
