@@ -2,6 +2,8 @@
   "use strict";
 
   var SITE = window.SITE || {};
+  // same cache-busting version as in index.html
+  var ASSET_V = ((document.currentScript && document.currentScript.src.split("v=")[1]) || "");
   var FILES = window.PORTFOLIO_FILES || { projects: [], certificates: [] };
   var LANGS = ["de", "en"];
   var params = new URLSearchParams(window.location.search);
@@ -519,8 +521,8 @@
   });
 
   var paths = []
-    .concat((FILES.projects || []).map(function (n) { return "projects/" + n + ".js"; }))
-    .concat((FILES.certificates || []).map(function (n) { return "certificates/" + n + ".js"; }));
+    .concat((FILES.projects || []).map(function (n) { return "projects/" + n + ".js?v=" + ASSET_V; }))
+    .concat((FILES.certificates || []).map(function (n) { return "certificates/" + n + ".js?v=" + ASSET_V; }));
   renderStatic();
   loadAll(paths, function () { renderAll(false); });
 })();
