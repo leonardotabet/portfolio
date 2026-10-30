@@ -4,7 +4,8 @@ window.PORTFOLIO_FILES = {
     "windows-server-ad-lab",
     "uhren-foto-app",
     "azure-hybrid-lab",
-    "wlan-netzwerk"
+    "wlan-netzwerk",
+    "azure-server-lab"
   ],
   certificates: [
     "comptia-a-plus",
