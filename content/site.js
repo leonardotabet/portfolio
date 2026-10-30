@@ -51,6 +51,54 @@ window.SITE = {
     ]
   },
 
+  skills: [
+    {
+      title: { de: "Microsoft 365, Identität und Geräte", en: "Microsoft 365, identity and devices" },
+      items: [
+        { label: "Entra ID", match: ["entra"] },
+        { label: "Microsoft 365", match: ["microsoft 365", "sharepoint", "teams"] },
+        { label: "Exchange Online", match: ["exchange online"] },
+        { label: "Conditional Access", match: ["conditional access"] },
+        { label: "Intune", match: ["intune"] },
+        { label: "Windows 11", match: ["windows 11"] }
+      ]
+    },
+    {
+      title: { de: "Server und Netzwerk", en: "Servers and networking" },
+      items: [
+        { label: "Windows Server", match: ["windows server"] },
+        { label: "Active Directory", match: ["ad ds", "active directory"] },
+        { label: "DNS", match: ["dns"] },
+        { label: "DHCP", match: ["dhcp"] },
+        { label: "Group Policy", match: ["group policy", "gpo"] },
+        { label: { de: "WLAN", en: "Wi-Fi" }, match: ["wlan", "wi-fi"] },
+        { label: "VLAN", match: ["vlan"] },
+        { label: "Firewall", match: ["firewall"] }
+      ]
+    },
+    {
+      title: { de: "Cloud und Virtualisierung", en: "Cloud and virtualization" },
+      items: [
+        { label: "Microsoft Azure", match: ["azure"] },
+        { label: "Entra Connect", match: ["entra connect"] },
+        { label: "Azure Files", match: ["azure files"] },
+        { label: "Azure Virtual Desktop", match: ["azure virtual desktop"] },
+        { label: "Hyper-V", match: ["hyper-v"] }
+      ]
+    },
+    {
+      title: { de: "Automatisierung und Service", en: "Automation and service" },
+      items: [
+        { label: "PowerShell", match: ["powershell"] },
+        { label: "Power Apps", match: ["power apps", "power app"] },
+        { label: "Power Automate", match: ["power automate"] },
+        { label: "Jira Service Management", match: ["jira"] },
+        { label: "Confluence", match: ["confluence"] },
+        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, match: ["itil"] }
+      ]
+    }
+  ],
+
   // oldest first, rendered newest on top
   path: [
     {
@@ -98,7 +146,13 @@ window.SITE = {
     skip: { de: "Zum Inhalt springen", en: "Skip to content" },
     navProjects: { de: "Projekte", en: "Projects" },
     navCerts: { de: "Zertifikate", en: "Certifications" },
+    navSkills: { de: "Kenntnisse", en: "Skills" },
     navAbout: { de: "Über mich", en: "About me" },
+    skillsTitle: { de: "Kenntnisse", en: "Skills" },
+    skillsIntro: { de: "Ein Klick auf eine Kenntnis zeigt die Projekte, in denen ich sie eingesetzt habe.", en: "Click a skill to see the projects where I used it." },
+    skillFilter: { de: "Projekte mit", en: "Projects with" },
+    skillReset: { de: "Alle anzeigen", en: "Show all" },
+    skillHint: { de: "Passende Projekte zeigen", en: "Show matching projects" },
     navContact: { de: "Kontakt", en: "Contact" },
     ctaContact: { de: "Kontakt aufnehmen", en: "Get in touch" },
     ctaProjects: { de: "Projekte ansehen", en: "View projects" },

@@ -1,6 +1,7 @@
 window.PORTFOLIO_CERTIFICATES.push({
   order: 3,
   badge: "N+",
+  highlight: { de: "Mit A+: CompTIA IT Operations Specialist (CIOS)", en: "With A+: CompTIA IT Operations Specialist (CIOS)" },
   status: "passed",
   name: "CompTIA Network+",
   fullName: { de: "Netzwerke aufbauen, betreiben und Fehler finden", en: "Building, running and troubleshooting networks" },
@@ -17,8 +18,8 @@ window.PORTFOLIO_CERTIFICATES.push({
     en: "CompTIA CertMaster Learn with the practice test, Jason Dion's course and Professor Messer's videos. I trained subnetting deliberately and analyzed traffic in labs with Wireshark and Cisco Packet Tracer. Together with A+ this earned me the CompTIA IT Operations Specialist (CIOS) designation."
   },
   atWork: {
-    de: "TODO: Was bringt es mir konkret im Job?",
-    en: "TODO: What does it bring to my work?"
+    de: "Netzwerkprobleme grenze ich Schicht für Schicht ein. So habe ich bei der Arbeit ein WLAN-Druckproblem bis zu einer falschen DHCP-Zuweisung und einer gesperrten Verbindung zwischen VLANs zurückverfolgt und das WLAN mit neun Access Points für einen Anlass geplant.",
+    en: "I narrow down network issues layer by layer. At work this is how I traced a Wi-Fi printing problem to a wrong DHCP assignment and a blocked connection between VLANs, and planned the Wi-Fi with nine access points for an event."
   },
 
   skills: {

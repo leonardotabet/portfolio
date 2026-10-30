@@ -1,6 +1,7 @@
 window.PORTFOLIO_CERTIFICATES.push({
   order: 2,
   badge: "S+",
+  highlight: { de: "Mit A+ und Network+: Secure Infrastructure Specialist", en: "With A+ and Network+: Secure Infrastructure Specialist" },
   status: "progress",
   name: "CompTIA Security+",
   fullName: { de: "Grundlagen der IT-Sicherheit", en: "IT security fundamentals" },
@@ -17,8 +18,8 @@ window.PORTFOLIO_CERTIFICATES.push({
     en: "Preparing through SIW with CompTIA CertMaster Learn and Practice. Together with A+ and Network+ this leads to the CompTIA Secure Infrastructure Specialist designation."
   },
   atWork: {
-    de: "TODO: Warum ist es mir wichtig, z. B. Richtung Identität und Zugriff (IAM)?",
-    en: "TODO: Why does it matter to me, e.g. towards identity and access management?"
+    de: "Sicherheit gehört für mich zu jedem Handgriff im Betrieb. Meine Richtung ist Identität und Zugriff (IAM): sichere Konfiguration, saubere Berechtigungen und richtiges Handeln bei Vorfällen.",
+    en: "To me, security is part of every task in operations. My direction is identity and access management (IAM): secure configuration, clean permissions and the right response to incidents."
   },
 
   skills: {

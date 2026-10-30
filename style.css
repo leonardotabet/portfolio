@@ -93,7 +93,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 
 /* sections */
 section{padding-block:clamp(2.75rem,6vw,4.5rem);border-top:1px solid var(--rule)}
-section:nth-of-type(even){background:var(--tint)}
+#kenntnisse,#zertifikate{background:var(--bg)}
+#projekte,#kontakt{background:var(--tint)}
 .sec-head{margin-bottom:2rem}
 .sec-head p{color:var(--muted);margin:.5rem 0 0}
 h2{font-size:clamp(1.75rem,3.5vw,2.25rem)}
@@ -117,6 +118,30 @@ h2{font-size:clamp(1.75rem,3.5vw,2.25rem)}
 @media (min-width:820px){
     .shots{grid-column:1 / -1}
 }
+
+/* skills */
+.skills-sec{border-top:0}
+.skills-grid{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media (min-width:760px){.skills-grid{grid-template-columns:1fr 1fr;gap:1.5rem}}
+.skill-group{border:1px solid var(--rule);border-radius:8px;padding:1.25rem 1.35rem 1.35rem;background:linear-gradient(180deg,var(--tint),var(--bg) 70%)}
+.skill-group h3{font-family:var(--sans);font-size:.9375rem;font-weight:600;color:var(--navy);margin-bottom:.9rem}
+.skill-chips{list-style:none;display:flex;flex-wrap:wrap;gap:.55rem;margin:0;padding:0}
+.skill-chip{display:inline-flex;align-items:center;gap:.5rem;font:500 .9063rem/1 var(--sans);color:var(--navy);background:var(--bg);border:1px solid #B9C4D2;border-radius:999px;padding:.5rem .55rem .5rem .9rem;box-shadow:0 1px 0 rgba(18,40,75,.06);transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease,border-color .18s ease}
+.skill-chip.static{padding:.5rem .9rem}
+button.skill-chip{cursor:pointer}
+button.skill-chip:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 6px 14px rgba(18,40,75,.12)}
+button.skill-chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 6px 16px rgba(18,40,75,.25)}
+.skill-count{display:inline-flex;align-items:center;justify-content:center;min-width:1.35rem;height:1.35rem;padding:0 .35rem;border-radius:999px;background:var(--tint);color:var(--navy);font-size:.75rem;font-weight:600;font-variant-numeric:tabular-nums}
+button.skill-chip[aria-pressed="true"] .skill-count{background:rgba(255,255,255,.18);color:#fff}
+.skill-filter{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin:-0.75rem 0 1.5rem;padding:.65rem .9rem;border:1px solid var(--navy);border-radius:6px;background:var(--bg);font-size:.9375rem}
+.skill-filter[hidden]{display:none}
+.skill-filter .sf-label{font-weight:600;color:var(--navy)}
+.skill-filter button{font:600 .875rem var(--sans);color:var(--navy);background:var(--tint);border:1px solid var(--rule);border-radius:999px;padding:.3rem .8rem;cursor:pointer}
+.skill-filter button:hover{border-color:var(--navy)}
+#project-list .tile.dim{opacity:.32;filter:grayscale(.6)}
+#project-list .tile.hit{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy),0 14px 30px rgba(18,40,75,.12)}
+.tile-highlight{display:inline-flex;align-self:flex-start;align-items:center;gap:.45rem;margin:0 0 .75rem;padding:.25rem .65rem;border-radius:999px;background:#EAF1EC;color:#1F5E37;font-size:.8125rem;font-weight:600}
+.tile-highlight::before{content:"";width:6px;height:6px;border-radius:50%;background:#1F8A4C}
 
 /* cards */
 .tiles{display:grid;gap:1.25rem;grid-template-columns:1fr}

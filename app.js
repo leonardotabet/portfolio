@@ -239,6 +239,7 @@
 
   function tile(opts) {
     var art = el("article", "tile reveal");
+    if (opts.search) art.setAttribute("data-search", opts.search);
     var top = el("div", "tile-top");
     if (opts.badge) {
       var b = el("span", "tile-badge", opts.badge);
@@ -251,6 +252,7 @@
     art.appendChild(top);
     art.appendChild(el("h3", "", opts.title));
     if (opts.kicker) art.appendChild(el("p", "tile-kicker", opts.kicker));
+    if (opts.highlight) art.appendChild(el("p", "tile-highlight", opts.highlight));
     if (opts.summary) art.appendChild(el("p", "tile-summary", opts.summary));
     if (opts.chips && opts.chips.length) {
       var ul = el("ul", "chips");
@@ -279,6 +281,103 @@
     return (v && !isTodo(v)) ? v : "";
   }
 
+  function renderSections(main, sections) {
+    (sections || []).forEach(function (sec) {
+      var sp = list(sec.points);
+      var intro = pick(sec.text);
+      if (!sp.length && !intro) return;
+      main.appendChild(el("h4", "detail-sub", pick(sec.title)));
+      if (intro && (EDIT || !isTodo(intro))) main.appendChild(el("p", "", intro));
+      if (!sp.length) return;
+      var sl = el("ul", "points");
+      sp.forEach(function (t) { var li = el("li", "", t); if (isTodo(t)) li.classList.add("todo"); sl.appendChild(li); });
+      main.appendChild(sl);
+    });
+  }
+  function searchText(p) {
+    return JSON.stringify([p.title, p.subtitle, p.tools, p.text, p.points, p.sections]).toLowerCase();
+  }
+
+  // skills: chips filter the project cards
+  var activeSkill = null;
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("#skill-filter button")) { activeSkill = null; applySkillFilter(false); }
+  });
+  function skillLabel(it) { return pick(it.label !== undefined ? it.label : it); }
+  function skillTerms(it) {
+    var m = (it.match || [skillLabel(it)]);
+    return m.map(function (x) { return String(x).toLowerCase(); });
+  }
+  function matchingTiles(terms) {
+    return Array.prototype.filter.call(document.querySelectorAll("#project-list .tile"), function (t) {
+      var hay = t.getAttribute("data-search") || "";
+      return terms.some(function (w) { return hay.indexOf(w) > -1; });
+    });
+  }
+  function applySkillFilter(scroll) {
+    var tiles = document.querySelectorAll("#project-list .tile");
+    var bar = document.getElementById("skill-filter");
+    Array.prototype.forEach.call(document.querySelectorAll(".skill-chip"), function (c) {
+      c.setAttribute("aria-pressed", String(!!activeSkill && c.getAttribute("data-key") === activeSkill.key));
+    });
+    if (!activeSkill) {
+      Array.prototype.forEach.call(tiles, function (t) { t.classList.remove("dim", "hit"); });
+      if (bar) bar.hidden = true;
+      return;
+    }
+    var hits = matchingTiles(activeSkill.terms);
+    Array.prototype.forEach.call(tiles, function (t) {
+      var hit = hits.indexOf(t) > -1;
+      t.classList.toggle("hit", hit);
+      t.classList.toggle("dim", !hit);
+      if (hit) t.classList.add("in");
+    });
+    if (bar) {
+      bar.hidden = false;
+      bar.querySelector(".sf-label").textContent = ui("skillFilter") + " " + activeSkill.label + " (" + hits.length + ")";
+      bar.querySelector("button").textContent = ui("skillReset");
+    }
+    if (scroll) document.getElementById("projekte").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+  function renderSkills() {
+    var root = document.getElementById("skills-list");
+    if (!root) return;
+    root.textContent = "";
+    (SITE.skills || []).forEach(function (grp, gi) {
+      var box = el("div", "skill-group reveal");
+      box.appendChild(el("h3", "", pick(grp.title)));
+      var ul = el("ul", "skill-chips");
+      (grp.items || []).forEach(function (it, ii) {
+        var label = skillLabel(it);
+        var terms = skillTerms(it);
+        var count = matchingTiles(terms).length;
+        var li = el("li");
+        var chip;
+        if (count) {
+          chip = el("button", "skill-chip", label);
+          chip.type = "button";
+          chip.setAttribute("data-key", gi + "-" + ii);
+          chip.setAttribute("aria-pressed", "false");
+          chip.title = ui("skillHint");
+          chip.addEventListener("click", function () {
+            var key = gi + "-" + ii;
+            activeSkill = (activeSkill && activeSkill.key === key) ? null : { key: key, label: label, terms: terms };
+            applySkillFilter(!!activeSkill);
+          });
+          var n = el("span", "skill-count", String(count));
+          n.setAttribute("aria-label", count + " " + ui("navProjects"));
+          chip.appendChild(n);
+        } else {
+          chip = el("span", "skill-chip static", label);
+        }
+        li.appendChild(chip);
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+      root.appendChild(box);
+    });
+  }
+
   function renderProjects() {
     var root = document.getElementById("project-list");
     root.textContent = "";
@@ -292,6 +391,7 @@
         kicker: clean(p.context),
         summary: clean(p.subtitle) || firstText(p.text),
         chips: p.tools || [],
+        search: searchText(p),
         detail: function (box) {
           var head = el("header", "detail-head");
           var tp = el("div", "tile-top");
@@ -309,14 +409,7 @@
             pts.forEach(function (t) { var li = el("li", "", t); if (isTodo(t)) li.classList.add("todo"); ul.appendChild(li); });
             main.appendChild(ul);
           }
-          (p.sections || []).forEach(function (sec) {
-            var sp = list(sec.points);
-            if (!sp.length) return;
-            main.appendChild(el("h4", "detail-sub", pick(sec.title)));
-            var sl = el("ul", "points");
-            sp.forEach(function (t) { var li = el("li", "", t); if (isTodo(t)) li.classList.add("todo"); sl.appendChild(li); });
-            main.appendChild(sl);
-          });
+          renderSections(main, p.sections);
           text(main, "p", p.note, "note");
           cols.appendChild(main);
           var side = el("aside", "side"); var dl = el("dl");
@@ -345,7 +438,8 @@
         when: clean(c.date),
         title: pick(c.name),
         kicker: clean(c.issuer),
-        summary: clean(c.confirms),
+        summary: clean(c.atWork) || clean(c.confirms),
+        highlight: clean(c.highlight),
         chips: list(c.skills).filter(function (s) { return !isTodo(s); }),
         detail: function (box) {
           var head = el("header", "detail-head");
@@ -366,6 +460,7 @@
             text(b, "p", c[pair[0]]);
             main.appendChild(b);
           });
+          renderSections(main, c.sections);
           cols.appendChild(main);
           var side = el("aside", "side"); var dl = el("dl");
           metaRow(dl, "labelDate", c.date);
@@ -506,6 +601,8 @@
     renderHero();
     renderAbout();
     renderProjects();
+    renderSkills();
+    if (activeSkill) applySkillFilter(false);
     renderCertificates();
     renderContact();
     watchReveals(instant);
@@ -515,6 +612,7 @@
   Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function (b) {
     b.addEventListener("click", function () {
       lang = b.getAttribute("data-lang");
+      activeSkill = null;
       try { window.localStorage.setItem("lt-lang", lang); } catch (e) {}
       renderAll(true);
     });
