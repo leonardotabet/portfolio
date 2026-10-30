@@ -188,7 +188,7 @@
     dialog.addEventListener("click", function (e) { if (e.target === dialog) closeDialog(); });
     dialog.addEventListener("close", function () {
       document.documentElement.classList.remove("no-scroll");
-      if (lastFocus) lastFocus.focus();
+      if (lastFocus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { lastFocus.focus(); } }
     });
     document.body.appendChild(dialog);
     return dialog;
@@ -302,7 +302,10 @@
   // skills: chips filter the project cards
   var activeSkill = null;
   document.addEventListener("click", function (e) {
-    if (e.target.closest && e.target.closest("#skill-filter button")) { activeSkill = null; applySkillFilter(false); }
+    if (!e.target.closest) return;
+    if (e.target.closest("#skill-filter .sf-reset")) { activeSkill = null; applySkillFilter(false); }
+    var cvBtn = e.target.closest("#skill-filter .sf-cv");
+    if (cvBtn && activeSkill) openCV(cvBtn, activeSkill);
   });
   function skillLabel(it) { return pick(it.label !== undefined ? it.label : it); }
   function skillTerms(it) {
@@ -336,7 +339,11 @@
     if (bar) {
       bar.hidden = false;
       bar.querySelector(".sf-label").textContent = ui("skillFilter") + " " + activeSkill.label + " (" + hits.length + ")";
-      bar.querySelector("button").textContent = ui("skillReset");
+      bar.querySelector(".sf-reset").textContent = ui("skillReset");
+      var nCv = cvCount(activeSkill.terms);
+      var cvb = bar.querySelector(".sf-cv");
+      cvb.hidden = !nCv;
+      cvb.textContent = ui("cvInCv") + " (" + nCv + ")";
     }
     if (scroll) document.getElementById("projekte").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
@@ -349,6 +356,111 @@
     void t.offsetWidth;
     t.classList.add("pulse");
     setTimeout(function () { t.classList.remove("pulse"); }, 2600);
+  }
+  // CV dialog
+  function cvSearch(e) { return JSON.stringify([e.role, e.org, e.points, e.note]).toLowerCase(); }
+  function cvEntries() { var cv = SITE.cv || {}; return [].concat(cv.experience || [], cv.education || []); }
+  function cvHit(e, terms) { var h = cvSearch(e); return terms.some(function (w) { return h.indexOf(w) > -1; }); }
+  function cvCount(terms) { return cvEntries().filter(function (e) { return cvHit(e, terms); }).length; }
+  function openCV(opener, skill) {
+    var cv = SITE.cv || {};
+    openDialog(function (box) {
+      box.classList.add("cv");
+      var head = el("header", "detail-head cv-head");
+      if (usableUrl(SITE.photo)) {
+        var im = el("img", "cv-photo"); im.src = SITE.photo; im.alt = ""; im.width = 84; im.height = 84;
+        im.onerror = function () { im.remove(); };
+        head.appendChild(im);
+      }
+      var ht = el("div", "cv-head-text");
+      ht.appendChild(el("p", "cv-kicker", ui("cvTitle")));
+      var h = el("h3", "", SITE.name || ""); h.id = "detail-title"; ht.appendChild(h);
+      text(ht, "p", (SITE.hero || {}).role, "sub");
+      head.appendChild(ht);
+      var acts = el("div", "cv-actions");
+      if (SITE.email && SITE.email.user) acts.appendChild(link("mailto:" + SITE.email.user + "@" + SITE.email.domain, ui("ctaContact"), "btn"));
+      if (usableUrl(SITE.cv)) acts.appendChild(link(SITE.cv, ui("cvLink"), "btn btn-ghost"));
+      else if (EDIT) acts.appendChild(el("span", "todo", ui("cvLink") + ": " + SITE.cv));
+      head.appendChild(acts);
+      box.appendChild(head);
+      if (skill) box.appendChild(el("p", "cv-hint", ui("cvHits") + " " + skill.label));
+
+      var cols = el("div", "detail-cols cv-cols");
+      var main = el("div", "detail-main");
+      text(main, "p", cv.profile, "cv-profile");
+      [["experience", "cvExperience"], ["education", "cvEducation"]].forEach(function (pair) {
+        var items = cv[pair[0]] || [];
+        if (!items.length) return;
+        main.appendChild(el("h4", "cv-h", ui(pair[1])));
+        var ol = el("ol", "cv-list");
+        items.forEach(function (e) {
+          var li = el("li", "cv-item");
+          if (skill) li.classList.add(cvHit(e, skill.terms) ? "hit" : "dim");
+          text(li, "p", e.when, "cv-when");
+          var b = el("div", "cv-body");
+          text(b, "h5", e.role);
+          text(b, "p", e.org, "cv-org");
+          var pts = list(e.points);
+          if (pts.length) {
+            var ul = el("ul", "points");
+            pts.forEach(function (t) { ul.appendChild(el("li", "", t)); });
+            b.appendChild(ul);
+          }
+          text(b, "p", e.note, "cv-note");
+          li.appendChild(b);
+          ol.appendChild(li);
+        });
+        main.appendChild(ol);
+      });
+      cols.appendChild(main);
+
+      var side = el("aside", "side cv-side");
+      var certs = sorted(window.PORTFOLIO_CERTIFICATES || []);
+      if (certs.length) {
+        side.appendChild(el("h4", "cv-h", ui("cvCerts")));
+        var cl = el("ul", "cv-certs");
+        certs.forEach(function (c) {
+          var li = el("li");
+          var bt = el("button", "cv-cert");
+          bt.type = "button";
+          bt.title = ui("cvCertHint");
+          if (c.badge) bt.appendChild(el("span", "tile-badge", c.badge));
+          var tx = el("span", "cv-cert-text");
+          tx.appendChild(el("span", "cv-cert-name", pick(c.name)));
+          var st = CERT_STATUS[c.status] || CERT_STATUS.passed;
+          var d = clean(c.date);
+          tx.appendChild(el("span", "cv-cert-date", c.status === "passed" ? d : ui(st[1]) + (d ? ", " + d : "")));
+          bt.appendChild(tx);
+          bt.addEventListener("click", function () { closeDialog(); setTimeout(function () { showCert(c.badge); }, 230); });
+          li.appendChild(bt);
+          cl.appendChild(li);
+        });
+        side.appendChild(cl);
+      }
+      if ((SITE.skills || []).length) {
+        side.appendChild(el("h4", "cv-h", ui("cvSkills")));
+        SITE.skills.forEach(function (grp) {
+          var p = el("p", "cv-skillline");
+          p.appendChild(el("strong", "", pick(grp.title)));
+          p.appendChild(document.createTextNode((grp.items || []).map(skillLabel).join(", ")));
+          side.appendChild(p);
+        });
+      }
+      [["languages", "cvLanguages"], ["extras", "cvMore"]].forEach(function (pair) {
+        var items = (cv[pair[0]] || []).map(clean).filter(Boolean);
+        if (!items.length) return;
+        side.appendChild(el("h4", "cv-h", ui(pair[1])));
+        var ul = el("ul", "cv-plain");
+        items.forEach(function (t) { ul.appendChild(el("li", "", t)); });
+        side.appendChild(ul);
+      });
+      cols.appendChild(side);
+      box.appendChild(cols);
+    }, opener);
+    if (skill) {
+      var first = dialog.querySelector(".cv-item.hit");
+      if (first) setTimeout(function () { first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }); }, 320);
+    }
   }
   function renderSkills() {
     var root = document.getElementById("skills-list");
@@ -386,6 +498,14 @@
           var n = el("span", "skill-count", String(count));
           n.setAttribute("aria-label", count + " " + ui("navProjects"));
           chip.appendChild(n);
+        } else if (cvCount(terms)) {
+          chip = el("button", "skill-chip to-cv", label);
+          chip.type = "button";
+          chip.title = ui("cvSkillHint");
+          var cvTag = el("span", "skill-count cv", "CV");
+          cvTag.setAttribute("aria-hidden", "true");
+          chip.appendChild(cvTag);
+          (function (c) { c.addEventListener("click", function () { openCV(c, { label: label, terms: terms }); }); })(chip);
         } else {
           chip = el("span", "skill-chip static", label);
         }
@@ -512,6 +632,15 @@
       if (isTodo(p)) n.classList.add("todo");
       root.appendChild(n);
     });
+    var cvb = el("button", "btn btn-ghost cv-open");
+    cvb.type = "button";
+    var ic = el("span", "cv-icon");
+    ic.setAttribute("aria-hidden", "true");
+    ic.innerHTML = '<svg viewBox="0 0 16 18" width="16" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1.5h7l3.5 3.5v11.5H3z"/><path d="M10 1.5V5h3.5M5.75 9h5M5.75 12h5"/></svg>';
+    cvb.appendChild(ic);
+    cvb.appendChild(document.createTextNode(ui("cvOpen")));
+    cvb.addEventListener("click", function () { openCV(cvb, null); });
+    root.appendChild(cvb);
 
     var wrap = document.getElementById("path-wrap");
     wrap.textContent = "";
