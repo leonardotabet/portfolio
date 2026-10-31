@@ -39,5 +39,7 @@ window.PORTFOLIO_PROJECTS.push({
 
   tools: ["Entra ID", "Intune", "Microsoft 365 Admin Center", "Exchange Online", "Conditional Access", "Group Policy Analytics", "Jira Service Management", "Hyper-V"],
 
-  images: []
+  images: [
+    { src: "images/m365-support-lab/01-windows-11-vm.webp", alt: { de: "Windows 11 Installation in der Hyper-V VM", en: "Windows 11 installation in the Hyper-V VM" }, caption: { de: "Test-Laptop: Windows 11 Enterprise als VM in Hyper-V", en: "Test laptop: Windows 11 Enterprise as a VM in Hyper-V" } }
+  ]
 });
