@@ -66,7 +66,7 @@ window.SITE = {
     {
       title: { de: "Benutzer und Berechtigungen", en: "Users and access" },
       items: [
-        { label: "Onboarding", match: ["onboarding"] },
+        { label: { de: "Onboarding und Offboarding", en: "Onboarding and offboarding" }, match: ["onboarding", "offboarding"] },
         { label: { de: "Benutzer und Gruppen", en: "Users and groups" }, match: ["benutzer", "gruppen", "users and groups", "user groups"] },
         { label: { de: "Lizenzverwaltung", en: "License management" }, match: ["lizenz", "licenses", "license"] },
         { label: "MFA", match: ["mfa"] },
@@ -197,6 +197,7 @@ window.SITE = {
             "Die gesamte IT während einer Abwesenheit selbständig betreut, vom Anwender-Support bis zur Infrastruktur",
             "Netzwerk mit VLAN, DHCP, Firewall und WLAN betreut, Telefonie-Ausfall über Ports und Subnetze gelöst",
             "Zugriffe über Entra ID Gruppen und Berechtigungen im Dynamics 365 ERP verwaltet",
+            "Gemeinsam mit HR beim Onboarding und Offboarding von Mitarbeitenden mitgewirkt",
             "ERP-System auf Hyper-V ohne Datenverlust wiederhergestellt",
             "Tickets und Changes über die Prozesse des Konzerns eskaliert, nach ITIL",
             "Foto-Dokumentation der Uhren mit Power Apps, Power Automate und SharePoint neu aufgebaut, inklusive Schulung"
@@ -207,6 +208,7 @@ window.SITE = {
             "Ran the entire IT on my own during an absence, from user support to infrastructure",
             "Looked after the network with VLAN, DHCP, firewall and Wi-Fi, solved a phone outage through ports and subnets",
             "Managed access through Entra ID groups and permissions in the Dynamics 365 ERP",
+            "Worked with HR on onboarding and offboarding of employees",
             "Restored the ERP system on Hyper-V without data loss",
             "Escalated tickets and changes through the group processes, following ITIL",
             "Rebuilt the watch photo documentation with Power Apps, Power Automate and SharePoint, including training"
