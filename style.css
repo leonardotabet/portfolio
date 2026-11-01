@@ -288,3 +288,6 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .skill-filter .sf-path[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.proof,.step.dim{transition:none}}
 .step.has-detail .card:hover .tile-btn{border-bottom-color:var(--navy);gap:.75rem}
+
+.copy-link{margin-top:.9rem;padding:.4rem .9rem;border:1px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--navy);font:inherit;font-size:.85rem;cursor:pointer}
+.copy-link:hover{background:var(--tint)}

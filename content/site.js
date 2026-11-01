@@ -254,6 +254,8 @@ window.SITE = {
     labelContext: { de: "Rahmen", en: "Context" },
     labelPeriod: { de: "Zeitraum", en: "Period" },
     labelTools: { de: "Werkzeuge", en: "Tools" },
+    copyLink: { de: "Link zu diesem Projekt kopieren", en: "Copy link to this project" },
+    linkCopied: { de: "Link kopiert", en: "Link copied" },
     labelDate: { de: "Datum", en: "Date" },
     labelIssuer: { de: "Aussteller", en: "Issuer" },
     labelSkills: { de: "Geprüfte Themen", en: "Exam topics" },

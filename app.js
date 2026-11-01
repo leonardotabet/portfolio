@@ -188,6 +188,7 @@
     dialog.addEventListener("click", function (e) { if (e.target === dialog) closeDialog(); });
     dialog.addEventListener("close", function () {
       document.documentElement.classList.remove("no-scroll");
+      clearHash();
       if (lastFocus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { lastFocus.focus(); } }
     });
     document.body.appendChild(dialog);
@@ -199,7 +200,16 @@
     dialog.classList.add("closing");
     setTimeout(function () { dialog.classList.remove("closing"); dialog.close(); }, 180);
   }
-  function openDialog(build, opener) {
+  var HASH_PREFIX = "#p/";
+  function setHash(id) {
+    try { history.replaceState(null, "", location.pathname + location.search + HASH_PREFIX + encodeURIComponent(id)); } catch (e) {}
+  }
+  function clearHash() {
+    if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
+    try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+  }
+  function projectUrl(id) { return location.origin + location.pathname + HASH_PREFIX + encodeURIComponent(id); }
+  function openDialog(build, opener, hashId) {
     var d = getDialog();
     d.textContent = "";
     var inner = el("div", "detail-inner");
@@ -212,6 +222,7 @@
     d.appendChild(inner);
     lastFocus = opener || null;
     document.documentElement.classList.add("no-scroll");
+    if (hashId) setHash(hashId);
     if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
     close.focus();
   }
@@ -265,11 +276,11 @@
     var btn = el("button", "tile-btn", ui("details"));
     btn.type = "button";
     btn.setAttribute("aria-haspopup", "dialog");
-    btn.addEventListener("click", function () { openDialog(opts.detail, btn); });
+    btn.addEventListener("click", function () { openDialog(opts.detail, btn, opts.hashId); });
     art.appendChild(btn);
     art.addEventListener("click", function (e) {
       if (e.target.closest("a,button")) return;
-      openDialog(opts.detail, btn);
+      openDialog(opts.detail, btn, opts.hashId);
     });
     return art;
   }
@@ -533,6 +544,7 @@
         chips: p.tools || [],
         search: searchText(p),
         id: p.id,
+        hashId: p.id,
         detail: function (box) {
           var head = el("header", "detail-head");
           var tp = el("div", "tile-top");
@@ -540,6 +552,17 @@
           head.appendChild(tp);
           var h = el("h3", "", pick(p.title)); h.id = "detail-title"; head.appendChild(h);
           text(head, "p", p.subtitle, "sub");
+          if (p.id) {
+            var cp = el("button", "copy-link", ui("copyLink"));
+            cp.type = "button";
+            cp.addEventListener("click", function () {
+              var url = projectUrl(p.id);
+              function done() { cp.textContent = ui("linkCopied"); setTimeout(function () { cp.textContent = ui("copyLink"); }, 2000); }
+              if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { window.prompt(ui("copyLink"), url); });
+              else window.prompt(ui("copyLink"), url);
+            });
+            head.appendChild(cp);
+          }
           box.appendChild(head);
           var cols = el("div", "detail-cols");
           var main = el("div", "detail-main");
@@ -771,6 +794,18 @@
   var paths = []
     .concat((FILES.projects || []).map(function (n) { return "projects/" + n + ".js?v=" + ASSET_V; }))
     .concat((FILES.certificates || []).map(function (n) { return "certificates/" + n + ".js?v=" + ASSET_V; }));
+  function openFromHash() {
+    if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
+    var id = decodeURIComponent(location.hash.slice(HASH_PREFIX.length));
+    var t = document.querySelector('#project-list .tile[data-id="' + id.replace(/"/g, "") + '"]');
+    if (!t) return;
+    if (dialog && dialog.open) return;
+    t.classList.add("in");
+    t.scrollIntoView({ behavior: "auto", block: "center" });
+    var b = t.querySelector(".tile-btn");
+    if (b) b.click();
+  }
+  window.addEventListener("hashchange", openFromHash);
   renderStatic();
-  loadAll(paths, function () { renderAll(false); });
+  loadAll(paths, function () { renderAll(false); openFromHash(); });
 })();
