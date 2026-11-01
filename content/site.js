@@ -246,7 +246,7 @@ window.SITE = {
       open: true,
       when: { de: "Nächster Schritt", en: "Next step" },
       tag: { de: "Offen", en: "Open" },
-      title: { de: "IT-Betrieb und Systemtechnik", en: "IT operations and systems engineering" },
+      title: { de: "Systemtechnik und Support", en: "Systems engineering and support" },
       text: { de: "Eine feste Stelle, in der ich Verantwortung übernehme und fachlich weiter wachse.", en: "A permanent role where I take on responsibility and keep growing." }
     }
   ],
