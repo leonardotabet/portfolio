@@ -34,6 +34,21 @@ window.PORTFOLIO_PROJECTS.push({
       "A Jira Service Management project with request types, queues and an escalation template"
     ]
   },
+  sections: [
+    {
+      title: { de: "Meine Learnings", en: "My learnings" },
+      points: {
+        de: [
+          "Wenn sich jemand nicht anmelden kann, frage ich zuerst: wer, seit wann und was hat sich geändert. Danach öffne ich die Sign-in-Logs in Entra ID. Sie zeigen den Fehlercode und ob Conditional Access eine Rolle spielt. Ich behebe die Ursache, prüfe es mit dem Benutzer und schreibe die Lösung ins Ticket.",
+          "Wenn jemand das Unternehmen verlässt, sperre ich zuerst die Anmeldung und beende die Sessions. Danach setze ich den Firmenlaptop zurück, wandle das Postfach in ein Shared Mailbox um, gebe der vorgesetzten Person Zugriff auf OneDrive und entferne die Lizenz. Das Konto lösche ich zuletzt, wenn die Daten gesichert sind. Jeder Schritt kommt mit Uhrzeit ins Ticket."
+        ],
+        en: [
+          "When a user cannot sign in, I first ask who, since when and what changed. Then I open the sign-in logs in Entra ID. They show the error code and whether Conditional Access played a role. I fix the cause, check with the user, and write the solution into the ticket.",
+          "When someone leaves, I block the sign-in and revoke the sessions first. Then I wipe the company laptop, convert the mailbox to a shared mailbox, give the manager access to OneDrive, and remove the license. I delete the account last, after the data is handled. Every step goes into the ticket with a time."
+        ]
+      }
+    }
+  ],
   note: {
     de: "Wird laufend erweitert: Zu jedem Baustein kommen Screenshots und eine kurze Beschreibung dazu.",
     en: "Continuously extended: each building block gets screenshots and a short write-up."
