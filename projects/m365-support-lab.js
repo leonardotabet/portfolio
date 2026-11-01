@@ -19,6 +19,7 @@ window.PORTFOLIO_PROJECTS.push({
       "Compliance-Richtlinie, Konfigurationsprofil und App-Zuweisung in Intune",
       "GPO-Migration nach Intune: Gruppenrichtlinien mit Group Policy Analytics auswerten und im Settings Catalog als Richtlinien umsetzen",
       "MFA, Self-Service-Kennwortzurücksetzung und eine Conditional-Access-Richtlinie im Modus „Nur Bericht“",
+      "Anmeldeprobleme mit Sign-in-Logs und Audit-Logs eingrenzen und Fehlercodes lesen",
       "Offboarding in der richtigen Reihenfolge: Anmeldung sperren, Postfach sichern, Gerät zurücksetzen, Lizenz entfernen",
       "Ein Jira Service Management Projekt mit Anfragetypen, Warteschlangen und Eskalationsvorlage"
     ],
@@ -28,6 +29,7 @@ window.PORTFOLIO_PROJECTS.push({
       "A compliance policy, a configuration profile and an app assignment in Intune",
       "GPO migration to Intune: analyze group policies with Group Policy Analytics and rebuild them as Settings Catalog policies",
       "MFA, self-service password reset and a Conditional Access policy in report-only mode",
+      "Tracing sign-in problems with sign-in logs and audit logs and reading error codes",
       "Offboarding in the right order: block sign-in, secure the mailbox, wipe the device, remove the license",
       "A Jira Service Management project with request types, queues and an escalation template"
     ]

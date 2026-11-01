@@ -64,6 +64,28 @@ window.SITE = {
       ]
     },
     {
+      title: { de: "Benutzer und Berechtigungen", en: "Users and access" },
+      items: [
+        { label: "Onboarding", match: ["onboarding"] },
+        { label: { de: "Benutzer und Gruppen", en: "Users and groups" }, match: ["benutzer", "gruppen", "users and groups", "user groups"] },
+        { label: { de: "Lizenzverwaltung", en: "License management" }, match: ["lizenz", "licenses", "license"] },
+        { label: "MFA", match: ["mfa"] },
+        { label: { de: "Passwort-Reset", en: "Password reset" }, match: ["kennwortzurücksetzung", "password reset"] }
+      ]
+    },
+    {
+      title: { de: "Support und Troubleshooting", en: "Support and troubleshooting" },
+      items: [
+        { label: { de: "Fehlersuche", en: "Troubleshooting" }, match: ["troubleshooting", "fehlersuche", "eingegrenzt", "traced down"] },
+        { label: { de: "Anmeldeprobleme und Logs", en: "Sign-in issues and logs" }, match: ["sign-in-logs", "sign-in logs"] },
+        { label: { de: "Geräte-Support", en: "Device support" }, match: ["compliance"] },
+        { label: { de: "Service Desk und Tickets", en: "Service desk and tickets" }, match: ["service desk", "ticket"] },
+        { label: { de: "Schulung und Doku", en: "Training and docs" }, match: ["geschult", "trained the team"] },
+        { label: { de: "Hardware und Windows", en: "Hardware and Windows" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Hardware- und Betriebssystem-Fehlersuche", en: "Backed by CompTIA A+: hardware and operating system troubleshooting" } },
+        { label: { de: "Netzwerk-Fehlersuche", en: "Network troubleshooting" }, cert: "N+", hint: { de: "Belegt durch CompTIA Network+: Fehlersuche im Netzwerk", en: "Backed by CompTIA Network+: network troubleshooting" } }
+      ]
+    },
+    {
       title: { de: "Server und Netzwerk", en: "Servers and networking" },
       items: [
         { label: "Windows Server", match: ["windows server"] },
