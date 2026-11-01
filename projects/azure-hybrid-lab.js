@@ -8,6 +8,19 @@ window.PORTFOLIO_PROJECTS.push({
   context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
   period:   { de: "2025 bis 2026", en: "2025 to 2026" },
 
+  overview: {
+    lead: { de: "Ich habe ein lokales Active Directory mit Entra ID und Azure verbunden, wie es im Konzern und in vielen KMU läuft, inklusive Dateiablage und virtuellen Desktops.", en: "I connected an on-premises Active Directory with Entra ID and Azure, the way it runs in my corporate group and many SMEs, including file storage and virtual desktops." },
+    facts: [
+      { value: "Hybrid", label: { de: "AD und Entra ID verbunden", en: "AD and Entra ID connected" } },
+      { value: "1", label: { de: "Domänencontroller in Azure", en: "domain controller in Azure" } },
+      { value: "Azure Files", label: { de: "mit AD Anmeldung und RBAC", en: "with AD sign-in and RBAC" } },
+      { value: "AVD", label: { de: "Session Host in der Domäne", en: "domain-joined session host" } }
+    ],
+    skills: {
+      de: ["Hybride Identität mit Entra Connect", "Azure Grundlagen: VNet, NSG, VMs", "Azure Files und Virtual Desktop", "Active Directory und DNS", "Typische Fehler selbst lösen"],
+      en: ["Hybrid identity with Entra Connect", "Azure basics: VNet, NSG, VMs", "Azure Files and Virtual Desktop", "Active Directory and DNS", "Solving typical issues myself"]
+    }
+  },
   text: {
     de: [
       "Hybrides Active Directory mit Entra ID und Azure ist in meinem Konzern im Einsatz. Im Lab habe ich eine solche Umgebung Schritt für Schritt selbst aufgebaut, wie sie auch viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu Dateiablage und virtuelle Desktops aus Azure. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom lokalen Active Directory bis in die Cloud."

@@ -291,3 +291,15 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 
 .copy-link{margin-top:.9rem;padding:.4rem .9rem;border:1px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--navy);font:inherit;font-size:.85rem;cursor:pointer}
 .copy-link:hover{background:var(--tint)}
+
+.ov-lead{font-size:1.0625rem;margin:0 0 1rem}
+.ov-facts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:0 0 1.1rem}
+.ov-fact{border:1px solid var(--rule);background:var(--tint);padding:.6rem .75rem;display:flex;flex-direction:column;gap:.1rem}
+.ov-num{font-family:var(--serif);font-size:1.5rem;line-height:1.1;color:var(--navy);font-weight:600}
+.ov-label{font-size:.8125rem;color:var(--muted)}
+@media (min-width:600px){.ov-facts{grid-template-columns:repeat(4,1fr)}}
+.ov-skills{list-style:none;margin:0 0 1.2rem;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.ov-skills li{font-size:.875rem;padding:.25rem .65rem;border:1px solid var(--navy);color:var(--navy);border-radius:999px}
+.ov-details{border-top:1px solid var(--rule);padding-top:.8rem;margin-top:.4rem}
+.ov-details>summary{cursor:pointer;font-weight:600;color:var(--navy);margin-bottom:.8rem}
+.ov-details>summary:focus-visible{outline:2px solid var(--navy);outline-offset:3px}

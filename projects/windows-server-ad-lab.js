@@ -8,6 +8,19 @@ window.PORTFOLIO_PROJECTS.push({
   context:  { de: "Praxis-Lab im Diplomlehrgang ICT System Engineer (SIW)", en: "Hands-on lab in the ICT System Engineer diploma program (SIW)" },
   period:   { de: "Oktober 2026", en: "October 2026" },
 
+  overview: {
+    lead: { de: "Ich habe eine komplette Windows Domäne mit Domänencontroller, DNS, DHCP und Gruppenrichtlinien aufgebaut, weitgehend mit PowerShell, und jeden Schritt nachgewiesen.", en: "I built a complete Windows domain with a domain controller, DNS, DHCP and group policies, largely with PowerShell, and verified every step." },
+    facts: [
+      { value: "1", label: { de: "Domänencontroller", en: "domain controller" } },
+      { value: "2", label: { de: "Clients in der Domäne", en: "clients joined to the domain" } },
+      { value: "2", label: { de: "Gruppenrichtlinien aktiv", en: "group policies applied" } },
+      { value: "4", label: { de: "Fehlerfälle gelöst", en: "issues solved" } }
+    ],
+    skills: {
+      de: ["Domäne aufbauen: AD DS, DNS, DHCP", "Gruppenrichtlinien einsetzen", "Automatisieren mit PowerShell", "Fehlersuche mit dcdiag und gpresult", "Clients in die Domäne aufnehmen"],
+      en: ["Building a domain: AD DS, DNS, DHCP", "Applying group policies", "Automating with PowerShell", "Troubleshooting with dcdiag and gpresult", "Joining clients to the domain"]
+    }
+  },
   text: {
     de: [
       "Ich habe eine Windows-Domäne aufgebaut, wie sie in vielen KMU läuft: ein Domänencontroller, der Anmeldung, Namensauflösung und Adressvergabe übernimmt, zwei Windows-Clients in der Domäne und Gruppenrichtlinien, die automatisch greifen. Jeden Schritt habe ich mit Werkzeugen wie dcdiag, nslookup, ipconfig und gpresult nachgewiesen."

@@ -8,6 +8,19 @@ window.PORTFOLIO_PROJECTS.push({
   context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
   period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
 
+  overview: {
+    lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID, Intune und Jira Service Desk aufgebaut und typische Support Fälle vom Onboarding bis zum Offboarding als Tickets gelöst.", en: "I built a Microsoft 365 tenant with Entra ID, Intune and a Jira service desk and solved typical support cases from onboarding to offboarding as tickets." },
+    facts: [
+      { value: "5", label: { de: "Testbenutzer", en: "test users" } },
+      { value: "1", label: { de: "Windows 11 Gerät in Intune", en: "Windows 11 device in Intune" } },
+      { value: "10", label: { de: "Tickets im Service Desk", en: "tickets in the service desk" } },
+      { value: "4", label: { de: "Admin Center im Einsatz", en: "admin centers in use" } }
+    ],
+    skills: {
+      de: ["Onboarding und Offboarding", "Anmeldeprobleme mit Logs lösen", "Lizenzen und Gruppen verwalten", "Geräte in Intune verwalten", "Tickets sauber dokumentieren"],
+      en: ["Onboarding and offboarding", "Solving sign-in problems with logs", "Managing licenses and groups", "Managing devices in Intune", "Documenting tickets cleanly"]
+    }
+  },
   text: {
     de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets."],
     en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets."]

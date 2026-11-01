@@ -308,7 +308,7 @@
     });
   }
   function searchText(p) {
-    return JSON.stringify([p.title, p.subtitle, p.tools, p.text, p.points, p.sections]).toLowerCase();
+    return JSON.stringify([p.title, p.subtitle, p.tools, p.text, p.points, p.sections, p.overview]).toLowerCase();
   }
 
   // skills: chips filter the project cards
@@ -566,15 +566,46 @@
           box.appendChild(head);
           var cols = el("div", "detail-cols");
           var main = el("div", "detail-main");
-          list(p.text).forEach(function (t) { var n = el("p", "", t); if (isTodo(t)) n.classList.add("todo"); main.appendChild(n); });
+          var body = main;
+          if (p.overview) {
+            var ov = p.overview;
+            if (ov.lead) {
+              var lead = el("p", "ov-lead");
+              lead.appendChild(el("strong", "", ui("overviewDid") + " "));
+              lead.appendChild(document.createTextNode(pick(ov.lead)));
+              main.appendChild(lead);
+            }
+            if (ov.facts && ov.facts.length) {
+              var fg = el("div", "ov-facts");
+              ov.facts.forEach(function (f) {
+                var c = el("div", "ov-fact");
+                c.appendChild(el("span", "ov-num", f.value));
+                c.appendChild(el("span", "ov-label", pick(f.label)));
+                fg.appendChild(c);
+              });
+              main.appendChild(fg);
+            }
+            var sk = list(ov.skills);
+            if (sk.length) {
+              main.appendChild(el("h4", "detail-sub", ui("overviewSkills")));
+              var sul = el("ul", "ov-skills");
+              sk.forEach(function (t) { sul.appendChild(el("li", "", t)); });
+              main.appendChild(sul);
+            }
+            var det = el("details", "ov-details");
+            det.appendChild(el("summary", "", ui("overviewDetails")));
+            main.appendChild(det);
+            body = det;
+          }
+          list(p.text).forEach(function (t) { var n = el("p", "", t); if (isTodo(t)) n.classList.add("todo"); body.appendChild(n); });
           var pts = list(p.points);
           if (pts.length) {
             var ul = el("ul", "points");
             pts.forEach(function (t) { var li = el("li", "", t); if (isTodo(t)) li.classList.add("todo"); ul.appendChild(li); });
-            main.appendChild(ul);
+            body.appendChild(ul);
           }
-          renderSections(main, p.sections);
-          text(main, "p", p.note, "note");
+          renderSections(body, p.sections);
+          text(body, "p", p.note, "note");
           cols.appendChild(main);
           var side = el("aside", "side"); var dl = el("dl");
           metaRow(dl, "labelContext", p.context);
