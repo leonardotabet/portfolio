@@ -10,8 +10,8 @@ window.PORTFOLIO_CERTIFICATES.push({
   verifyUrl: "https://www.credly.com/earner/earned/badge/cadbcd9d-cf7e-412d-97c4-296324facbd5",
 
   confirms: {
-    de: "Dass ich den Ablauf an einem Arbeitsplatz steuern und die täglichen Aufgaben optimieren kann, mit Hardware, Betriebssystemen, Netzwerk, Fehlersuche und Support.",
-    en: "That I can manage the flow of a workplace and optimize day-to-day activities, with hardware, operating systems, networking, troubleshooting and support."
+    de: "Dass ich den Ablauf an einem Arbeitsplatz steuern und die täglichen Aufgaben optimieren kann, mit Hardware, Betriebssystemen, Netzwerk, Fehlersuche und Support. Passende Berufsbilder laut CompTIA: Systems Administrator, IT Infrastructure Services Analyst und Technical Support Specialist.",
+    en: "That I can manage the flow of a workplace and optimize day-to-day activities, with hardware, operating systems, networking, troubleshooting and support. Matching occupations according to CompTIA: Systems Administrator, IT Infrastructure Services Analyst and Technical Support Specialist."
   },
   didThis: {
     de: "Die Designation entsteht aus zwei bestandenen Prüfungen: CompTIA A+ und CompTIA Network+.",
