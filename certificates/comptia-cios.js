@@ -10,8 +10,8 @@ window.PORTFOLIO_CERTIFICATES.push({
   verifyUrl: "https://www.credly.com/earner/earned/badge/cadbcd9d-cf7e-412d-97c4-296324facbd5",
 
   confirms: {
-    de: "Dass ich den IT-Betrieb im Alltag abdecken kann: Hardware, Betriebssysteme, Netzwerk, Fehlersuche und Support.",
-    en: "That I can cover everyday IT operations: hardware, operating systems, networking, troubleshooting and support."
+    de: "Dass ich den Ablauf an einem Arbeitsplatz steuern und die täglichen Aufgaben optimieren kann, mit Hardware, Betriebssystemen, Netzwerk, Fehlersuche und Support.",
+    en: "That I can manage the flow of a workplace and optimize day-to-day activities, with hardware, operating systems, networking, troubleshooting and support."
   },
   didThis: {
     de: "Die Designation entsteht aus zwei bestandenen Prüfungen: CompTIA A+ und CompTIA Network+.",
@@ -25,7 +25,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   detail: { certs: ["A+", "N+"] },
 
   skills: {
-    de: ["Hardware und Betriebssysteme", "Netzwerk-Technologien", "Fehlersuche und Support", "Sicherheit und Betriebsabläufe"],
-    en: ["Hardware and operating systems", "Networking technologies", "Troubleshooting and support", "Security and operational procedures"]
+    de: ["Cloud Networking", "Hardware-Konfiguration", "Hardware-Fehlersuche", "Help Desk", "Linux", "Mac Support", "Mobile Device Support", "Netzwerkmanagement", "Netzwerksicherheit", "Betriebssysteme", "Routing und Switching", "Software Defined Networking", "Software-Fehlersuche", "Backup und Wiederherstellung", "Systemadministration", "Technischer Support", "Virtualisierung"],
+    en: ["Cloud networking", "Hardware configuration", "Hardware troubleshooting", "Help desk", "Linux", "Mac support", "Mobile device support", "Network management", "Network security", "Operating systems", "Routing and switching", "Software defined networking", "Software troubleshooting", "System backup and recovery", "Systems administration", "Technical support", "Virtualization"]
   }
 });
