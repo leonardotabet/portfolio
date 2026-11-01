@@ -7,7 +7,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   fullName: { de: "Netzwerke aufbauen, betreiben und Fehler finden", en: "Building, running and troubleshooting networks" },
   issuer: "CompTIA",
   date: { de: "September 2026", en: "September 2026" },
-  verifyUrl: "TODO: öffentlicher Credly-Link",
+  verifyUrl: "https://www.credly.com/earner/earned/badge/b53d2f4d-bf05-4d11-83be-730d746722fa",
 
   confirms: {
     de: "Dass ich Netzwerke verstehe und betreuen kann: Adressierung, Switching, Routing, WLAN, Netzwerkdienste, Sicherheit und Fehlersuche.",
