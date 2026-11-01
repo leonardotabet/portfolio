@@ -34,7 +34,7 @@ window.PORTFOLIO_CERTIFICATES.push({
           "Virtualisierung mit VMware: Windows Server 2022 und Windows Clients aufgesetzt und betrieben",
           "IT-Betrieb (Operations): Geräte und Identitäten mit Microsoft Intune und Entra ID verwalten",
           "Sicherheit von Netzwerk und Infrastruktur",
-          "Projektmanagement: Vorgehen, Termin-, Ressourcen- und Kostenplanung, Problemlösung",
+          "Projektmanagement Grundlagen: Vorgehen, Scrum und agile Grundlagen, Termin-, Ressourcen- und Kostenplanung, Problemlösung",
           "Kommunikation: Präsentation, Verhandlung, aktives Zuhören, Hotline und First Level Support"
         ],
         en: [
@@ -45,7 +45,7 @@ window.PORTFOLIO_CERTIFICATES.push({
           "Virtualization with VMware: set up and ran Windows Server 2022 and Windows clients",
           "IT operations: managing devices and identities with Microsoft Intune and Entra ID",
           "Network and infrastructure security",
-          "Project management: approach, scheduling, resource and cost planning, problem solving",
+          "Project management fundamentals: approach, Scrum and agile basics, scheduling, resource and cost planning, problem solving",
           "Communication: presenting, negotiating, active listening, hotline and first level support"
         ]
       }

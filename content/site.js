@@ -122,6 +122,7 @@ window.SITE = {
         { label: "Power Automate", match: ["power automate"] },
         { label: "Jira Service Management", match: ["jira"] },
         { label: "Confluence", match: ["confluence"] },
+        { label: { de: "Scrum und agile Grundlagen", en: "Scrum and agile basics" }, cert: "DIP", hint: { de: "Belegt durch das SIW Diplom: Projektmanagement Grundlagen", en: "Backed by the SIW diploma: project management fundamentals" } },
         { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Betriebsabläufe nach ITIL", en: "Backed by CompTIA A+: ITIL-aligned operational procedures" } }
       ]
     }
