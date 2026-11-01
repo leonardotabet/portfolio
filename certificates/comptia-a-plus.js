@@ -7,7 +7,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   fullName: { de: "Grundlagen des IT-Supports, Core 1 und Core 2", en: "IT support fundamentals, Core 1 and Core 2" },
   issuer: "CompTIA",
   date: { de: "April 2026", en: "April 2026" },
-  verifyUrl: "TODO: öffentlicher Credly-Link",
+  verifyUrl: "https://www.credly.com/earner/earned/badge/dc972b55-8990-4b3b-9df6-0e07c904bf42",
 
   confirms: {
     de: "Dass ich Arbeitsplätze im IT-Support selbständig betreuen kann: Hardware, Betriebssysteme, Netzwerkanbindung, Sicherheit und systematische Fehlersuche.",
