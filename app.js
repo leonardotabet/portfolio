@@ -208,7 +208,7 @@
     if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
     try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   }
-  function projectUrl(id) { return location.origin + location.pathname + HASH_PREFIX + encodeURIComponent(id); }
+  function projectUrl(id) { return location.origin + location.pathname + "?lang=" + lang + HASH_PREFIX + encodeURIComponent(id); }
   function openDialog(build, opener, hashId) {
     var d = getDialog();
     d.textContent = "";
