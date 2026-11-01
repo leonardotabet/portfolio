@@ -7,7 +7,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   fullName: { de: "Microsoft Certified: Azure Fundamentals", en: "Microsoft Certified: Azure Fundamentals" },
   issuer: "Microsoft",
   date: { de: "Januar 2026", en: "January 2026" },
-  verifyUrl: "TODO: Link zum freigegebenen Microsoft Learn Transcript",
+  verifyUrl: "https://learn.microsoft.com/de-de/users/tabetleonardo-7157/credentials/c552d321ca03ad71",
 
   confirms: {
     de: "Dass ich die Grundlagen von Cloud und Microsoft Azure kenne: Dienste, Identität und Zugriff mit Entra ID, Sicherheit, Governance und Verwaltung.",
