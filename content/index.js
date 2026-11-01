@@ -9,6 +9,7 @@ window.PORTFOLIO_FILES = {
   certificates: [
     "comptia-a-plus",
     "comptia-network-plus",
+    "comptia-cios",
     "microsoft-az-900",
     "comptia-security-plus",
     "dipl-ict-system-engineer"
