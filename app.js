@@ -707,16 +707,23 @@
             head.appendChild(cp);
           }
           box.appendChild(head);
+          var hasTarget = !!(p.diagram && p.diagramTarget);
+          var tabs = null;
+          if (hasTarget) { tabs = el("div", "dia-tabs"); tabs.setAttribute("role", "group"); box.appendChild(tabs); }
           if (p.overview && p.overview.lead) {
-            var lead = el("p", "ov-lead");
+            var lead = el("p", "ov-lead cur-only");
             lead.appendChild(el("strong", "", ui("overviewDid") + " "));
             lead.appendChild(document.createTextNode(pick(p.overview.lead)));
             box.appendChild(lead);
           }
-          if (p.diagram && p.diagramTarget) {
+          if (p.target && p.target.lead) {
+            var tlead = el("p", "ov-lead tgt-only");
+            tlead.appendChild(el("strong", "", ui("targetDoing") + " "));
+            tlead.appendChild(document.createTextNode(pick(p.target.lead)));
+            box.appendChild(tlead);
+          }
+          if (hasTarget) {
             var dwrap = el("div", "dia-switch-wrap");
-            var tabs = el("div", "dia-tabs");
-            tabs.setAttribute("role", "group");
             var holder = el("div", "dia-holder");
             [["diagramNow", p.diagram], ["diagramTarget", p.diagramTarget]].forEach(function (pair, i) {
               var bt = el("button", "dia-tab", ui(pair[0]));
@@ -725,18 +732,43 @@
               bt.addEventListener("click", function () {
                 Array.prototype.forEach.call(tabs.children, function (x) { x.setAttribute("aria-pressed", "false"); });
                 bt.setAttribute("aria-pressed", "true");
+                box.classList.toggle("show-target", i === 1);
                 holder.textContent = "";
                 renderDiagram(holder, pair[1]);
               });
               tabs.appendChild(bt);
             });
-            dwrap.appendChild(tabs);
             dwrap.appendChild(holder);
             renderDiagram(holder, p.diagram);
             box.appendChild(dwrap);
           } else if (p.diagram) renderDiagram(box, p.diagram);
           var cols = el("div", "detail-cols");
-          var main = el("div", "detail-main");
+          var mainOuter = el("div", "detail-main");
+          var main = el("div", "cur-only");
+          mainOuter.appendChild(main);
+          if (p.target) {
+            var tm = el("div", "tgt-only");
+            var tg = p.target;
+            if (tg.facts && tg.facts.length) {
+              var tfg = el("div", "ov-facts");
+              tg.facts.forEach(function (f) {
+                var c = el("div", "ov-fact");
+                c.appendChild(el("span", "ov-num", f.value));
+                c.appendChild(el("span", "ov-label", pick(f.label)));
+                tfg.appendChild(c);
+              });
+              tm.appendChild(tfg);
+            }
+            var tsk = list(tg.skills);
+            if (tsk.length) {
+              tm.appendChild(el("h4", "detail-sub", ui("targetSkills")));
+              var tsl = el("ul", "ov-skills");
+              tsk.forEach(function (t) { tsl.appendChild(el("li", "", t)); });
+              tm.appendChild(tsl);
+            }
+            renderSections(tm, tg.sections);
+            mainOuter.appendChild(tm);
+          }
           var body = main;
           if (p.overview) {
             var ov = p.overview;
@@ -771,7 +803,7 @@
           }
           renderSections(body, p.sections);
           text(body, "p", p.note, "note");
-          cols.appendChild(main);
+          cols.appendChild(mainOuter);
           var side = el("aside", "side"); var dl = el("dl");
           metaRow(dl, "labelContext", p.context);
           metaRow(dl, "labelPeriod", p.period);
@@ -779,7 +811,9 @@
           side.appendChild(dl); cols.appendChild(side);
           box.appendChild(cols);
           var shots = (p.images || []).filter(function (im) { return im && usableUrl(im.src); });
-          if (shots.length) renderShots(box, shots); else if (EDIT) todoLine(box, ui("todoScreenshots"));
+          var shotBox = el("div", "cur-only");
+          box.appendChild(shotBox);
+          if (shots.length) renderShots(shotBox, shots); else if (EDIT) todoLine(shotBox, ui("todoScreenshots"));
         }
       }));
     });
@@ -821,7 +855,7 @@
             main.appendChild(b);
           });
           renderSections(main, c.sections);
-          cols.appendChild(main);
+          cols.appendChild(mainOuter);
           var side = el("aside", "side"); var dl = el("dl");
           metaRow(dl, "labelDate", c.date);
           metaRow(dl, "labelIssuer", c.issuer);

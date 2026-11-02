@@ -996,6 +996,42 @@ window.PORTFOLIO_PROJECTS.push({
       }
     ]
   },
+  target: {
+    lead: { de: "Ich baue das Lab zu einer Endpoint-Umgebung aus, wie sie in Konzernen läuft, und übe damit gezielt für die Microsoft MD-102 (Endpoint Administrator).", en: "I am extending the lab into an endpoint environment like the ones corporate groups run, and use it to practice specifically for Microsoft MD-102 (Endpoint Administrator)." },
+    facts: [
+      { value: "7", label: { de: "VMs auf Hyper-V", en: "VMs on Hyper-V" } },
+      { value: "1", label: { de: "Domäne für Hybrid Join", en: "domain for hybrid join" } },
+      { value: "6", label: { de: "Lab-Phasen", en: "lab phases" } },
+      { value: "5", label: { de: "Prüfungsbereiche MD-102", en: "MD-102 exam areas" } }
+    ],
+    skills: {
+      de: ["Autopilot und Hybrid Join", "Compliance und Conditional Access", "Win32-Apps mit PSADT", "Defender for Endpoint und App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automatisierung mit Graph und Remediations"],
+      en: ["Autopilot and hybrid join", "Compliance and Conditional Access", "Win32 apps with PSADT", "Defender for Endpoint and App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automation with Graph and remediations"]
+    },
+    sections: [
+      {
+        title: { de: "Ablauf in 6 Phasen", en: "Plan in 6 phases" },
+        points: {
+          de: [
+            "Phase 1, Identität und Compliance: Intune-Rollen mit Scope Tags, Multi Admin Approval, Windows LAPS, Windows Hello for Business, Conditional Access mit konformem Gerät",
+            "Phase 2, Autopilot: Profil mit Namensvorlage, Enrollment Status Page, Device Preparation, Hybrid Join über DC01",
+            "Phase 3, Konfiguration und Updates: ADMX-Import, Assignment Filter, Update Rings, Feature Updates, Autopatch",
+            "Phase 4, Endpoint Security: Defender for Endpoint, ASR, BitLocker, Security Baselines, App Control for Business",
+            "Phase 5, Apps: Win32-Apps mit PSADT, Microsoft 365 Apps, App-Schutz und App-Konfiguration fürs Handy",
+            "Phase 6, Intune Suite und Automatisierung: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph-Berichte, Remediations"
+          ],
+          en: [
+            "Phase 1, identity and compliance: Intune roles with scope tags, multi admin approval, Windows LAPS, Windows Hello for Business, Conditional Access with a compliant device",
+            "Phase 2, Autopilot: profile with name template, enrollment status page, device preparation, hybrid join through DC01",
+            "Phase 3, configuration and updates: ADMX import, assignment filters, update rings, feature updates, Autopatch",
+            "Phase 4, endpoint security: Defender for Endpoint, ASR, BitLocker, security baselines, App Control for Business",
+            "Phase 5, apps: Win32 apps with PSADT, Microsoft 365 Apps, app protection and app configuration for the phone",
+            "Phase 6, Intune Suite and automation: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph reports, remediations"
+          ]
+        }
+      }
+    ]
+  },
   text: {
     de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "Das Lab hat zwei Ziele: Ich verstehe die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Und es ist meine Praxis für die Microsoft MD-102 (Endpoint Administrator). Deshalb baue ich es laufend aus, mit Autopilot, Endpoint Security, App-Verteilung und Automatisierung."],
     en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "The lab has two goals: I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. And it is my hands-on preparation for Microsoft MD-102 (Endpoint Administrator). That is why I keep extending it with Autopilot, endpoint security, app deployment and automation."]

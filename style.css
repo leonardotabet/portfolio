@@ -346,3 +346,8 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .dia-tab+.dia-tab{border-left:1px solid var(--navy)}
 .dia-tab[aria-pressed="true"]{background:var(--navy);color:#fff}
 .dia-tab:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+
+.tgt-only{display:none}
+.show-target .tgt-only{display:block}
+.show-target .cur-only{display:none}
+.show-target p.tgt-only{display:block}
