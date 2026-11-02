@@ -425,21 +425,6 @@ window.PORTFOLIO_PROJECTS.push({
           "Regional vCPU quota reached: cleaned up resources and sized the session host to fit"
         ]
       }
-    },
-    {
-      title: { de: "Nächster Ausbau", en: "Next expansion" },
-      points: {
-        de: [
-          "GPO-Migration nach Intune: bestehende Gruppenrichtlinien mit Group Policy Analytics auswerten und in den Settings Catalog überführen",
-          "Hybrid Join der Clients, Intune-Registrierung und Compliance",
-          "Vergleich GPO und Intune dokumentieren"
-        ],
-        en: [
-          "GPO migration to Intune: analyze existing group policies with Group Policy Analytics and move them to the Settings Catalog",
-          "Hybrid join of the clients, Intune enrollment and compliance",
-          "Document the comparison between GPO and Intune"
-        ]
-      }
     }
   ],
   note: { de: "", en: "" },

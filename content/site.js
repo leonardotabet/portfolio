@@ -57,6 +57,8 @@ window.SITE = {
       items: [
         { label: "Entra ID", match: ["entra"] },
         { label: "Microsoft 365", match: ["microsoft 365", "sharepoint", "teams"] },
+        { label: "Microsoft Teams", match: ["teams"] },
+        { label: "SharePoint", match: ["sharepoint"] },
         { label: "Exchange Online", match: ["exchange online"] },
         { label: "Conditional Access", match: ["conditional access"] },
         { label: "Intune", match: ["intune"] },
@@ -70,18 +72,19 @@ window.SITE = {
         { label: { de: "Benutzer und Gruppen", en: "Users and groups" }, match: ["benutzer", "gruppen", "users and groups", "user groups"] },
         { label: { de: "Lizenzverwaltung", en: "License management" }, match: ["lizenz", "licenses", "license"] },
         { label: "MFA", match: ["mfa"] },
+        { label: { de: "Berechtigungen in Dynamics 365", en: "Dynamics 365 permissions" }, match: ["dynamics 365"] },
         { label: { de: "Passwort-Reset", en: "Password reset" }, match: ["kennwortzurücksetzung", "password reset"] }
       ]
     },
     {
       title: { de: "Support und Troubleshooting", en: "Support and troubleshooting" },
       items: [
-        { label: { de: "Fehlersuche", en: "Troubleshooting" }, match: ["troubleshooting", "fehlersuche", "eingegrenzt", "traced down"] },
-        { label: { de: "Anmeldeprobleme und Logs", en: "Sign-in issues and logs" }, match: ["sign-in-logs", "sign-in logs"] },
-        { label: { de: "Geräte-Support", en: "Device support" }, match: ["compliance"] },
+        { label: "Troubleshooting", match: ["troubleshooting", "fehlersuche", "eingegrenzt", "traced down"] },
+        { label: { de: "1st und 2nd Level Support", en: "1st and 2nd level support" }, match: ["sign-in-logs", "sign-in logs", "2nd level"] },
+        { label: { de: "Client-Support", en: "Client support" }, match: ["compliance"] },
         { label: { de: "Service Desk und Tickets", en: "Service desk and tickets" }, match: ["service desk", "ticket"] },
-        { label: { de: "Schulung und Doku", en: "Training and docs" }, match: ["geschult", "trained the team"] },
-        { label: { de: "Hardware und Windows", en: "Hardware and Windows" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Hardware- und Betriebssystem-Fehlersuche", en: "Backed by CompTIA A+: hardware and operating system troubleshooting" } },
+        { label: { de: "Dokumentation und Anwenderschulung", en: "Documentation and user training" }, match: ["geschult", "trained the team", "dokumentation", "documentation"] },
+        { label: { de: "Hardware und Peripheriegeräte", en: "Hardware and peripherals" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Hardware- und Betriebssystem-Fehlersuche", en: "Backed by CompTIA A+: hardware and operating system troubleshooting" } },
         { label: { de: "Netzwerk-Fehlersuche", en: "Network troubleshooting" }, cert: "N+", hint: { de: "Belegt durch CompTIA Network+: Fehlersuche im Netzwerk", en: "Backed by CompTIA Network+: network troubleshooting" } }
       ]
     },
@@ -97,9 +100,9 @@ window.SITE = {
         { label: "VLAN", match: ["vlan"] },
         { label: { de: "Routing und Switching", en: "Routing and switching" }, match: ["router", "switch", "routing"] },
         { label: "VPN", match: ["vpn"] },
-        { label: "Cisco Packet Tracer", cert: "N+" },
         { label: "Wireshark", cert: "N+" },
-        { label: "Firewall", match: ["firewall"] }
+        { label: "Firewall", match: ["firewall"] },
+        { label: { de: "Telefonie", en: "Telephony" }, match: ["telefonie", "telephony"] }
       ]
     },
     {
@@ -110,8 +113,7 @@ window.SITE = {
         { label: "Azure Files", match: ["azure files"] },
         { label: "Azure Virtual Desktop", match: ["azure virtual desktop"] },
         { label: "Hyper-V", match: ["hyper-v"] },
-        { label: "VMware", match: ["vmware"] },
-        { label: { de: "GPO-Migration nach Intune", en: "GPO migration to Intune" }, match: ["gpo-migration", "gpo migration"] }
+        { label: "VMware", match: ["vmware"] }
       ]
     },
     {
@@ -123,7 +125,7 @@ window.SITE = {
         { label: "Jira Service Management", match: ["jira"] },
         { label: "Confluence", match: ["confluence"] },
         { label: { de: "Scrum und agile Grundlagen", en: "Scrum and agile basics" }, cert: "DIP", hint: { de: "Belegt durch das SIW Diplom: Projektmanagement Grundlagen", en: "Backed by the SIW diploma: project management fundamentals" } },
-        { label: { de: "ITIL-Prozesse", en: "ITIL processes" }, cert: "A+", hint: { de: "Belegt durch CompTIA A+: Betriebsabläufe nach ITIL", en: "Backed by CompTIA A+: ITIL-aligned operational procedures" } }
+        { label: "ITIL", match: ["itil"] }
       ]
     }
   ],

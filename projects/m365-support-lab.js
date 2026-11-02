@@ -1041,7 +1041,6 @@ window.PORTFOLIO_PROJECTS.push({
       "Fünf Testbenutzer in dynamischen Gruppen, Lizenzen werden über Gruppen zugewiesen",
       "Eine virtuelle Windows 11 Maschine (Hyper-V), die Entra ID beitritt und sich in Intune registriert",
       "Compliance-Richtlinie, Konfigurationsprofil und App-Zuweisung in Intune",
-      "GPO-Migration nach Intune: Gruppenrichtlinien mit Group Policy Analytics auswerten und im Settings Catalog als Richtlinien umsetzen",
       "MFA, Self-Service-Kennwortzurücksetzung und eine Conditional-Access-Richtlinie im Modus „Nur Bericht“",
       "Anmeldeprobleme mit Sign-in-Logs und Audit-Logs eingrenzen und Fehlercodes lesen",
       "Offboarding in der richtigen Reihenfolge: Anmeldung sperren, Postfach sichern, Gerät zurücksetzen, Lizenz entfernen",
@@ -1051,7 +1050,6 @@ window.PORTFOLIO_PROJECTS.push({
       "Five test users in dynamic groups, with licenses assigned by group",
       "A Windows 11 virtual machine (Hyper-V) that joins Entra ID and enrolls in Intune",
       "A compliance policy, a configuration profile and an app assignment in Intune",
-      "GPO migration to Intune: analyze group policies with Group Policy Analytics and rebuild them as Settings Catalog policies",
       "MFA, self-service password reset and a Conditional Access policy in report-only mode",
       "Tracing sign-in problems with sign-in logs and audit logs and reading error codes",
       "Offboarding in the right order: block sign-in, secure the mailbox, wipe the device, remove the license",
@@ -1080,7 +1078,7 @@ window.PORTFOLIO_PROJECTS.push({
     en: "Continuously extended: each building block gets screenshots and a short write-up."
   },
 
-  tools: ["Entra ID", "Intune", "Microsoft 365 Admin Center", "Exchange Online", "Conditional Access", "Group Policy Analytics", "Jira Service Management", "Hyper-V"],
+  tools: ["Entra ID", "Intune", "Microsoft 365 Admin Center", "Exchange Online", "Conditional Access", "Jira Service Management", "Hyper-V"],
 
   images: [
     { src: "images/m365-support-lab/01-windows-11-vm.webp", alt: { de: "Windows 11 VM in Hyper-V beim ersten Einrichtungsbildschirm", en: "Windows 11 VM in Hyper-V at the first setup screen" }, caption: { de: "Test-Laptop: Windows 11 Enterprise als VM in Hyper-V, bereit für die Intune-Anmeldung", en: "Test laptop: Windows 11 Enterprise as a VM in Hyper-V, ready for Intune enrollment" } },
