@@ -705,7 +705,7 @@
 
     var ol = el("ol", "steps");
     steps.forEach(function (s) {
-      var li = el("li", "step reveal" + (s.open ? " open" : "") + (s.detail ? " has-detail" : ""));
+      var li = el("li", "step reveal" + (s.open ? " open" : "") + (s.current ? " current" : "") + (s.detail ? " has-detail" : ""));
       li.setAttribute("data-i", s._i);
       var dot = el("span", "dot");
       dot.setAttribute("aria-hidden", "true");
@@ -719,6 +719,7 @@
         head.appendChild(w);
       }
       text(head, "span", s.tag, "tag");
+      if (s.current) head.appendChild(el("span", "now-pill", ui("currentNow")));
       card.appendChild(head);
       text(card, "h3", s.title);
       text(card, "p", s.text);

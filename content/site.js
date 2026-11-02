@@ -185,7 +185,8 @@ window.SITE = {
       }
     },
     {
-      when: { de: "2026", en: "2026" },
+      current: true,
+      when: { de: "2026 bis heute", en: "2026 to today" },
       tag: { de: "Konzern-IT", en: "Corporate IT" },
       title: { de: "IT im Konzernumfeld", en: "IT within a corporate group" },
       text: { de: "Schweizer Uhrenunternehmen in einem internationalen Konzern. Microsoft 365, Azure, hybrides Active Directory, Intune für iPhone und iPad, Netzwerk und Telefonie.", en: "Swiss watch company within an international corporate group. Microsoft 365, Azure, hybrid Active Directory, Intune for iPhone and iPad, networking and telephony." },
@@ -282,6 +283,7 @@ window.SITE = {
     overviewDid: { de: "Was ich gemacht habe:", en: "What I did:" },
     overviewSkills: { de: "Das kann ich jetzt", en: "What I can do now" },
     overviewDetails: { de: "Details und Ablauf anzeigen", en: "Show details and steps" },
+    currentNow: { de: "Aktuell", en: "Current" },
     copyLink: { de: "Link zu diesem Projekt kopieren", en: "Copy link to this project" },
     linkCopied: { de: "Link kopiert", en: "Link copied" },
     labelDate: { de: "Datum", en: "Date" },

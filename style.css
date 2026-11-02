@@ -303,3 +303,9 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .ov-details{border-top:1px solid var(--rule);padding-top:.8rem;margin-top:.4rem}
 .ov-details>summary{cursor:pointer;font-weight:600;color:var(--navy);margin-bottom:.8rem}
 .ov-details>summary:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+.now-pill{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;color:#1F8A4C;border:1px solid #1F8A4C;padding:.05rem .5rem;border-radius:999px;margin-left:auto}
+.now-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:#1F8A4C;box-shadow:0 0 0 3px rgba(31,138,76,.2)}
+.step.current .card{border-color:#1F8A4C;box-shadow:inset 3px 0 0 #1F8A4C}
+.step.current .dot{background:#1F8A4C;border-color:#1F8A4C}
+@media (prefers-reduced-motion:no-preference){.now-pill::before{animation:pulse 2.4s ease-in-out infinite}}
