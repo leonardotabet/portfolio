@@ -34,16 +34,14 @@ window.PORTFOLIO_CERTIFICATES.push({
           "Service Requests: Standardanfragen wie neue Benutzer oder Hardware über klare, wiederholbare Abläufe erledigen",
           "Change Management: Änderungen planen, freigeben lassen, mit Rückfallplan umsetzen und festhalten",
           "Problem Management: bei wiederkehrenden Fehlern die Ursache beheben statt nur das Symptom",
-          "Knowledge Management: Lösungen in der Wissensdatenbank dokumentieren, wie ich es in Confluence mache",
-          "Nächstes Ziel: die Zertifizierung ITIL Foundation"
+          "Knowledge Management: Lösungen in der Wissensdatenbank dokumentieren, wie ich es in Confluence mache"
         ],
         en: [
           "Incident management: log incidents as tickets, prioritize by impact and urgency, resolve and close them properly",
           "Service requests: handle standard requests such as new users or hardware through clear, repeatable workflows",
           "Change management: plan changes, get approval, implement with a rollback plan and record them",
           "Problem management: fix the root cause of recurring issues instead of only the symptom",
-          "Knowledge management: document solutions in the knowledge base, as I do in Confluence",
-          "Next goal: the ITIL Foundation certification"
+          "Knowledge management: document solutions in the knowledge base, as I do in Confluence"
         ]
       }
     }
