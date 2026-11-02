@@ -855,7 +855,7 @@
             main.appendChild(b);
           });
           renderSections(main, c.sections);
-          cols.appendChild(mainOuter);
+          cols.appendChild(main);
           var side = el("aside", "side"); var dl = el("dl");
           metaRow(dl, "labelDate", c.date);
           metaRow(dl, "labelIssuer", c.issuer);
