@@ -125,7 +125,7 @@ window.SITE = {
         { label: "Jira Service Management", match: ["jira"] },
         { label: "Confluence", match: ["confluence"] },
         { label: { de: "Scrum und agile Grundlagen", en: "Scrum and agile basics" }, cert: "DIP", hint: { de: "Belegt durch das SIW Diplom: Projektmanagement Grundlagen", en: "Backed by the SIW diploma: project management fundamentals" } },
-        { label: "ITIL", match: ["itil"] }
+        { label: { de: "Incident- und Change-Management", en: "Incident and change management" }, match: ["incidents, service requests", "incidents and service requests", "escalated incidents"] }
       ]
     }
   ],
@@ -202,7 +202,7 @@ window.SITE = {
             "Zugriffe über Entra ID Gruppen und Berechtigungen im Dynamics 365 ERP verwaltet",
             "Gemeinsam mit HR beim Onboarding und Offboarding von Mitarbeitenden mitgewirkt",
             "ERP-System auf Hyper-V ohne Datenverlust wiederhergestellt",
-            "Tickets und Changes über die Prozesse des Konzerns eskaliert, nach ITIL",
+            "Incidents, Service Requests und Changes über die Prozesse des Konzerns erfasst und eskaliert",
             "Foto-Dokumentation der Uhren mit Power Apps, Power Automate und SharePoint neu aufgebaut, inklusive Schulung"
           ],
           en: [
@@ -213,7 +213,7 @@ window.SITE = {
             "Managed access through Entra ID groups and permissions in the Dynamics 365 ERP",
             "Worked with HR on onboarding and offboarding of employees",
             "Restored the ERP system on Hyper-V without data loss",
-            "Escalated tickets and changes through the group processes, following ITIL",
+            "Logged and escalated incidents, service requests and changes through the group processes",
             "Rebuilt the watch photo documentation with Power Apps, Power Automate and SharePoint, including training"
           ]
         },
