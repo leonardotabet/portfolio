@@ -510,13 +510,18 @@
             activeSkill = (activeSkill && activeSkill.key === key) ? null : { key: key, label: label, terms: terms };
             applySkillFilter(!!activeSkill);
           });
-          var n = el("span", "skill-count", String(count));
-          n.setAttribute("aria-label", count + " " + ui("navProjects"));
+          var total = count + pathCount(terms);
+          var n = el("span", "skill-count", String(total));
+          n.setAttribute("aria-label", total + " " + ui("skillUses"));
           chip.appendChild(n);
         } else if (pathCount(terms)) {
           chip = el("button", "skill-chip", label);
           chip.type = "button";
           chip.title = ui("pathSkillHint");
+          var pc = pathCount(terms);
+          var pn = el("span", "skill-count", String(pc));
+          pn.setAttribute("aria-label", pc + " " + ui("skillUses"));
+          chip.appendChild(pn);
           (function (c) { c.addEventListener("click", function () { showPath({ label: label, terms: terms }); }); })(chip);
         } else {
           chip = el("span", "skill-chip static", label);

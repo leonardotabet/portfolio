@@ -293,6 +293,7 @@ window.SITE = {
     diagramTarget: { de: "Ziel: MD-102 Lab", en: "Target: MD-102 lab" },
     targetDoing: { de: "Was ich aufbaue:", en: "What I am building:" },
     targetSkills: { de: "Das übe ich hier", en: "What I practice here" },
+    skillUses: { de: "Projekte und Stationen", en: "projects and career steps" },
     copyLink: { de: "Link zu diesem Projekt kopieren", en: "Copy link to this project" },
     linkCopied: { de: "Link kopiert", en: "Link copied" },
     labelDate: { de: "Datum", en: "Date" },
