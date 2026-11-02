@@ -81,6 +81,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "trained"
           ]
+        },
+        "details": {
+          "de": [
+            "Das Versandteam fotografiert jede Uhr vor dem Versand",
+            "Von mir geschult, mit Anleitung in Confluence"
+          ],
+          "en": [
+            "The shipping team photographs every watch before shipping",
+            "Trained by me, with a guide in Confluence"
+          ]
         }
       },
       {
@@ -102,6 +112,18 @@ window.PORTFOLIO_PROJECTS.push({
             "Serial number by camera",
             "Take photos"
           ]
+        },
+        "details": {
+          "de": [
+            "Power App liest die Seriennummer mit der Kamera",
+            "Fotos werden direkt der richtigen Uhr zugeordnet",
+            "Aufwand pro Uhr halbiert"
+          ],
+          "en": [
+            "The Power App reads the serial number with the camera",
+            "Photos are linked to the right watch right away",
+            "Effort per watch cut in half"
+          ]
         }
       },
       {
@@ -120,6 +142,18 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Storage per serial number"
+          ]
+        },
+        "details": {
+          "de": [
+            "Ablage pro Seriennummer in SharePoint",
+            "Ersetzt eine einzelne OneNote-Datei ohne Sicherung",
+            "Jedes Foto ist wiederauffindbar"
+          ],
+          "en": [
+            "Storage per serial number in SharePoint",
+            "Replaces a single OneNote file without backup",
+            "Every photo can be found again"
           ]
         }
       },
@@ -140,6 +174,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "automatic backup"
           ]
+        },
+        "details": {
+          "de": [
+            "Power Automate sichert neue Fotos automatisch",
+            "Keine manuelle Sicherung mehr nötig"
+          ],
+          "en": [
+            "Power Automate backs up new photos automatically",
+            "No more manual backups needed"
+          ]
         }
       },
       {
@@ -158,6 +202,18 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Access for authorized users only"
+          ]
+        },
+        "details": {
+          "de": [
+            "Zugriff über Teams",
+            "Berechtigungen über Benutzergruppen in Entra ID",
+            "Nur berechtigte Personen sehen die Fotos"
+          ],
+          "en": [
+            "Access through Teams",
+            "Permissions through user groups in Entra ID",
+            "Only authorized people can see the photos"
           ]
         }
       },
@@ -179,6 +235,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Guide",
             "Training material"
+          ]
+        },
+        "details": {
+          "de": [
+            "Dokumentation des neuen Ablaufs in Confluence",
+            "Grundlage für die Schulung des Teams"
+          ],
+          "en": [
+            "Documentation of the new process in Confluence",
+            "Basis for training the team"
           ]
         }
       }

@@ -81,6 +81,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Network rack · patching and maintenance"
           ]
+        },
+        "details": {
+          "de": [
+            "Cisco Switches im Netzwerkrack",
+            "Patchen und Wartung vor Ort"
+          ],
+          "en": [
+            "Cisco switches in the network rack",
+            "Patching and maintenance on site"
+          ]
         }
       },
       {
@@ -99,6 +109,14 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Group Wi-Fi"
+          ]
+        },
+        "details": {
+          "de": [
+            "Cisco Access Points im Konzernnetz"
+          ],
+          "en": [
+            "Cisco access points in the group network"
           ]
         }
       },
@@ -119,6 +137,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Firewall changes"
           ]
+        },
+        "details": {
+          "de": [
+            "Firewall-Freigaben laufen über das Netzwerkteam des Konzerns",
+            "Jede Anfrage sauber begründet und dokumentiert"
+          ],
+          "en": [
+            "Firewall changes go through the group's network team",
+            "Every request clearly justified and documented"
+          ]
         }
       },
       {
@@ -137,6 +165,20 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Support · requests · docs in Confluence"
+          ]
+        },
+        "details": {
+          "de": [
+            "Netzwerk mit VLAN, DHCP, Firewall und WLAN betreut",
+            "Druckerprobleme im WLAN bis zur Ursache im Netzwerk eingegrenzt",
+            "Telefonie-Ausfall über Ports und Subnetze gelöst",
+            "Dokumentation in Confluence"
+          ],
+          "en": [
+            "Looked after the network with VLAN, DHCP, firewall and Wi-Fi",
+            "Traced Wi-Fi printing problems to their cause in the network",
+            "Solved a phone outage through ports and subnets",
+            "Documentation in Confluence"
           ]
         }
       },
@@ -157,6 +199,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Controller and access points"
           ]
+        },
+        "details": {
+          "de": [
+            "TP-Link Omada Controller mit Access Points",
+            "Internes WLAN ausserhalb des Konzernnetzes"
+          ],
+          "en": [
+            "TP-Link Omada controller with access points",
+            "Internal Wi-Fi outside the group network"
+          ]
         }
       },
       {
@@ -168,6 +220,14 @@ window.PORTFOLIO_PROJECTS.push({
         "title": {
           "de": "Mitarbeitende",
           "en": "Staff"
+        },
+        "details": {
+          "de": [
+            "WLAN für Mitarbeitende, getrennt vom Gäste-WLAN"
+          ],
+          "en": [
+            "Wi-Fi for staff, separated from the guest Wi-Fi"
+          ]
         }
       },
       {
@@ -179,6 +239,14 @@ window.PORTFOLIO_PROJECTS.push({
         "title": {
           "de": "Gäste",
           "en": "Guests"
+        },
+        "details": {
+          "de": [
+            "Eigenes WLAN für Gäste, getrennt vom Mitarbeitenden-WLAN"
+          ],
+          "en": [
+            "Separate Wi-Fi for guests, separated from the staff Wi-Fi"
+          ]
         }
       },
       {
@@ -198,6 +266,16 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Ports · subnets"
           ]
+        },
+        "details": {
+          "de": [
+            "Telefonie hinter einer Zyxel Firewall",
+            "Ausfall über Ports und Subnetze eingegrenzt und gelöst"
+          ],
+          "en": [
+            "Telephony behind a Zyxel firewall",
+            "Outage narrowed down and solved through ports and subnets"
+          ]
         }
       },
       {
@@ -216,6 +294,14 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Telephony"
+          ]
+        },
+        "details": {
+          "de": [
+            "Telefone der Mitarbeitenden"
+          ],
+          "en": [
+            "Phones of the employees"
           ]
         }
       }

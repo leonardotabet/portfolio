@@ -618,10 +618,36 @@
         svText(labels, lx, ly, lab, { "font-size": 10.5, "text-anchor": "middle", fill: "#1B2432", stroke: "#fff", "stroke-width": 4, "paint-order": "stroke", "stroke-linejoin": "round" });
       }
     });
+    var panel = el("div", "dia-panel");
+    panel.setAttribute("aria-live", "polite");
+    var selected = null;
+    function showNode(n, g, scroll) {
+      if (selected) selected.classList.remove("on");
+      selected = g; g.classList.add("on");
+      panel.textContent = "";
+      panel.classList.add("filled");
+      var hd = el("div", "dia-panel-head");
+      hd.appendChild(el("span", "dia-dot")).style.background = (DIA_KIND[n.kind] || DIA_KIND.server)[0];
+      hd.appendChild(el("h4", "", pick(n.title)));
+      panel.appendChild(hd);
+      var ul = el("ul", "points");
+      list(n.details).forEach(function (t) { ul.appendChild(el("li", "", t)); });
+      panel.appendChild(ul);
+      if (scroll && panel.scrollIntoView && window.innerWidth < 760) panel.scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+    }
     (d.nodes || []).forEach(function (n) {
       var k = DIA_KIND[n.kind] || DIA_KIND.server;
-      var g = sv("g", {}, svg);
-      sv("rect", { x: n.x, y: n.y, width: n.w, height: n._h, rx: 7, fill: "#fff", stroke: "#C9D2DD", "stroke-width": 1.2 }, g);
+      var g = sv("g", { "class": "dia-node" }, svg);
+      var hasDetails = list(n.details).length > 0;
+      if (hasDetails) {
+        g.setAttribute("class", "dia-node clickable");
+        g.setAttribute("role", "button");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("aria-label", pick(n.title) + ": " + ui("diagramShow"));
+        g.addEventListener("click", function () { showNode(n, g, true); });
+        g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showNode(n, g, true); } });
+      }
+      sv("rect", { "class": "dia-box", x: n.x, y: n.y, width: n.w, height: n._h, rx: 7, fill: "#fff", stroke: "#C9D2DD", "stroke-width": 1.2 }, g);
       sv("rect", { x: n.x, y: n.y + 6, width: 3.5, height: n._h - 12, rx: 1.5, fill: k[0] }, g);
       var ic = sv("g", { transform: "translate(" + (n.x + 13) + " " + (n.y + 12) + ")" }, g);
       sv("path", { d: k[1], fill: "none", stroke: k[0], "stroke-width": 1.5, "stroke-linecap": "round", "stroke-linejoin": "round" }, ic);
@@ -629,10 +655,18 @@
       list(n.lines).forEach(function (ln, i) {
         svText(g, n.x + 14, n.y + 45 + i * 15, ln, { "font-size": 11.5, fill: "#516074" });
       });
+      if (hasDetails) {
+        var bx = n.x + n.w - 13, by = n.y + 13;
+        sv("circle", { "class": "dia-plus", cx: bx, cy: by, r: 7.5, fill: "#EEF2F7", stroke: "#C9D2DD" }, g);
+        sv("path", { d: "M" + (bx - 3.5) + " " + by + "h7M" + bx + " " + (by - 3.5) + "v7", stroke: "#12284B", "stroke-width": 1.6, "stroke-linecap": "round" }, g);
+      }
     });
     svg.appendChild(labels);
     scroller.appendChild(svg);
+    fig.appendChild(el("p", "dia-hint", ui("diagramHint")));
     fig.appendChild(scroller);
+    panel.appendChild(el("p", "dia-empty", ui("diagramEmpty")));
+    fig.appendChild(panel);
     var cap = pick(d.caption);
     if (cap) fig.appendChild(el("figcaption", "", cap));
     box.appendChild(fig);

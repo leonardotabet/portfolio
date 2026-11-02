@@ -63,6 +63,20 @@ window.PORTFOLIO_PROJECTS.push({
             "64 GB DDR5-6000 (EXPO)",
             "NVMe · air cooling"
           ]
+        },
+        "details": {
+          "de": [
+            "AMD Ryzen 9 9900X, 12 Kerne und 24 Threads",
+            "64 GB DDR5-6000 CL30, EXPO aktiv, Timings 30, 36, 36, 76",
+            "NVMe, mit GPT initialisiert und als NTFS Volume eingerichtet",
+            "Luftkühlung, gedämmtes Gehäuse, AM5 Plattform zum Aufrüsten"
+          ],
+          "en": [
+            "AMD Ryzen 9 9900X, 12 cores and 24 threads",
+            "64 GB DDR5-6000 CL30, EXPO active, timings 30, 36, 36, 76",
+            "NVMe, initialised with GPT and set up as an NTFS volume",
+            "Air cooling, sound-dampened case, AM5 platform for upgrades"
+          ]
         }
       },
       {
@@ -83,6 +97,18 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Hyper-V host",
             "BIOS and EXPO set up"
+          ]
+        },
+        "details": {
+          "de": [
+            "Windows 11 Pro als Hyper-V Host",
+            "Ohne LAN eingerichtet: WLAN-Treiber im Setup vom USB-Stick geladen",
+            "BIOS 1681 mit EXPO-Profil"
+          ],
+          "en": [
+            "Windows 11 Pro as Hyper-V host",
+            "Set up without LAN: Wi-Fi driver loaded from the USB stick during setup",
+            "BIOS 1681 with EXPO profile"
           ]
         }
       },
@@ -105,6 +131,18 @@ window.PORTFOLIO_PROJECTS.push({
             "Windows 11 for Intune",
             "Checkpoints for testing"
           ]
+        },
+        "details": {
+          "de": [
+            "Windows 11 VMs für das Microsoft 365 und MD-102 Lab",
+            "Genug Kerne und Arbeitsspeicher für mehrere VMs gleichzeitig",
+            "Checkpoints, um Tests in Minuten zurückzusetzen"
+          ],
+          "en": [
+            "Windows 11 VMs for the Microsoft 365 and MD-102 lab",
+            "Enough cores and memory for several VMs at once",
+            "Checkpoints to roll tests back in minutes"
+          ]
         }
       },
       {
@@ -125,6 +163,20 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "0 WHEA errors",
             "max. 84 °C at 156 W"
+          ]
+        },
+        "details": {
+          "de": [
+            "OCCT Speichertest ohne Fehler, WHEA-Zähler bei 0",
+            "CPU Volllast: maximal 84 °C bei rund 156 W",
+            "Nach dem Test: CPU 77 °C, VRM 49 °C, DIMM rund 66 °C",
+            "Werte als Referenz dokumentiert"
+          ],
+          "en": [
+            "OCCT memory test without errors, WHEA counter at 0",
+            "CPU full load: 84 °C maximum at about 156 W",
+            "After the test: CPU 77 °C, VRM 49 °C, DIMMs about 66 °C",
+            "Values documented as a baseline"
           ]
         }
       }

@@ -72,6 +72,18 @@ window.PORTFOLIO_PROJECTS.push({
             "RDP in the browser",
             "no open RDP port"
           ]
+        },
+        "details": {
+          "de": [
+            "Zugriff auf die Server per RDP direkt im Browser",
+            "Kein offener RDP-Port im Internet",
+            "NSG-Regel für den Zugriff geprüft und korrigiert"
+          ],
+          "en": [
+            "Access to the servers with RDP directly in the browser",
+            "No open RDP port on the internet",
+            "NSG rule for access checked and corrected"
+          ]
         }
       },
       {
@@ -92,6 +104,22 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "AD DS · DNS · corp.local",
             "Entra Connect (hash sync)"
+          ]
+        },
+        "details": {
+          "de": [
+            "Windows Server 2025 mit AD DS und DNS für corp.local",
+            "Statische IP im eigenen Subnetz",
+            "OU für Benutzer, Testbenutzer und eine Sicherheitsgruppe für den Dateizugriff",
+            "UPN-Suffix passend zum Tenant",
+            "Entra Connect mit Kennwort-Hash-Synchronisierung und OU-Filter"
+          ],
+          "en": [
+            "Windows Server 2025 with AD DS and DNS for corp.local",
+            "Static IP in its own subnet",
+            "OU for users, test users and a security group for file access",
+            "UPN suffix matching the tenant",
+            "Entra Connect with password hash sync and OU filtering"
           ]
         }
       },
@@ -114,6 +142,18 @@ window.PORTFOLIO_PROJECTS.push({
             "Kerberos through AD DS",
             "Permissions via RBAC"
           ]
+        },
+        "details": {
+          "de": [
+            "Anmeldung per Kerberos über AD DS statt Speicherschlüssel",
+            "Rechte per RBAC auf die Sicherheitsgruppe",
+            "Getestet: Mitglieder der Gruppe erreichen die Freigabe, andere nicht"
+          ],
+          "en": [
+            "Sign-in with Kerberos through AD DS instead of storage keys",
+            "Permissions via RBAC on the security group",
+            "Tested: group members reach the share, others do not"
+          ]
         }
       },
       {
@@ -134,6 +174,18 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Host pool · workspace",
             "Domain-joined session host"
+          ]
+        },
+        "details": {
+          "de": [
+            "Host Pool, Arbeitsbereich und ein Session Host",
+            "Session Host ist der Domäne beigetreten",
+            "DNS des VNet auf den Domänencontroller gestellt, damit der Beitritt klappt"
+          ],
+          "en": [
+            "Host pool, workspace and one session host",
+            "The session host is joined to the domain",
+            "VNet DNS pointed to the domain controller so the join works"
           ]
         }
       },
@@ -156,6 +208,18 @@ window.PORTFOLIO_PROJECTS.push({
             "Synced users",
             "Groups"
           ]
+        },
+        "details": {
+          "de": [
+            "Benutzer aus der gefilterten OU werden synchronisiert",
+            "Gruppen für den Zugriff",
+            "Eigenes Cloud-Administratorkonto für Entra Connect"
+          ],
+          "en": [
+            "Users from the filtered OU are synced",
+            "Groups for access",
+            "Dedicated cloud admin account for Entra Connect"
+          ]
         }
       },
       {
@@ -174,6 +238,16 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "one account, one password"
+          ]
+        },
+        "details": {
+          "de": [
+            "Ein Konto und ein Passwort vom lokalen AD bis in die Cloud",
+            "Anmeldung am virtuellen Desktop und Zugriff auf die Dateifreigabe"
+          ],
+          "en": [
+            "One account and one password from on-premises AD to the cloud",
+            "Sign-in to the virtual desktop and access to the file share"
           ]
         }
       }

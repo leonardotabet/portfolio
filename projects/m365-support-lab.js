@@ -83,6 +83,24 @@ window.PORTFOLIO_PROJECTS.push({
             "Windows 11 Enterprise",
             "vTPM · checkpoints"
           ]
+        },
+        "details": {
+          "de": [
+            "Windows 11 Enterprise (Evaluation) als Hyper-V VM der Generation 2",
+            "Virtueller TPM und Secure Boot aktiv",
+            "Entra ID beigetreten und automatisch in Intune registriert",
+            "Als Unternehmensgerät eingetragen",
+            "Edge-Richtlinie WIN-Edge-Basics wirkt, geprüft in edge://policy",
+            "Checkpoints vor dem Setup und nach der Registrierung für schnelle Tests"
+          ],
+          "en": [
+            "Windows 11 Enterprise (evaluation) as a generation 2 Hyper-V VM",
+            "Virtual TPM and Secure Boot enabled",
+            "Joined to Entra ID and enrolled in Intune automatically",
+            "Registered as a corporate device",
+            "Edge policy WIN-Edge-Basics applies, checked in edge://policy",
+            "Checkpoints before setup and after enrollment for quick tests"
+          ]
         }
       },
       {
@@ -101,6 +119,18 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Admin centers · PowerShell"
+          ]
+        },
+        "details": {
+          "de": [
+            "Arbeit in vier Admin Centern: Microsoft 365, Entra, Intune und Exchange",
+            "Notfallkonto Break Glass 01 ohne Lizenz, nur für Notfälle",
+            "Abfragen mit PowerShell und Microsoft Graph"
+          ],
+          "en": [
+            "Working in four admin centers: Microsoft 365, Entra, Intune and Exchange",
+            "Emergency account Break Glass 01 without a license, for emergencies only",
+            "Queries with PowerShell and Microsoft Graph"
           ]
         }
       },
@@ -123,6 +153,26 @@ window.PORTFOLIO_PROJECTS.push({
             "Users · dynamic groups",
             "MFA · SSPR · Conditional Access"
           ]
+        },
+        "details": {
+          "de": [
+            "Fünf Benutzer: Anna Muster, Ben Keller, Carla Rossi, Dario Meier, Eva Huber",
+            "Dynamische Sicherheitsgruppen nach Abteilung: SG-Finance und SG-IT",
+            "SG-LicensedStaff: dynamische Gruppe, über die die Lizenzen verteilt werden",
+            "SG-Win-Devices: dynamische Gerätegruppe für alle Windows-Geräte",
+            "SG-SSPR-Pilot: Gruppe für den Self-Service Passwort-Reset",
+            "MFA über die Microsoft-Standardrichtlinien, eigene Conditional-Access-Richtlinie CA001 im Modus «Nur Bericht»",
+            "Sign-in-Logs und Audit-Logs für die Fehlersuche"
+          ],
+          "en": [
+            "Five users: Anna Muster, Ben Keller, Carla Rossi, Dario Meier, Eva Huber",
+            "Dynamic security groups by department: SG-Finance and SG-IT",
+            "SG-LicensedStaff: dynamic group that assigns the licenses",
+            "SG-Win-Devices: dynamic device group for all Windows devices",
+            "SG-SSPR-Pilot: group for self-service password reset",
+            "MFA through the Microsoft-managed policies, own Conditional Access policy CA001 in report-only mode",
+            "Sign-in logs and audit logs for troubleshooting"
+          ]
         }
       },
       {
@@ -138,11 +188,27 @@ window.PORTFOLIO_PROJECTS.push({
         "lines": {
           "de": [
             "Compliance · Konfiguration",
-            "Apps · Endpoint Security"
+            "Registrierung · Firmengerät"
           ],
           "en": [
             "Compliance · configuration",
-            "Apps · endpoint security"
+            "Enrollment · corporate device"
+          ]
+        },
+        "details": {
+          "de": [
+            "Automatische MDM-Registrierung bei Entra Join",
+            "Compliance-Richtlinie WIN-Compliance-Lab für Windows",
+            "Konfigurationsprofil WIN-Edge-Basics: Edge-Startseite per Richtlinie",
+            "Gerät als Unternehmensgerät geführt",
+            "Der Compliance-Status steht Conditional Access zur Verfügung"
+          ],
+          "en": [
+            "Automatic MDM enrollment on Entra join",
+            "Compliance policy WIN-Compliance-Lab for Windows",
+            "Configuration profile WIN-Edge-Basics: Edge home page by policy",
+            "Device managed as a corporate device",
+            "The compliance status is available to Conditional Access"
           ]
         }
       },
@@ -165,13 +231,27 @@ window.PORTFOLIO_PROJECTS.push({
             "Mailboxes · shared mailbox",
             "Licenses through groups"
           ]
+        },
+        "details": {
+          "de": [
+            "Microsoft 365 Business Premium",
+            "Lizenzen kommen automatisch über die Gruppe SG-LicensedStaff",
+            "Mit der Lizenz erhält jeder Benutzer Postfach, Teams und die Office-Apps",
+            "Getestet: Anna nutzt Teams auf dem Lab-Gerät"
+          ],
+          "en": [
+            "Microsoft 365 Business Premium",
+            "Licenses arrive automatically through the SG-LicensedStaff group",
+            "With the license every user gets a mailbox, Teams and the Office apps",
+            "Tested: Anna uses Teams on the lab device"
+          ]
         }
       },
       {
         "id": "users",
-        "x": 610,
+        "x": 600,
         "y": 58,
-        "w": 150,
+        "w": 165,
         "kind": "user",
         "title": {
           "de": "Mitarbeitende",
@@ -184,13 +264,25 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "5 test users"
           ]
+        },
+        "details": {
+          "de": [
+            "Fünf Testbenutzer mit Abteilung, Funktion und Standort",
+            "Eva bewusst ohne Lizenz, als Support-Fall",
+            "Ben hat sein Passwort selbst über aka.ms/sspr zurückgesetzt, sichtbar im Audit-Log"
+          ],
+          "en": [
+            "Five test users with department, job title and location",
+            "Eva deliberately without a license, as a support case",
+            "Ben reset his own password through aka.ms/sspr, visible in the audit log"
+          ]
         }
       },
       {
         "id": "jira",
-        "x": 610,
+        "x": 600,
         "y": 200,
-        "w": 150,
+        "w": 165,
         "kind": "app",
         "title": {
           "de": "Jira",
@@ -204,6 +296,22 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Service Management",
             "Tickets · queues · KB"
+          ]
+        },
+        "details": {
+          "de": [
+            "Jira Service Management Projekt «IT Service Project»",
+            "Anfragetypen: Onboarding, Offboarding, Hardware, Anmeldeproblem, Passwort- und MFA-Hilfe",
+            "Zehn Tickets aus den Lab-Fällen, mit Ursache und Lösung",
+            "Priorität nach Auswirkung und Dringlichkeit",
+            "Jedes Ticket wird sofort bestätigt, auch bei niedriger Priorität"
+          ],
+          "en": [
+            "Jira Service Management project \"IT Service Project\"",
+            "Request types: onboarding, offboarding, hardware, cannot sign in, password and MFA help",
+            "Ten tickets from the lab cases, with cause and solution",
+            "Priority by impact and urgency",
+            "Every ticket is acknowledged right away, even at low priority"
           ]
         }
       }

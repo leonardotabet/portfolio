@@ -51,6 +51,14 @@ window.PORTFOLIO_PROJECTS.push({
         "title": {
           "de": "Internet",
           "en": "Internet"
+        },
+        "details": {
+          "de": [
+            "Externe Namen über eine DNS-Weiterleitung des Domänencontrollers"
+          ],
+          "en": [
+            "External names through a DNS forwarder on the domain controller"
+          ]
         }
       },
       {
@@ -71,6 +79,18 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Firewall · gateway",
             "DHCP disabled"
+          ]
+        },
+        "details": {
+          "de": [
+            "OPNsense als Firewall und Gateway ins Internet",
+            "Eigener DHCP-Bereich deaktiviert, damit nur der Domänencontroller Adressen verteilt",
+            "Ursache eines falschen Gateways mit ipconfig /all gefunden"
+          ],
+          "en": [
+            "OPNsense as firewall and gateway to the internet",
+            "Its own DHCP range disabled so only the domain controller hands out addresses",
+            "Found the cause of a wrong gateway with ipconfig /all"
           ]
         }
       },
@@ -95,6 +115,24 @@ window.PORTFOLIO_PROJECTS.push({
             "Group policies",
             "OUs: users · computers · groups"
           ]
+        },
+        "details": {
+          "de": [
+            "Domäne siw.local, Domänencontroller mit statischer IP",
+            "AD DS per PowerShell installiert, dcdiag: alle Kerntests bestanden",
+            "DNS: AD-integrierte Forward- und Reverse-Zone, automatische PTR-Einträge, Weiterleitung",
+            "DHCP: im AD autorisiert, Bereich mit Router, DNS und Domänenname, Reservation per MAC",
+            "OUs für Benutzer, Computer und Gruppen, Benutzer und Sicherheitsgruppen per PowerShell",
+            "Zwei Gruppenrichtlinien: Bildschirmsperre und Desktop-Darstellung auf der Benutzer-OU"
+          ],
+          "en": [
+            "Domain siw.local, domain controller with a static IP",
+            "AD DS installed with PowerShell, dcdiag: all core tests passed",
+            "DNS: AD-integrated forward and reverse zones, automatic PTR records, forwarder",
+            "DHCP: authorized in AD, scope with router, DNS and domain name, reservation by MAC",
+            "OUs for users, computers and groups, users and security groups created with PowerShell",
+            "Two group policies: screen lock and desktop appearance on the users OU"
+          ]
         }
       },
       {
@@ -114,6 +152,20 @@ window.PORTFOLIO_PROJECTS.push({
           "en": [
             "Windows · domain member"
           ]
+        },
+        "details": {
+          "de": [
+            "Windows-Client in der Domäne",
+            "Beitritt mit Anmeldung im UPN-Format",
+            "In die richtige OU verschoben",
+            "Anmeldung mit Domänenkonto getestet, GPO mit gpresult /r nachgewiesen"
+          ],
+          "en": [
+            "Windows client in the domain",
+            "Joined using the UPN sign-in format",
+            "Moved to the right OU",
+            "Sign-in with a domain account tested, GPO verified with gpresult /r"
+          ]
         }
       },
       {
@@ -132,6 +184,18 @@ window.PORTFOLIO_PROJECTS.push({
           ],
           "en": [
             "Windows · domain member"
+          ]
+        },
+        "details": {
+          "de": [
+            "Windows-Client in der Domäne",
+            "Adresse per DHCP vom Domänencontroller",
+            "Gruppenrichtlinien greifen automatisch, geprüft mit gpresult /r"
+          ],
+          "en": [
+            "Windows client in the domain",
+            "Address by DHCP from the domain controller",
+            "Group policies apply automatically, checked with gpresult /r"
           ]
         }
       }
