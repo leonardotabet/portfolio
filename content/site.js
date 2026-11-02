@@ -7,7 +7,7 @@ window.SITE = {
   // split to keep simple scrapers away
   email: { user: "kontakt", domain: "leonardotabet.ch" },
 
-  linkedin: "TODO: https://www.linkedin.com/in/DEIN-PROFIL/",
+  linkedin: "https://ch.linkedin.com/in/leonardo-tabet",
   cv: "TODO: cv/Leonardo_Tabet_Lebenslauf.pdf",
   location: { de: "Aargau, Schweiz", en: "Aargau, Switzerland" },
 

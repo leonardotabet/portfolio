@@ -38,7 +38,8 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--navy);outline-offse
 /* header */
 .site-header{border-top:5px solid var(--navy);border-bottom:1px solid var(--rule);background:var(--bg)}
 .header-row{display:grid;grid-template-columns:1fr auto;grid-template-areas:"brand lang" "nav nav";align-items:center;gap:.5rem 1.5rem;padding-block:1rem}
-.brand{grid-area:brand;font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--navy);text-decoration:none}
+.brand-wrap{grid-area:brand;display:flex;align-items:center;gap:.6rem}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--navy);text-decoration:none}
 .nav{grid-area:nav}
 .nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;list-style:none}
 .nav a{color:var(--ink);text-decoration:none;font-size:.9688rem}
@@ -309,3 +310,7 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .step.current .card{border-color:#1F8A4C;box-shadow:inset 3px 0 0 #1F8A4C}
 .step.current .dot{background:#1F8A4C;border-color:#1F8A4C}
 @media (prefers-reduced-motion:no-preference){.now-pill::before{animation:pulse 2.4s ease-in-out infinite}}
+
+.li-badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;background:#0A66C2;color:#fff;transition:background .2s ease,transform .2s ease}
+.li-badge:hover{background:#004182;transform:translateY(-1px)}
+.li-badge:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
