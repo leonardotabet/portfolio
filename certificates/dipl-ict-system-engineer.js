@@ -74,8 +74,8 @@ window.PORTFOLIO_CERTIFICATES.push({
     {
       title: { de: "Passende Rollen", en: "Matching roles" },
       points: {
-        de: ["Junior System Engineer", "ICT System Specialist", "IT Support Specialist", "ICT Supporter (1st und 2nd Level)", "Workplace Engineer", "Client Engineer", "IT System Administrator", "Netzwerk Administrator", "Infrastruktur Spezialist"],
-        en: ["Junior System Engineer", "ICT System Specialist", "IT Support Specialist", "ICT Supporter (1st and 2nd level)", "Workplace Engineer", "Client Engineer", "IT system administrator", "Network administrator", "Infrastructure specialist"]
+        de: ["Junior System Engineer", "ICT System Specialist", "IT Support Specialist", "ICT Supporter (1st und 2nd Level)", "Workplace Engineer", "Client Engineer", "IT System Administrator", "Junior Netzwerk Administrator", "Infrastruktur Spezialist"],
+        en: ["Junior System Engineer", "ICT System Specialist", "IT Support Specialist", "ICT Supporter (1st and 2nd level)", "Workplace Engineer", "Client Engineer", "IT system administrator", "Junior network administrator", "Infrastructure specialist"]
       }
     }
   ],
