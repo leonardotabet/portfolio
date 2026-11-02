@@ -529,6 +529,115 @@
     });
   }
 
+
+  // infrastructure diagram (inline SVG from a small spec in the project file)
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var DIA_KIND = {
+    cloud: ["#0F6CBD", "M4.5 13h7.2a3 3 0 0 0 .3-6A4.6 4.6 0 0 0 3.2 8.3 2.4 2.4 0 0 0 4.5 13z"],
+    server: ["#12284B", "M2 2.5h12v4.5H2zM2 9h12v4.5H2zM4.5 4.75h.01M4.5 11.25h.01"],
+    client: ["#3B6EA8", "M1.5 2.5h13v8.5h-13zM6 14h4M8 11v3"],
+    user: ["#1F8A4C", "M8 2.2a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6zM2.5 14.5c0-3 2.5-4.8 5.5-4.8s5.5 1.8 5.5 4.8"],
+    app: ["#7A4FB5", "M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z"],
+    net: ["#B4540E", "M1.8 6.2a8.8 8.8 0 0 1 12.4 0M4.3 9a5.2 5.2 0 0 1 7.4 0M7.3 12.2a1 1 0 0 1 1.4 0"],
+    shield: ["#B42318", "M8 1.5l6 2.5v4c0 3.4-2.5 5.9-6 6.9-3.5-1-6-3.5-6-6.9V4z"],
+    storage: ["#0E7490", "M2 4c0-1.4 2.7-2.5 6-2.5s6 1.1 6 2.5v8c0 1.4-2.7 2.5-6 2.5S2 13.4 2 12zM2 4c0 1.4 2.7 2.5 6 2.5S14 5.4 14 4"]
+  };
+  var DIA_ZONE = {
+    cloud: ["#EEF4FB", "#9DBBE0", "#0F5AA0", ""],
+    local: ["#F4F6F9", "#B8C3D1", "#516074", "6 4"],
+    corp: ["#F0F7F2", "#A3CDB0", "#1C6E3E", ""],
+    neutral: ["#FBF7F0", "#D9C7A6", "#7A5A1E", "6 4"]
+  };
+  function sv(tag, attrs, parent) {
+    var n = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) if (attrs.hasOwnProperty(k)) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function svText(parent, x, y, str, attrs) {
+    var a = { x: x, y: y }; for (var k in attrs) a[k] = attrs[k];
+    var t = sv("text", a, parent); t.textContent = str; return t;
+  }
+  function renderDiagram(box, d) {
+    var fig = el("figure", "diagram");
+    var scroller = el("div", "diagram-scroll");
+    var svg = sv("svg", { viewBox: "0 0 " + d.w + " " + d.h, role: "img", "font-family": "IBM Plex Sans, system-ui, sans-serif" });
+    var title = pick(d.alt) || pick(d.caption) || "";
+    if (title) { var tt = sv("title", {}, svg); tt.textContent = title; }
+    var defs = sv("defs", {}, svg);
+    var mk = sv("marker", { id: "dia-arrow", viewBox: "0 0 10 10", refX: "9", refY: "5", markerWidth: "7", markerHeight: "7", orient: "auto-start-reverse" }, defs);
+    sv("path", { d: "M0 0L10 5L0 10z", fill: "#516074" }, mk);
+
+    (d.zones || []).forEach(function (z) {
+      var t = DIA_ZONE[z.tone] || DIA_ZONE.local;
+      sv("rect", { x: z.x, y: z.y, width: z.w, height: z.h, rx: 10, fill: t[0], stroke: t[1], "stroke-width": 1.2, "stroke-dasharray": t[3] }, svg);
+      svText(svg, z.x + 14, z.y + 22, String(pick(z.label)).toUpperCase(), { "font-size": 11, "font-weight": 600, fill: t[2], "letter-spacing": ".06em" });
+    });
+
+    var nodes = {};
+    (d.nodes || []).forEach(function (n) {
+      var lines = list(n.lines);
+      n._h = n.h || (lines.length ? 36 + lines.length * 15 + 6 : 42);
+      nodes[n.id] = n;
+    });
+    function anchor(n, side, off) {
+      off = off || 0;
+      if (side === "r") return [n.x + n.w, n.y + n._h / 2 + off];
+      if (side === "l") return [n.x, n.y + n._h / 2 + off];
+      if (side === "t") return [n.x + n.w / 2 + off, n.y];
+      return [n.x + n.w / 2 + off, n.y + n._h];
+    }
+    var labels = sv("g", {}, null);
+    (d.links || []).forEach(function (l) {
+      var a = nodes[l.from], b = nodes[l.to];
+      if (!a || !b) return;
+      var s = anchor(a, l.fs || "r", l.fo), e = anchor(b, l.ts || "l", l.to_);
+      var hs = (l.fs || "r") === "r" || (l.fs || "r") === "l";
+      var he = (l.ts || "l") === "r" || (l.ts || "l") === "l";
+      var dd, mid;
+      if (hs && he) {
+        var mx = l.mx !== undefined ? l.mx : (s[0] + e[0]) / 2;
+        dd = "M" + s[0] + " " + s[1] + "H" + mx + "V" + e[1] + "H" + e[0];
+        mid = s[1] === e[1] ? [(s[0] + e[0]) / 2, s[1]] : [mx, (s[1] + e[1]) / 2];
+      } else if (!hs && !he) {
+        var my = l.my !== undefined ? l.my : (s[1] + e[1]) / 2;
+        dd = "M" + s[0] + " " + s[1] + "V" + my + "H" + e[0] + "V" + e[1];
+        mid = s[0] === e[0] ? [s[0], (s[1] + e[1]) / 2] : [(s[0] + e[0]) / 2, my];
+      } else if (hs) {
+        dd = "M" + s[0] + " " + s[1] + "H" + e[0] + "V" + e[1];
+        mid = [e[0], (s[1] + e[1]) / 2];
+      } else {
+        dd = "M" + s[0] + " " + s[1] + "V" + e[1] + "H" + e[0];
+        mid = [(s[0] + e[0]) / 2, e[1]];
+      }
+      sv("path", { d: dd, fill: "none", stroke: "#516074", "stroke-width": 1.4, "stroke-dasharray": l.dashed ? "4 4" : "", "marker-end": l.oneway === false ? "" : "url(#dia-arrow)", "marker-start": l.both ? "url(#dia-arrow)" : "" }, svg);
+      var lab = pick(l.label);
+      if (lab) {
+        var flat = hs && he && s[1] === e[1];
+        var lx = l.lx !== undefined ? l.lx : mid[0], ly = l.ly !== undefined ? l.ly : (flat ? mid[1] - 6 : mid[1] + 4);
+        svText(labels, lx, ly, lab, { "font-size": 10.5, "text-anchor": "middle", fill: "#1B2432", stroke: "#fff", "stroke-width": 4, "paint-order": "stroke", "stroke-linejoin": "round" });
+      }
+    });
+    (d.nodes || []).forEach(function (n) {
+      var k = DIA_KIND[n.kind] || DIA_KIND.server;
+      var g = sv("g", {}, svg);
+      sv("rect", { x: n.x, y: n.y, width: n.w, height: n._h, rx: 7, fill: "#fff", stroke: "#C9D2DD", "stroke-width": 1.2 }, g);
+      sv("rect", { x: n.x, y: n.y + 6, width: 3.5, height: n._h - 12, rx: 1.5, fill: k[0] }, g);
+      var ic = sv("g", { transform: "translate(" + (n.x + 13) + " " + (n.y + 12) + ")" }, g);
+      sv("path", { d: k[1], fill: "none", stroke: k[0], "stroke-width": 1.5, "stroke-linecap": "round", "stroke-linejoin": "round" }, ic);
+      svText(g, n.x + 36, n.y + 25, pick(n.title), { "font-size": 13.5, "font-weight": 600, fill: "#12284B" });
+      list(n.lines).forEach(function (ln, i) {
+        svText(g, n.x + 14, n.y + 45 + i * 15, ln, { "font-size": 11.5, fill: "#516074" });
+      });
+    });
+    svg.appendChild(labels);
+    scroller.appendChild(svg);
+    fig.appendChild(scroller);
+    var cap = pick(d.caption);
+    if (cap) fig.appendChild(el("figcaption", "", cap));
+    box.appendChild(fig);
+  }
+
   function renderProjects() {
     var root = document.getElementById("project-list");
     root.textContent = "";
@@ -564,17 +673,18 @@
             head.appendChild(cp);
           }
           box.appendChild(head);
+          if (p.overview && p.overview.lead) {
+            var lead = el("p", "ov-lead");
+            lead.appendChild(el("strong", "", ui("overviewDid") + " "));
+            lead.appendChild(document.createTextNode(pick(p.overview.lead)));
+            box.appendChild(lead);
+          }
+          if (p.diagram) renderDiagram(box, p.diagram);
           var cols = el("div", "detail-cols");
           var main = el("div", "detail-main");
           var body = main;
           if (p.overview) {
             var ov = p.overview;
-            if (ov.lead) {
-              var lead = el("p", "ov-lead");
-              lead.appendChild(el("strong", "", ui("overviewDid") + " "));
-              lead.appendChild(document.createTextNode(pick(ov.lead)));
-              main.appendChild(lead);
-            }
             if (ov.facts && ov.facts.length) {
               var fg = el("div", "ov-facts");
               ov.facts.forEach(function (f) {

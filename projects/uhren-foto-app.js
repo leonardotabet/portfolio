@@ -21,6 +21,227 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Analyzing and rebuilding processes", "Power Apps and Power Automate", "SharePoint and permissions through Teams", "Training and documentation in Confluence"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 360,
+    "alt": {
+      "de": "Ablauf der Foto-App: Power App im Versand, Ablage in SharePoint, Sicherung mit Power Automate, Zugriff über Teams und Entra ID Gruppen, Doku in Confluence",
+      "en": "Flow of the photo app: Power App in shipping, storage in SharePoint, backup with Power Automate, access through Teams and Entra ID groups, documentation in Confluence"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 200,
+        "h": 320,
+        "label": {
+          "de": "Versand",
+          "en": "Shipping"
+        },
+        "tone": "corp"
+      },
+      {
+        "x": 250,
+        "y": 20,
+        "w": 320,
+        "h": 320,
+        "label": {
+          "de": "Microsoft 365 im Konzern",
+          "en": "Microsoft 365 in the group"
+        },
+        "tone": "cloud"
+      },
+      {
+        "x": 600,
+        "y": 20,
+        "w": 180,
+        "h": 320,
+        "label": {
+          "de": "Dokumentation",
+          "en": "Documentation"
+        },
+        "tone": "local"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "team",
+        "x": 40,
+        "y": 58,
+        "w": 160,
+        "kind": "user",
+        "title": {
+          "de": "Team Versand",
+          "en": "Shipping team"
+        },
+        "lines": {
+          "de": [
+            "geschult"
+          ],
+          "en": [
+            "trained"
+          ]
+        }
+      },
+      {
+        "id": "app",
+        "x": 40,
+        "y": 190,
+        "w": 160,
+        "kind": "app",
+        "title": {
+          "de": "Power App",
+          "en": "Power App"
+        },
+        "lines": {
+          "de": [
+            "Seriennummer per Kamera",
+            "Fotos aufnehmen"
+          ],
+          "en": [
+            "Serial number by camera",
+            "Take photos"
+          ]
+        }
+      },
+      {
+        "id": "sp",
+        "x": 270,
+        "y": 58,
+        "w": 260,
+        "kind": "storage",
+        "title": {
+          "de": "SharePoint",
+          "en": "SharePoint"
+        },
+        "lines": {
+          "de": [
+            "Ablage pro Seriennummer"
+          ],
+          "en": [
+            "Storage per serial number"
+          ]
+        }
+      },
+      {
+        "id": "pa",
+        "x": 270,
+        "y": 158,
+        "w": 260,
+        "kind": "app",
+        "title": {
+          "de": "Power Automate",
+          "en": "Power Automate"
+        },
+        "lines": {
+          "de": [
+            "automatische Sicherung"
+          ],
+          "en": [
+            "automatic backup"
+          ]
+        }
+      },
+      {
+        "id": "teams",
+        "x": 270,
+        "y": 258,
+        "w": 260,
+        "kind": "user",
+        "title": {
+          "de": "Teams · Entra ID Gruppen",
+          "en": "Teams · Entra ID groups"
+        },
+        "lines": {
+          "de": [
+            "Zugriff nur für Berechtigte"
+          ],
+          "en": [
+            "Access for authorized users only"
+          ]
+        }
+      },
+      {
+        "id": "conf",
+        "x": 615,
+        "y": 58,
+        "w": 150,
+        "kind": "app",
+        "title": {
+          "de": "Confluence",
+          "en": "Confluence"
+        },
+        "lines": {
+          "de": [
+            "Anleitung",
+            "Schulungsunterlagen"
+          ],
+          "en": [
+            "Guide",
+            "Training material"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "team",
+        "to": "app",
+        "label": {
+          "de": "nutzt",
+          "en": "uses"
+        },
+        "fs": "b",
+        "ts": "t"
+      },
+      {
+        "from": "app",
+        "to": "sp",
+        "label": {
+          "de": "Fotos",
+          "en": "Photos"
+        },
+        "fs": "r",
+        "ts": "l",
+        "mx": 236
+      },
+      {
+        "from": "sp",
+        "to": "pa",
+        "label": {
+          "de": "neue Fotos",
+          "en": "new photos"
+        },
+        "fs": "b",
+        "ts": "t"
+      },
+      {
+        "from": "teams",
+        "to": "sp",
+        "label": {
+          "de": "Zugriff",
+          "en": "Access"
+        },
+        "fs": "r",
+        "ts": "r",
+        "to_": 10,
+        "mx": 552
+      },
+      {
+        "from": "conf",
+        "to": "sp",
+        "label": {
+          "de": "Doku",
+          "en": "Docs"
+        },
+        "fs": "l",
+        "ts": "r",
+        "to_": -12,
+        "mx": 585,
+        "dashed": true
+      }
+    ]
+  },
   text: {
     de: [
       "In einem Schweizer Uhrenunternehmen wird jede Uhr vor dem Versand fotografiert. Die Fotos lagen in einer einzigen OneNote-Datei, ohne Sicherung und ohne klare Ablage.",

@@ -21,6 +21,164 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Building a domain: AD DS, DNS, DHCP", "Applying group policies", "Automating with PowerShell", "Troubleshooting with dcdiag and gpresult", "Joining clients to the domain"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 390,
+    "alt": {
+      "de": "Infrastruktur der Windows-Domäne: OPNsense Firewall, Domänencontroller DC01 und zwei Windows-Clients",
+      "en": "Infrastructure of the Windows domain: OPNsense firewall, domain controller DC01 and two Windows clients"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 96,
+        "w": 760,
+        "h": 280,
+        "label": {
+          "de": "Lab-Netzwerk · Domäne siw.local",
+          "en": "Lab network · siw.local domain"
+        },
+        "tone": "local"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "inet",
+        "x": 40,
+        "y": 24,
+        "w": 170,
+        "kind": "cloud",
+        "title": {
+          "de": "Internet",
+          "en": "Internet"
+        }
+      },
+      {
+        "id": "fw",
+        "x": 40,
+        "y": 190,
+        "w": 170,
+        "kind": "shield",
+        "title": {
+          "de": "OPNsense",
+          "en": "OPNsense"
+        },
+        "lines": {
+          "de": [
+            "Firewall · Gateway",
+            "DHCP deaktiviert"
+          ],
+          "en": [
+            "Firewall · gateway",
+            "DHCP disabled"
+          ]
+        }
+      },
+      {
+        "id": "dc",
+        "x": 280,
+        "y": 168,
+        "w": 240,
+        "kind": "server",
+        "title": {
+          "de": "DC01 · Windows Server",
+          "en": "DC01 · Windows Server"
+        },
+        "lines": {
+          "de": [
+            "AD DS · DNS · DHCP",
+            "Gruppenrichtlinien",
+            "OUs: Benutzer · Computer · Gruppen"
+          ],
+          "en": [
+            "AD DS · DNS · DHCP",
+            "Group policies",
+            "OUs: users · computers · groups"
+          ]
+        }
+      },
+      {
+        "id": "c1",
+        "x": 590,
+        "y": 136,
+        "w": 170,
+        "kind": "client",
+        "title": {
+          "de": "Client 1",
+          "en": "Client 1"
+        },
+        "lines": {
+          "de": [
+            "Windows · Domänenmitglied"
+          ],
+          "en": [
+            "Windows · domain member"
+          ]
+        }
+      },
+      {
+        "id": "c2",
+        "x": 590,
+        "y": 270,
+        "w": 170,
+        "kind": "client",
+        "title": {
+          "de": "Client 2",
+          "en": "Client 2"
+        },
+        "lines": {
+          "de": [
+            "Windows · Domänenmitglied"
+          ],
+          "en": [
+            "Windows · domain member"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "fw",
+        "to": "inet",
+        "fs": "t",
+        "ts": "b"
+      },
+      {
+        "from": "dc",
+        "to": "fw",
+        "label": {
+          "de": "Gateway",
+          "en": "Gateway"
+        },
+        "fs": "l",
+        "ts": "r",
+        "to_": 0,
+        "fo": -6
+      },
+      {
+        "from": "dc",
+        "to": "c1",
+        "label": {
+          "de": "DHCP · DNS",
+          "en": "DHCP · DNS"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": -16
+      },
+      {
+        "from": "dc",
+        "to": "c2",
+        "label": {
+          "de": "Anmeldung · GPO",
+          "en": "Sign-in · GPO"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": 16
+      }
+    ]
+  },
   text: {
     de: [
       "Ich habe eine Windows-Domäne aufgebaut, wie sie in vielen KMU läuft: ein Domänencontroller, der Anmeldung, Namensauflösung und Adressvergabe übernimmt, zwei Windows-Clients in der Domäne und Gruppenrichtlinien, die automatisch greifen. Jeden Schritt habe ich mit Werkzeugen wie dcdiag, nslookup, ipconfig und gpresult nachgewiesen."

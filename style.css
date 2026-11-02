@@ -314,3 +314,9 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .li-badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;background:#0A66C2;color:#fff;transition:background .2s ease,transform .2s ease}
 .li-badge:hover{background:#004182;transform:translateY(-1px)}
 .li-badge:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+.diagram{margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:10px;background:#fff;padding:.75rem}
+.diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.diagram svg{display:block;width:100%;height:auto;min-width:640px}
+.diagram figcaption{font-size:.8125rem;color:var(--muted);margin-top:.5rem}
+@media (min-width:700px){.diagram svg{min-width:0}}

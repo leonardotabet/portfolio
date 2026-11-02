@@ -21,6 +21,144 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Planning and assembling hardware", "Setting up BIOS and the EXPO profile", "Testing stability with OCCT", "Reading sensor data with HWiNFO", "Setting up Windows 11 without LAN"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 330,
+    "alt": {
+      "de": "Aufbau der Workstation: Hardware, Windows 11 Pro mit Hyper-V, Lab-VMs und Stabilitätstest",
+      "en": "Workstation setup: hardware, Windows 11 Pro with Hyper-V, lab VMs and stability test"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 760,
+        "h": 290,
+        "label": {
+          "de": "Workstation · Ryzen 9 9900X · 64 GB DDR5",
+          "en": "Workstation · Ryzen 9 9900X · 64 GB DDR5"
+        },
+        "tone": "local"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "hw",
+        "x": 40,
+        "y": 64,
+        "w": 210,
+        "kind": "server",
+        "title": {
+          "de": "Hardware",
+          "en": "Hardware"
+        },
+        "lines": {
+          "de": [
+            "12 Kerne · 24 Threads",
+            "64 GB DDR5-6000 (EXPO)",
+            "NVMe · Luftkühlung"
+          ],
+          "en": [
+            "12 cores · 24 threads",
+            "64 GB DDR5-6000 (EXPO)",
+            "NVMe · air cooling"
+          ]
+        }
+      },
+      {
+        "id": "win",
+        "x": 290,
+        "y": 64,
+        "w": 210,
+        "kind": "client",
+        "title": {
+          "de": "Windows 11 Pro",
+          "en": "Windows 11 Pro"
+        },
+        "lines": {
+          "de": [
+            "Hyper-V Host",
+            "BIOS und EXPO eingerichtet"
+          ],
+          "en": [
+            "Hyper-V host",
+            "BIOS and EXPO set up"
+          ]
+        }
+      },
+      {
+        "id": "vms",
+        "x": 550,
+        "y": 64,
+        "w": 210,
+        "kind": "client",
+        "title": {
+          "de": "Lab-VMs",
+          "en": "Lab VMs"
+        },
+        "lines": {
+          "de": [
+            "Windows 11 für Intune",
+            "Checkpoints für Tests"
+          ],
+          "en": [
+            "Windows 11 for Intune",
+            "Checkpoints for testing"
+          ]
+        }
+      },
+      {
+        "id": "test",
+        "x": 290,
+        "y": 210,
+        "w": 210,
+        "kind": "shield",
+        "title": {
+          "de": "Stabilitätstest",
+          "en": "Stability test"
+        },
+        "lines": {
+          "de": [
+            "0 WHEA-Fehler",
+            "max. 84 °C bei 156 W"
+          ],
+          "en": [
+            "0 WHEA errors",
+            "max. 84 °C at 156 W"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "hw",
+        "to": "win",
+        "fs": "r",
+        "ts": "l",
+        "fo": -7.5
+      },
+      {
+        "from": "win",
+        "to": "vms",
+        "label": {
+          "de": "Hyper-V",
+          "en": "Hyper-V"
+        },
+        "fs": "r",
+        "ts": "l"
+      },
+      {
+        "from": "win",
+        "to": "test",
+        "label": {
+          "de": "OCCT · HWiNFO",
+          "en": "OCCT · HWiNFO"
+        },
+        "fs": "b",
+        "ts": "t"
+      }
+    ]
+  },
   text: {
     de: [
       "Meine Labs laufen auf Hyper-V und brauchen genug Kerne und Arbeitsspeicher für mehrere VMs gleichzeitig. Dafür habe ich eine Workstation selbst geplant: Ryzen 9 9900X mit 12 Kernen, 64 GB DDR5, gedämmtes Gehäuse und Luftkühlung, auf einer AM5 Plattform, die sich später aufrüsten lässt.",

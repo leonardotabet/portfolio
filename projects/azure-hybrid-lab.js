@@ -21,6 +21,226 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Hybrid identity with Entra Connect", "Azure basics: VNet, NSG, VMs", "Azure Files and Virtual Desktop", "Active Directory and DNS", "Solving typical issues myself"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 400,
+    "alt": {
+      "de": "Infrastruktur des Azure Hybrid Labs: Azure VNet mit Bastion, Domänencontroller, Azure Files und Azure Virtual Desktop, synchronisiert mit Entra ID",
+      "en": "Infrastructure of the Azure hybrid lab: Azure VNet with Bastion, domain controller, Azure Files and Azure Virtual Desktop, synced with Entra ID"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 530,
+        "h": 360,
+        "label": {
+          "de": "Azure · Ressourcengruppe · VNet mit NSG",
+          "en": "Azure · resource group · VNet with NSG"
+        },
+        "tone": "cloud"
+      },
+      {
+        "x": 580,
+        "y": 20,
+        "w": 200,
+        "h": 170,
+        "label": {
+          "de": "Microsoft Entra ID",
+          "en": "Microsoft Entra ID"
+        },
+        "tone": "corp"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "bastion",
+        "x": 40,
+        "y": 60,
+        "w": 190,
+        "kind": "shield",
+        "title": {
+          "de": "Azure Bastion",
+          "en": "Azure Bastion"
+        },
+        "lines": {
+          "de": [
+            "RDP im Browser",
+            "kein offener RDP-Port"
+          ],
+          "en": [
+            "RDP in the browser",
+            "no open RDP port"
+          ]
+        }
+      },
+      {
+        "id": "dc",
+        "x": 290,
+        "y": 60,
+        "w": 240,
+        "kind": "server",
+        "title": {
+          "de": "DC01 · Windows Server 2025",
+          "en": "DC01 · Windows Server 2025"
+        },
+        "lines": {
+          "de": [
+            "AD DS · DNS · corp.local",
+            "Entra Connect (Hash-Sync)"
+          ],
+          "en": [
+            "AD DS · DNS · corp.local",
+            "Entra Connect (hash sync)"
+          ]
+        }
+      },
+      {
+        "id": "files",
+        "x": 40,
+        "y": 250,
+        "w": 190,
+        "kind": "storage",
+        "title": {
+          "de": "Azure Files",
+          "en": "Azure Files"
+        },
+        "lines": {
+          "de": [
+            "Kerberos über AD DS",
+            "Rechte per RBAC"
+          ],
+          "en": [
+            "Kerberos through AD DS",
+            "Permissions via RBAC"
+          ]
+        }
+      },
+      {
+        "id": "avd",
+        "x": 290,
+        "y": 250,
+        "w": 240,
+        "kind": "client",
+        "title": {
+          "de": "Azure Virtual Desktop",
+          "en": "Azure Virtual Desktop"
+        },
+        "lines": {
+          "de": [
+            "Host Pool · Workspace",
+            "Session Host in der Domäne"
+          ],
+          "en": [
+            "Host pool · workspace",
+            "Domain-joined session host"
+          ]
+        }
+      },
+      {
+        "id": "entra",
+        "x": 600,
+        "y": 60,
+        "w": 160,
+        "kind": "cloud",
+        "title": {
+          "de": "Entra ID",
+          "en": "Entra ID"
+        },
+        "lines": {
+          "de": [
+            "synchronisierte Benutzer",
+            "Gruppen"
+          ],
+          "en": [
+            "Synced users",
+            "Groups"
+          ]
+        }
+      },
+      {
+        "id": "user",
+        "x": 600,
+        "y": 260,
+        "w": 160,
+        "kind": "user",
+        "title": {
+          "de": "Benutzer",
+          "en": "User"
+        },
+        "lines": {
+          "de": [
+            "ein Konto, ein Passwort"
+          ],
+          "en": [
+            "one account, one password"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "bastion",
+        "to": "dc",
+        "label": {
+          "de": "Verwaltung",
+          "en": "Admin access"
+        },
+        "fs": "r",
+        "ts": "l"
+      },
+      {
+        "from": "dc",
+        "to": "entra",
+        "label": {
+          "de": "Sync",
+          "en": "Sync"
+        },
+        "fs": "r",
+        "ts": "l"
+      },
+      {
+        "from": "avd",
+        "to": "dc",
+        "label": {
+          "de": "Domänenbeitritt",
+          "en": "Domain join"
+        },
+        "fs": "t",
+        "ts": "b"
+      },
+      {
+        "from": "avd",
+        "to": "files",
+        "label": {
+          "de": "Kerberos",
+          "en": "Kerberos"
+        },
+        "fs": "l",
+        "ts": "r"
+      },
+      {
+        "from": "user",
+        "to": "avd",
+        "label": {
+          "de": "Anmeldung",
+          "en": "Sign-in"
+        },
+        "fs": "l",
+        "ts": "r"
+      },
+      {
+        "from": "entra",
+        "to": "user",
+        "label": {
+          "de": "Identität",
+          "en": "Identity"
+        },
+        "fs": "b",
+        "ts": "t"
+      }
+    ]
+  },
   text: {
     de: [
       "Hybrides Active Directory mit Entra ID und Azure ist in meinem Konzern im Einsatz. Im Lab habe ich eine solche Umgebung Schritt für Schritt selbst aufgebaut, wie sie auch viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu Dateiablage und virtuelle Desktops aus Azure. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom lokalen Active Directory bis in die Cloud."

@@ -21,6 +21,277 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Onboarding and offboarding", "Solving sign-in problems with logs", "Managing licenses and groups", "Managing devices in Intune", "Documenting tickets cleanly"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 400,
+    "alt": {
+      "de": "Infrastruktur des Microsoft 365 Labs: Hyper-V VM, Microsoft 365 Tenant mit Entra ID, Intune und Exchange, Jira Service Desk",
+      "en": "Infrastructure of the Microsoft 365 lab: Hyper-V VM, Microsoft 365 tenant with Entra ID, Intune and Exchange, Jira service desk"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 220,
+        "h": 210,
+        "label": {
+          "de": "Hyper-V Host",
+          "en": "Hyper-V host"
+        },
+        "tone": "local"
+      },
+      {
+        "x": 270,
+        "y": 20,
+        "w": 290,
+        "h": 360,
+        "label": {
+          "de": "Microsoft 365 Tenant",
+          "en": "Microsoft 365 Tenant"
+        },
+        "tone": "cloud"
+      },
+      {
+        "x": 590,
+        "y": 20,
+        "w": 190,
+        "h": 360,
+        "label": {
+          "de": "Service Desk",
+          "en": "Service Desk"
+        },
+        "tone": "corp"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "vm",
+        "x": 40,
+        "y": 58,
+        "w": 180,
+        "kind": "client",
+        "title": {
+          "de": "WIN11-LAB01",
+          "en": "WIN11-LAB01"
+        },
+        "lines": {
+          "de": [
+            "Windows 11 Enterprise",
+            "vTPM · Checkpoints"
+          ],
+          "en": [
+            "Windows 11 Enterprise",
+            "vTPM · checkpoints"
+          ]
+        }
+      },
+      {
+        "id": "admin",
+        "x": 40,
+        "y": 290,
+        "w": 180,
+        "kind": "user",
+        "title": {
+          "de": "IT-Admin",
+          "en": "IT-Admin"
+        },
+        "lines": {
+          "de": [
+            "Admin Center · PowerShell"
+          ],
+          "en": [
+            "Admin centers · PowerShell"
+          ]
+        }
+      },
+      {
+        "id": "entra",
+        "x": 290,
+        "y": 58,
+        "w": 240,
+        "kind": "cloud",
+        "title": {
+          "de": "Entra ID",
+          "en": "Entra ID"
+        },
+        "lines": {
+          "de": [
+            "Benutzer · dynamische Gruppen",
+            "MFA · SSPR · Conditional Access"
+          ],
+          "en": [
+            "Users · dynamic groups",
+            "MFA · SSPR · Conditional Access"
+          ]
+        }
+      },
+      {
+        "id": "intune",
+        "x": 290,
+        "y": 168,
+        "w": 240,
+        "kind": "shield",
+        "title": {
+          "de": "Intune",
+          "en": "Intune"
+        },
+        "lines": {
+          "de": [
+            "Compliance · Konfiguration",
+            "Apps · Endpoint Security"
+          ],
+          "en": [
+            "Compliance · configuration",
+            "Apps · endpoint security"
+          ]
+        }
+      },
+      {
+        "id": "exo",
+        "x": 290,
+        "y": 278,
+        "w": 240,
+        "kind": "cloud",
+        "title": {
+          "de": "Exchange Online · Teams",
+          "en": "Exchange Online · Teams"
+        },
+        "lines": {
+          "de": [
+            "Postfächer · Shared Mailbox",
+            "Lizenzen über Gruppen"
+          ],
+          "en": [
+            "Mailboxes · shared mailbox",
+            "Licenses through groups"
+          ]
+        }
+      },
+      {
+        "id": "users",
+        "x": 610,
+        "y": 58,
+        "w": 150,
+        "kind": "user",
+        "title": {
+          "de": "Mitarbeitende",
+          "en": "Employees"
+        },
+        "lines": {
+          "de": [
+            "5 Testbenutzer"
+          ],
+          "en": [
+            "5 test users"
+          ]
+        }
+      },
+      {
+        "id": "jira",
+        "x": 610,
+        "y": 200,
+        "w": 150,
+        "kind": "app",
+        "title": {
+          "de": "Jira",
+          "en": "Jira"
+        },
+        "lines": {
+          "de": [
+            "Service Management",
+            "Tickets · Queues · KB"
+          ],
+          "en": [
+            "Service Management",
+            "Tickets · queues · KB"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "vm",
+        "to": "entra",
+        "label": {
+          "de": "Entra Join",
+          "en": "Entra join"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": -10,
+        "to_": -10
+      },
+      {
+        "from": "vm",
+        "to": "intune",
+        "label": {
+          "de": "MDM-Registrierung",
+          "en": "MDM enrollment"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": 14,
+        "to_": -12,
+        "mx": 255
+      },
+      {
+        "from": "admin",
+        "to": "intune",
+        "label": {
+          "de": "verwaltet",
+          "en": "manages"
+        },
+        "fs": "r",
+        "ts": "l",
+        "to_": 14,
+        "mx": 255
+      },
+      {
+        "from": "intune",
+        "to": "entra",
+        "label": {
+          "de": "Compliance für CA",
+          "en": "Compliance for CA"
+        },
+        "fs": "t",
+        "ts": "b"
+      },
+      {
+        "from": "users",
+        "to": "entra",
+        "label": {
+          "de": "Anmeldung + MFA",
+          "en": "Sign-in + MFA"
+        },
+        "fs": "l",
+        "ts": "r",
+        "fo": -6,
+        "to_": -12
+      },
+      {
+        "from": "users",
+        "to": "jira",
+        "label": {
+          "de": "Ticket",
+          "en": "Ticket"
+        },
+        "fs": "b",
+        "ts": "t"
+      },
+      {
+        "from": "jira",
+        "to": "intune",
+        "label": {
+          "de": "Support-Fall",
+          "en": "Support case"
+        },
+        "fs": "l",
+        "ts": "r",
+        "fo": 6,
+        "to_": 8
+      }
+    ]
+  },
   text: {
     de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "Das Lab hat zwei Ziele: Ich verstehe die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Und es ist meine Praxis für die Microsoft MD-102 (Endpoint Administrator). Deshalb baue ich es laufend aus, mit Autopilot, Endpoint Security, App-Verteilung und Automatisierung."],
     en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "The lab has two goals: I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. And it is my hands-on preparation for Microsoft MD-102 (Endpoint Administrator). That is why I keep extending it with Autopilot, endpoint security, app deployment and automation."]

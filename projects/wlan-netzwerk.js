@@ -21,6 +21,263 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Wi-Fi operations for staff and guests", "Patching and maintaining switches", "Justifying and documenting firewall requests", "Tracing network faults to their cause"]
     }
   },
+  diagram: {
+    "w": 800,
+    "h": 400,
+    "alt": {
+      "de": "Netzwerk im Betrieb: Konzernnetz mit Cisco Switches und Access Points, internes WLAN mit TP-Link Omada, Telefonie hinter einer Zyxel Firewall",
+      "en": "Network operations: group network with Cisco switches and access points, internal Wi-Fi with TP-Link Omada, telephony behind a Zyxel firewall"
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 370,
+        "h": 360,
+        "label": {
+          "de": "Konzernnetz",
+          "en": "Group network"
+        },
+        "tone": "corp"
+      },
+      {
+        "x": 420,
+        "y": 20,
+        "w": 360,
+        "h": 200,
+        "label": {
+          "de": "Internes WLAN · ausserhalb Konzern",
+          "en": "Internal Wi-Fi · outside the group"
+        },
+        "tone": "local"
+      },
+      {
+        "x": 420,
+        "y": 240,
+        "w": 360,
+        "h": 140,
+        "label": {
+          "de": "Telefonie",
+          "en": "Telephony"
+        },
+        "tone": "neutral"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "sw",
+        "x": 40,
+        "y": 58,
+        "w": 330,
+        "kind": "net",
+        "title": {
+          "de": "Cisco Switches",
+          "en": "Cisco Switches"
+        },
+        "lines": {
+          "de": [
+            "Netzwerkrack · Patchen und Wartung"
+          ],
+          "en": [
+            "Network rack · patching and maintenance"
+          ]
+        }
+      },
+      {
+        "id": "ap",
+        "x": 40,
+        "y": 166,
+        "w": 155,
+        "kind": "net",
+        "title": {
+          "de": "Cisco APs",
+          "en": "Cisco APs"
+        },
+        "lines": {
+          "de": [
+            "WLAN im Konzern"
+          ],
+          "en": [
+            "Group Wi-Fi"
+          ]
+        }
+      },
+      {
+        "id": "nt",
+        "x": 215,
+        "y": 166,
+        "w": 155,
+        "kind": "user",
+        "title": {
+          "de": "Netzwerkteam",
+          "en": "Network team"
+        },
+        "lines": {
+          "de": [
+            "Firewall-Freigaben"
+          ],
+          "en": [
+            "Firewall changes"
+          ]
+        }
+      },
+      {
+        "id": "me",
+        "x": 40,
+        "y": 290,
+        "w": 330,
+        "kind": "user",
+        "title": {
+          "de": "IT-Team vor Ort",
+          "en": "On-site IT team"
+        },
+        "lines": {
+          "de": [
+            "Support · Anfragen · Doku in Confluence"
+          ],
+          "en": [
+            "Support · requests · docs in Confluence"
+          ]
+        }
+      },
+      {
+        "id": "omada",
+        "x": 440,
+        "y": 58,
+        "w": 320,
+        "kind": "net",
+        "title": {
+          "de": "TP-Link Omada",
+          "en": "TP-Link Omada"
+        },
+        "lines": {
+          "de": [
+            "Controller und Access Points"
+          ],
+          "en": [
+            "Controller and access points"
+          ]
+        }
+      },
+      {
+        "id": "s1",
+        "x": 440,
+        "y": 150,
+        "w": 150,
+        "kind": "client",
+        "title": {
+          "de": "Mitarbeitende",
+          "en": "Staff"
+        }
+      },
+      {
+        "id": "s2",
+        "x": 610,
+        "y": 150,
+        "w": 150,
+        "kind": "client",
+        "title": {
+          "de": "Gäste",
+          "en": "Guests"
+        }
+      },
+      {
+        "id": "zy",
+        "x": 440,
+        "y": 278,
+        "w": 150,
+        "kind": "shield",
+        "title": {
+          "de": "Zyxel Firewall",
+          "en": "Zyxel Firewall"
+        },
+        "lines": {
+          "de": [
+            "Ports · Subnetze"
+          ],
+          "en": [
+            "Ports · subnets"
+          ]
+        }
+      },
+      {
+        "id": "tel",
+        "x": 610,
+        "y": 278,
+        "w": 150,
+        "kind": "client",
+        "title": {
+          "de": "Telefone",
+          "en": "Phones"
+        },
+        "lines": {
+          "de": [
+            "Telefonie"
+          ],
+          "en": [
+            "Telephony"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "sw",
+        "to": "ap",
+        "fs": "b",
+        "ts": "t",
+        "fo": -87
+      },
+      {
+        "from": "me",
+        "to": "nt",
+        "label": {
+          "de": "Firewall-Anfrage",
+          "en": "Firewall request"
+        },
+        "fs": "t",
+        "ts": "b",
+        "fo": 87
+      },
+      {
+        "from": "omada",
+        "to": "s1",
+        "label": {
+          "de": "getrennte WLANs",
+          "en": "separate SSIDs"
+        },
+        "fs": "b",
+        "ts": "t",
+        "fo": -85,
+        "lx": 600,
+        "ly": 133
+      },
+      {
+        "from": "omada",
+        "to": "s2",
+        "fs": "b",
+        "ts": "t",
+        "fo": 85
+      },
+      {
+        "from": "zy",
+        "to": "tel",
+        "fs": "r",
+        "ts": "l"
+      },
+      {
+        "from": "me",
+        "to": "zy",
+        "label": {
+          "de": "Fehlersuche",
+          "en": "Troubleshooting"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": -12
+      }
+    ]
+  },
   text: {
     de: ["Im IT-Team eines Schweizer Uhrenunternehmens habe ich am Netzwerk mitgearbeitet. Im Konzernnetz laufen Cisco Access Points und Cisco Switches, das interne WLAN ausserhalb des Konzerns läuft auf TP-Link Omada, die Telefonie hinter einer Zyxel Firewall. Firewall-Freigaben liefen über das Netzwerkteam des Konzerns, also musste jede Anfrage sauber begründet und dokumentiert sein."],
     en: ["In the IT team of a Swiss watch company I worked on the network. The group network runs Cisco access points and Cisco switches, the internal Wi-Fi outside the group runs on TP-Link Omada, and telephony sits behind a Zyxel firewall. Firewall changes went through the group's network team, so every request had to be clearly justified and documented."]
