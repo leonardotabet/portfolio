@@ -1,3 +1,4 @@
+// archived: planned for spring 2027. To show again: move back to certificates/ and add to content/index.js
 window.PORTFOLIO_CERTIFICATES.push({
   order: 2,
   badge: "S+",
@@ -6,7 +7,7 @@ window.PORTFOLIO_CERTIFICATES.push({
   name: "CompTIA Security+",
   fullName: { de: "Grundlagen der IT-Sicherheit", en: "IT security fundamentals" },
   issuer: "CompTIA",
-  date: { de: "TODO: geplanter Prüfungsmonat", en: "TODO: planned exam month" },
+  date: { de: "Geplant: Frühling 2027", en: "Planned: spring 2027" },
   verifyUrl: "",
 
   confirms: {

@@ -228,11 +228,11 @@ window.SITE = {
       when: { de: "2026 bis 2027", en: "2026 to 2027" },
       tag: { de: "Weiterbildung", en: "Education" },
       title: { de: "Dipl. ICT System Engineer", en: "Diploma ICT System Engineer" },
-      text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden, Security+ in Vorbereitung. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900, Security+ in preparation. Diploma in January 2027." },
+      text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900. Diploma in January 2027." },
       detail: {
         did: {
-          de: ["Systemtechnik mit Windows Server 2022 und Windows Clients auf VMware, Active Directory, Gruppenrichtlinien und Azure", "IT-Betrieb mit Microsoft Intune und Entra ID", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt, Security+ zusätzlich aus eigener Initiative"],
-          en: ["Systems engineering with Windows Server 2022 and Windows clients on VMware, Active Directory, Group Policy and Azure", "IT operations with Microsoft Intune and Entra ID", "Network technologies from DHCP, DNS and VPN to routers, switches and security", "Project management and communication in support", "Earned international certifications within the program, Security+ on top on my own initiative"]
+          de: ["Systemtechnik mit Windows Server 2022 und Windows Clients auf VMware, Active Directory, Gruppenrichtlinien und Azure", "IT-Betrieb mit Microsoft Intune und Entra ID", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt"],
+          en: ["Systems engineering with Windows Server 2022 and Windows clients on VMware, Active Directory, Group Policy and Azure", "IT operations with Microsoft Intune and Entra ID", "Network technologies from DHCP, DNS and VPN to routers, switches and security", "Project management and communication in support", "Earned international certifications within the program"]
         },
         gain: {
           de: ["Infrastruktur von Grund auf planen, aufbauen und dokumentieren", "Theorie aus der Schule direkt in der Praxis umsetzen, im Betrieb und im Lab"],
@@ -240,7 +240,7 @@ window.SITE = {
         },
         note: { de: "Bestätigung der Schule: bisher sehr gute Leistungen", en: "Confirmed by the school: very good results so far" },
         projects: ["windows-server-ad-lab", "m365-support-lab"],
-        certs: ["DIP", "S+"]
+        certs: ["DIP"]
       }
     },
     {

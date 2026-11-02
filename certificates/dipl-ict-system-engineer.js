@@ -53,22 +53,22 @@ window.PORTFOLIO_CERTIFICATES.push({
     {
       title: { de: "Zertifikate auf dem Weg", en: "Certifications along the way" },
       text: {
-        de: "Zum Lehrgang gehören internationale Zertifikatsprüfungen. Security+ mache ich zusätzlich aus eigener Initiative.",
-        en: "The program includes international certification exams. I am taking Security+ on top, on my own initiative."
+        de: "Zum Lehrgang gehören internationale Zertifikatsprüfungen. Die Microsoft MD-102 mache ich zusätzlich aus eigener Initiative.",
+        en: "The program includes international certification exams. I am taking Microsoft MD-102 on top, on my own initiative."
       },
       points: {
         de: [
           "CompTIA A+: bestanden",
           "Microsoft Azure Fundamentals (AZ-900): bestanden",
           "CompTIA Network+: bestanden",
-          "CompTIA Security+: zusätzlich, in Vorbereitung",
+          "Microsoft Endpoint Administrator (MD-102): zusätzlich, in Vorbereitung",
           "Microsoft Azure Administrator (AZ-104): nächstes Ziel nach dem Diplom"
         ],
         en: [
           "CompTIA A+: passed",
           "Microsoft Azure Fundamentals (AZ-900): passed",
           "CompTIA Network+: passed",
-          "CompTIA Security+: additional, in preparation",
+          "Microsoft Endpoint Administrator (MD-102): additional, in preparation",
           "Microsoft Azure Administrator (AZ-104): next goal after the diploma"
         ]
       }
