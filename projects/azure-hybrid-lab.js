@@ -4,17 +4,17 @@ window.PORTFOLIO_PROJECTS.push({
   status: "done",
 
   title:    { de: "Azure Hybrid Lab", en: "Azure hybrid lab" },
-  subtitle: { de: "Lokales Active Directory und Microsoft Cloud, verbunden wie im Konzern und in vielen Firmen.", en: "On-premises Active Directory and the Microsoft cloud, connected as in my corporate group and many companies." },
-  context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
+  subtitle: { de: "Active Directory in Azure, synchronisiert mit Entra ID, mit Dateifreigabe und virtuellen Desktops.", en: "Active Directory in Azure, synced with Entra ID, with a file share and virtual desktops." },
+  context:  { de: "Praxisprojekt Cloud Engineering mit Microsoft Azure", en: "Hands-on cloud engineering project with Microsoft Azure" },
   period:   { de: "2025 bis 2026", en: "2025 to 2026" },
 
   overview: {
-    lead: { de: "Ich habe ein lokales Active Directory mit Entra ID und Azure verbunden, wie es im Konzern und in vielen KMU läuft, inklusive Dateiablage und virtuellen Desktops.", en: "I connected an on-premises Active Directory with Entra ID and Azure, the way it runs in my corporate group and many SMEs, including file storage and virtual desktops." },
+    lead: { de: "Ich habe in Azure selbständig eine hybride Umgebung geplant und aufgebaut: Domänencontroller, Synchronisierung mit Entra ID, Dateifreigabe mit AD-Anmeldung und virtuelle Desktops, und jeden Zugriff mit Testbenutzern geprüft.", en: "I planned and built a hybrid environment in Azure on my own: domain controller, sync with Entra ID, a file share with AD sign-in and virtual desktops, and checked every access with test users." },
     facts: [
-      { value: "Hybrid", label: { de: "AD und Entra ID verbunden", en: "AD and Entra ID connected" } },
-      { value: "1", label: { de: "Domänencontroller in Azure", en: "domain controller in Azure" } },
-      { value: "Azure Files", label: { de: "mit AD Anmeldung und RBAC", en: "with AD sign-in and RBAC" } },
-      { value: "AVD", label: { de: "Session Host in der Domäne", en: "domain-joined session host" } }
+      { value: "1", label: { de: "Domäne corp.local in Azure", en: "corp.local domain in Azure" } },
+      { value: "3", label: { de: "Testbenutzer synchronisiert", en: "test users synced" } },
+      { value: "1", label: { de: "Session Host in der Domäne", en: "domain-joined session host" } },
+      { value: "5", label: { de: "Fehlerfälle selbst gelöst", en: "issues solved myself" } }
     ],
     skills: {
       de: ["Hybride Identität mit Entra Connect", "Azure Grundlagen: VNet, NSG, VMs", "Azure Files und Virtual Desktop", "Active Directory und DNS", "Typische Fehler selbst lösen"],
@@ -23,20 +23,20 @@ window.PORTFOLIO_PROJECTS.push({
   },
   diagram: {
     "w": 800,
-    "h": 400,
+    "h": 360,
     "alt": {
-      "de": "Infrastruktur des Azure Hybrid Labs: Azure VNet mit Bastion, Domänencontroller, Azure Files und Azure Virtual Desktop, synchronisiert mit Entra ID",
-      "en": "Infrastructure of the Azure hybrid lab: Azure VNet with Bastion, domain controller, Azure Files and Azure Virtual Desktop, synced with Entra ID"
+      "de": "Infrastruktur des Azure Hybrid Labs: Ressourcengruppe rg-hybridlab mit NSG, Domänencontroller, Azure Files und Azure Virtual Desktop, synchronisiert mit Entra ID, getestet mit drei Benutzern",
+      "en": "Infrastructure of the Azure hybrid lab: resource group rg-hybridlab with NSG, domain controller, Azure Files and Azure Virtual Desktop, synced with Entra ID, tested with three users"
     },
     "zones": [
       {
         "x": 20,
         "y": 20,
         "w": 530,
-        "h": 360,
+        "h": 320,
         "label": {
-          "de": "Azure · Ressourcengruppe · VNet mit NSG",
-          "en": "Azure · resource group · VNet with NSG"
+          "de": "Azure · rg-hybridlab · vnet-hybridlab",
+          "en": "Azure · rg-hybridlab · vnet-hybridlab"
         },
         "tone": "cloud"
       },
@@ -54,47 +54,47 @@ window.PORTFOLIO_PROJECTS.push({
     ],
     "nodes": [
       {
-        "id": "bastion",
+        "id": "nsg",
         "x": 40,
         "y": 60,
         "w": 190,
         "kind": "shield",
         "title": {
-          "de": "Azure Bastion",
-          "en": "Azure Bastion"
+          "de": "NSG · nsg-dc",
+          "en": "NSG · nsg-dc"
         },
         "lines": {
           "de": [
-            "RDP im Browser",
-            "kein offener RDP-Port"
+            "RDP nur von meiner IP",
+            "Regeln für RDP und SMB"
           ],
           "en": [
-            "RDP in the browser",
-            "no open RDP port"
+            "RDP only from my IP",
+            "Rules for RDP and SMB"
           ]
         },
         "details": {
           "de": [
-            "Zugriff auf die Server per RDP direkt im Browser",
-            "Kein offener RDP-Port im Internet",
-            "NSG-Regel für den Zugriff geprüft und korrigiert"
+            "Netzwerksicherheitsgruppe nsg-dc vor dem Domänencontroller",
+            "RDP nur von meiner eigenen öffentlichen IP-Adresse erlaubt",
+            "Fehler gelöst: falsche IP in der Regel korrigiert"
           ],
           "en": [
-            "Access to the servers with RDP directly in the browser",
-            "No open RDP port on the internet",
-            "NSG rule for access checked and corrected"
+            "Network security group nsg-dc in front of the domain controller",
+            "RDP allowed only from my own public IP address",
+            "Issue solved: corrected the wrong IP in the rule"
           ]
         }
       },
       {
         "id": "dc",
-        "x": 290,
+        "x": 270,
         "y": 60,
-        "w": 240,
+        "w": 260,
         "kind": "server",
         "title": {
-          "de": "DC01 · Windows Server 2025",
-          "en": "DC01 · Windows Server 2025"
+          "de": "vm-dc01 · Server 2025",
+          "en": "vm-dc01 · Server 2025"
         },
         "lines": {
           "de": [
@@ -108,16 +108,16 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "details": {
           "de": [
-            "Windows Server 2025 mit AD DS und DNS für corp.local",
-            "Statische IP im eigenen Subnetz",
-            "OU für Benutzer, Testbenutzer und eine Sicherheitsgruppe für den Dateizugriff",
+            "vm-dc01 mit Windows Server 2025 in West Europe",
+            "AD DS und DNS für die Domäne corp.local, statische IP im Subnetz snet-dc",
+            "OU mit den Testbenutzern und einer Sicherheitsgruppe für den Dateizugriff",
             "UPN-Suffix passend zum Tenant",
             "Entra Connect mit Kennwort-Hash-Synchronisierung und OU-Filter"
           ],
           "en": [
-            "Windows Server 2025 with AD DS and DNS for corp.local",
-            "Static IP in its own subnet",
-            "OU for users, test users and a security group for file access",
+            "vm-dc01 with Windows Server 2025 in West Europe",
+            "AD DS and DNS for the corp.local domain, static IP in the snet-dc subnet",
+            "OU with the test users and a security group for file access",
             "UPN suffix matching the tenant",
             "Entra Connect with password hash sync and OU filtering"
           ]
@@ -135,32 +135,34 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "lines": {
           "de": [
-            "Kerberos über AD DS",
-            "Rechte per RBAC"
+            "share-corp · Kerberos",
+            "RBAC und NTFS"
           ],
           "en": [
-            "Kerberos through AD DS",
-            "Permissions via RBAC"
+            "share-corp · Kerberos",
+            "RBAC and NTFS"
           ]
         },
         "details": {
           "de": [
+            "Storage Account mit der Dateifreigabe share-corp",
             "Anmeldung per Kerberos über AD DS statt Speicherschlüssel",
-            "Rechte per RBAC auf die Sicherheitsgruppe",
-            "Getestet: Mitglieder der Gruppe erreichen die Freigabe, andere nicht"
+            "Rechte über RBAC und NTFS auf die Sicherheitsgruppe",
+            "Test: Alice verbindet die Freigabe und legt Dateien an, Charlie wird abgewiesen"
           ],
           "en": [
+            "Storage account with the file share share-corp",
             "Sign-in with Kerberos through AD DS instead of storage keys",
-            "Permissions via RBAC on the security group",
-            "Tested: group members reach the share, others do not"
+            "Permissions via RBAC and NTFS on the security group",
+            "Test: Alice maps the share and creates files, Charlie is denied"
           ]
         }
       },
       {
         "id": "avd",
-        "x": 290,
+        "x": 270,
         "y": 250,
-        "w": 240,
+        "w": 260,
         "kind": "client",
         "title": {
           "de": "Azure Virtual Desktop",
@@ -168,24 +170,28 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "lines": {
           "de": [
-            "Host Pool · Workspace",
-            "Session Host in der Domäne"
+            "hp-lab · ws-lab",
+            "sh-lab-0 in der Domäne"
           ],
           "en": [
-            "Host pool · workspace",
-            "Domain-joined session host"
+            "hp-lab · ws-lab",
+            "sh-lab-0 joined to the domain"
           ]
         },
         "details": {
           "de": [
-            "Host Pool, Arbeitsbereich und ein Session Host",
-            "Session Host ist der Domäne beigetreten",
-            "DNS des VNet auf den Domänencontroller gestellt, damit der Beitritt klappt"
+            "Host Pool hp-lab (Pooled)",
+            "Desktop-Anwendungsgruppe für Alice und Bob",
+            "Arbeitsbereich ws-lab für den Web Client",
+            "Session Host sh-lab-0: Windows 11 Enterprise Multi-Session, in der Domäne corp.local",
+            "Fehler gelöst: DNS des VNet auf den Domänencontroller gestellt, damit der Beitritt klappt"
           ],
           "en": [
-            "Host pool, workspace and one session host",
-            "The session host is joined to the domain",
-            "VNet DNS pointed to the domain controller so the join works"
+            "Host pool hp-lab (pooled)",
+            "Desktop application group for Alice and Bob",
+            "Workspace ws-lab for the web client",
+            "Session host sh-lab-0: Windows 11 Enterprise multi-session, joined to corp.local",
+            "Issue solved: pointed the VNet DNS to the domain controller so the join works"
           ]
         }
       },
@@ -211,13 +217,13 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "details": {
           "de": [
-            "Benutzer aus der gefilterten OU werden synchronisiert",
-            "Gruppen für den Zugriff",
+            "Alice, Bob und Charlie aus dem AD synchronisiert",
+            "Ein Konto und ein Passwort für AD und Cloud",
             "Eigenes Cloud-Administratorkonto für Entra Connect"
           ],
           "en": [
-            "Users from the filtered OU are synced",
-            "Groups for access",
+            "Alice, Bob and Charlie synced from AD",
+            "One account and one password for AD and cloud",
             "Dedicated cloud admin account for Entra Connect"
           ]
         }
@@ -229,36 +235,40 @@ window.PORTFOLIO_PROJECTS.push({
         "w": 160,
         "kind": "user",
         "title": {
-          "de": "Benutzer",
-          "en": "User"
+          "de": "Testbenutzer",
+          "en": "Test users"
         },
         "lines": {
           "de": [
-            "ein Konto, ein Passwort"
+            "Alice · Bob · Charlie"
           ],
           "en": [
-            "one account, one password"
+            "Alice · Bob · Charlie"
           ]
         },
         "details": {
           "de": [
-            "Ein Konto und ein Passwort vom lokalen AD bis in die Cloud",
-            "Anmeldung am virtuellen Desktop und Zugriff auf die Dateifreigabe"
+            "Alice: Zugriff auf Freigabe und virtuellen Desktop",
+            "Bob: Zugriff auf den virtuellen Desktop",
+            "Charlie: bewusst ohne Zugriff, als Gegenprobe",
+            "Anmeldung über den AVD Web Client getestet"
           ],
           "en": [
-            "One account and one password from on-premises AD to the cloud",
-            "Sign-in to the virtual desktop and access to the file share"
+            "Alice: access to the share and the virtual desktop",
+            "Bob: access to the virtual desktop",
+            "Charlie: deliberately without access, as a counter test",
+            "Sign-in through the AVD web client tested"
           ]
         }
       }
     ],
     "links": [
       {
-        "from": "bastion",
+        "from": "nsg",
         "to": "dc",
         "label": {
-          "de": "Verwaltung",
-          "en": "Admin access"
+          "de": "RDP",
+          "en": "RDP"
         },
         "fs": "r",
         "ts": "l"
@@ -317,10 +327,10 @@ window.PORTFOLIO_PROJECTS.push({
   },
   text: {
     de: [
-      "Hybrides Active Directory mit Entra ID und Azure ist in meinem Konzern im Einsatz. Im Lab habe ich eine solche Umgebung Schritt für Schritt selbst aufgebaut, wie sie auch viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu Dateiablage und virtuelle Desktops aus Azure. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom lokalen Active Directory bis in die Cloud."
+      "Für den Einstieg ins Cloud Engineering habe ich eine hybride Microsoft-Umgebung in Azure selbständig geplant, aufgebaut und dokumentiert, wie sie viele Schweizer KMU nutzen: ein Domänencontroller mit Active Directory, synchronisiert mit Entra ID, dazu eine Dateifreigabe mit AD-Anmeldung und virtuelle Desktops. Mit drei Testbenutzern habe ich geprüft, dass jeder genau die Zugriffe hat, die er haben soll. Das Ergebnis ist eine hybride Identität von Ende zu Ende: ein Benutzer, ein Passwort, vom Active Directory bis in die Cloud."
     ],
     en: [
-      "Hybrid Active Directory with Entra ID and Azure is in use in my corporate group. In the lab I built such an environment myself, step by step, like the ones many Swiss SMEs run: a domain controller with Active Directory synced to Entra ID, plus file storage and virtual desktops from Azure. The result is an end-to-end hybrid identity: one user, one password, from on-premises Active Directory to the cloud."
+      "As my start in cloud engineering I planned, built and documented a hybrid Microsoft environment in Azure on my own, like the ones many Swiss SMEs run: a domain controller with Active Directory synced to Entra ID, plus a file share with AD sign-in and virtual desktops. With three test users I checked that everyone has exactly the access they should have. The result is an end-to-end hybrid identity: one user, one password, from Active Directory to the cloud."
     ]
   },
   points: { de: [], en: [] },
@@ -376,20 +386,24 @@ window.PORTFOLIO_PROJECTS.push({
       title: { de: "Teil 2: Hybride Identität, Azure Files und Azure Virtual Desktop", en: "Part 2: Hybrid identity, Azure Files and Azure Virtual Desktop" },
       points: {
         de: [
-          "Domänencontroller mit Windows Server 2025, AD DS und DNS für die Domäne corp.local, statische IP im eigenen Subnetz",
-          "Organisationseinheit für die Benutzer, Testbenutzer und eine Sicherheitsgruppe für den Dateizugriff, UPN-Suffix passend zum Tenant",
+          "Ressourcengruppe rg-hybridlab mit VNet, Subnetz und NSG in West Europe, RDP nur von meiner eigenen IP-Adresse",
+          "Domänencontroller vm-dc01 mit Windows Server 2025, AD DS und DNS für die Domäne corp.local, statische IP im eigenen Subnetz",
+          "Organisationseinheit mit den Testbenutzern Alice, Bob und Charlie und einer Sicherheitsgruppe für den Dateizugriff, UPN-Suffix passend zum Tenant",
           "Entra Connect mit Kennwort-Hash-Synchronisierung und OU-Filter, damit nur die gewünschten Benutzer in die Cloud kommen",
-          "Azure Files mit Kerberos-Anmeldung über AD DS statt Speicherschlüssel, Rechte über RBAC auf die Sicherheitsgruppe",
-          "Zugriffssteuerung getestet: Benutzer in der Gruppe erreichen die Freigabe, Benutzer ausserhalb nicht",
-          "Azure Virtual Desktop mit Host Pool, Arbeitsbereich und einem Session Host, der der Domäne beigetreten ist"
+          "Azure Files Freigabe share-corp mit Kerberos-Anmeldung über AD DS statt Speicherschlüssel, Rechte über RBAC und NTFS auf die Sicherheitsgruppe",
+          "Zugriffssteuerung getestet: Alice verbindet die Freigabe ohne Speicherschlüssel und legt Dateien an, Charlie erhält bewusst keinen Zugriff",
+          "Azure Virtual Desktop: Host Pool hp-lab (Pooled), Desktop-Anwendungsgruppe für Alice und Bob, Arbeitsbereich ws-lab und Session Host sh-lab-0 mit Windows 11 Enterprise Multi-Session in der Domäne",
+          "Anmeldung über den AVD Web Client mit dem synchronisierten Konto getestet"
         ],
         en: [
-          "Domain controller with Windows Server 2025, AD DS and DNS for the corp.local domain, static IP in its own subnet",
-          "An organizational unit for users, test users and a security group for file access, UPN suffix matching the tenant",
+          "Resource group rg-hybridlab with VNet, subnet and NSG in West Europe, RDP only from my own IP address",
+          "Domain controller vm-dc01 with Windows Server 2025, AD DS and DNS for the corp.local domain, static IP in its own subnet",
+          "An organizational unit with the test users Alice, Bob and Charlie and a security group for file access, UPN suffix matching the tenant",
           "Entra Connect with password hash sync and OU filtering, so only the intended users are synced to the cloud",
-          "Azure Files with Kerberos sign-in through AD DS instead of storage keys, permissions via RBAC on the security group",
-          "Access control tested: users in the group reach the share, users outside it do not",
-          "Azure Virtual Desktop with a host pool, workspace and a domain-joined session host"
+          "Azure Files share share-corp with Kerberos sign-in through AD DS instead of storage keys, permissions via RBAC and NTFS on the security group",
+          "Access control tested: Alice maps the share without a storage key and creates files, Charlie deliberately gets no access",
+          "Azure Virtual Desktop: host pool hp-lab (pooled), desktop application group for Alice and Bob, workspace ws-lab and session host sh-lab-0 with Windows 11 Enterprise multi-session joined to the domain",
+          "Sign-in through the AVD web client with the synced account tested"
         ]
       }
     },

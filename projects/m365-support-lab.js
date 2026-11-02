@@ -21,6 +21,42 @@ window.PORTFOLIO_PROJECTS.push({
       en: ["Onboarding and offboarding", "Solving sign-in problems with logs", "Managing licenses and groups", "Managing devices in Intune", "Documenting tickets cleanly"]
     }
   },
+  target: {
+    lead: { de: "Ich baue das Lab zu einer Endpoint-Umgebung aus, wie sie in Konzernen läuft, und übe damit gezielt für die Microsoft MD-102 (Endpoint Administrator).", en: "I am extending the lab into an endpoint environment like the ones corporate groups run, and use it to practice specifically for Microsoft MD-102 (Endpoint Administrator)." },
+    facts: [
+      { value: "7", label: { de: "VMs auf Hyper-V", en: "VMs on Hyper-V" } },
+      { value: "1", label: { de: "Domäne für Hybrid Join", en: "domain for hybrid join" } },
+      { value: "6", label: { de: "Lab-Phasen", en: "lab phases" } },
+      { value: "5", label: { de: "Prüfungsbereiche MD-102", en: "MD-102 exam areas" } }
+    ],
+    skills: {
+      de: ["Autopilot und Hybrid Join", "Compliance und Conditional Access", "Win32-Apps mit PSADT", "Defender for Endpoint und App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automatisierung mit Graph und Remediations"],
+      en: ["Autopilot and hybrid join", "Compliance and Conditional Access", "Win32 apps with PSADT", "Defender for Endpoint and App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automation with Graph and remediations"]
+    },
+    sections: [
+      {
+        title: { de: "Ablauf in 6 Phasen", en: "Plan in 6 phases" },
+        points: {
+          de: [
+            "Phase 1, Identität und Compliance: Intune-Rollen mit Scope Tags, Multi Admin Approval, Windows LAPS, Windows Hello for Business, Conditional Access mit konformem Gerät",
+            "Phase 2, Autopilot: Profil mit Namensvorlage, Enrollment Status Page, Device Preparation, Hybrid Join über DC01",
+            "Phase 3, Konfiguration und Updates: ADMX-Import, Assignment Filter, Update Rings, Feature Updates, Autopatch",
+            "Phase 4, Endpoint Security: Defender for Endpoint, ASR, BitLocker, Security Baselines, App Control for Business",
+            "Phase 5, Apps: Win32-Apps mit PSADT, Microsoft 365 Apps, App-Schutz und App-Konfiguration fürs Handy",
+            "Phase 6, Intune Suite und Automatisierung: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph-Berichte, Remediations"
+          ],
+          en: [
+            "Phase 1, identity and compliance: Intune roles with scope tags, multi admin approval, Windows LAPS, Windows Hello for Business, Conditional Access with a compliant device",
+            "Phase 2, Autopilot: profile with name template, enrollment status page, device preparation, hybrid join through DC01",
+            "Phase 3, configuration and updates: ADMX import, assignment filters, update rings, feature updates, Autopatch",
+            "Phase 4, endpoint security: Defender for Endpoint, ASR, BitLocker, security baselines, App Control for Business",
+            "Phase 5, apps: Win32 apps with PSADT, Microsoft 365 Apps, app protection and app configuration for the phone",
+            "Phase 6, Intune Suite and automation: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph reports, remediations"
+          ]
+        }
+      }
+    ]
+  },
   diagram: {
     "w": 800,
     "h": 400,
@@ -993,42 +1029,6 @@ window.PORTFOLIO_PROJECTS.push({
         "ts": "r",
         "to_": 12,
         "mx": 692
-      }
-    ]
-  },
-  target: {
-    lead: { de: "Ich baue das Lab zu einer Endpoint-Umgebung aus, wie sie in Konzernen läuft, und übe damit gezielt für die Microsoft MD-102 (Endpoint Administrator).", en: "I am extending the lab into an endpoint environment like the ones corporate groups run, and use it to practice specifically for Microsoft MD-102 (Endpoint Administrator)." },
-    facts: [
-      { value: "7", label: { de: "VMs auf Hyper-V", en: "VMs on Hyper-V" } },
-      { value: "1", label: { de: "Domäne für Hybrid Join", en: "domain for hybrid join" } },
-      { value: "6", label: { de: "Lab-Phasen", en: "lab phases" } },
-      { value: "5", label: { de: "Prüfungsbereiche MD-102", en: "MD-102 exam areas" } }
-    ],
-    skills: {
-      de: ["Autopilot und Hybrid Join", "Compliance und Conditional Access", "Win32-Apps mit PSADT", "Defender for Endpoint und App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automatisierung mit Graph und Remediations"],
-      en: ["Autopilot and hybrid join", "Compliance and Conditional Access", "Win32 apps with PSADT", "Defender for Endpoint and App Control", "Intune Suite: EPM, Remote Help, Cloud PKI", "Automation with Graph and remediations"]
-    },
-    sections: [
-      {
-        title: { de: "Ablauf in 6 Phasen", en: "Plan in 6 phases" },
-        points: {
-          de: [
-            "Phase 1, Identität und Compliance: Intune-Rollen mit Scope Tags, Multi Admin Approval, Windows LAPS, Windows Hello for Business, Conditional Access mit konformem Gerät",
-            "Phase 2, Autopilot: Profil mit Namensvorlage, Enrollment Status Page, Device Preparation, Hybrid Join über DC01",
-            "Phase 3, Konfiguration und Updates: ADMX-Import, Assignment Filter, Update Rings, Feature Updates, Autopatch",
-            "Phase 4, Endpoint Security: Defender for Endpoint, ASR, BitLocker, Security Baselines, App Control for Business",
-            "Phase 5, Apps: Win32-Apps mit PSADT, Microsoft 365 Apps, App-Schutz und App-Konfiguration fürs Handy",
-            "Phase 6, Intune Suite und Automatisierung: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph-Berichte, Remediations"
-          ],
-          en: [
-            "Phase 1, identity and compliance: Intune roles with scope tags, multi admin approval, Windows LAPS, Windows Hello for Business, Conditional Access with a compliant device",
-            "Phase 2, Autopilot: profile with name template, enrollment status page, device preparation, hybrid join through DC01",
-            "Phase 3, configuration and updates: ADMX import, assignment filters, update rings, feature updates, Autopatch",
-            "Phase 4, endpoint security: Defender for Endpoint, ASR, BitLocker, security baselines, App Control for Business",
-            "Phase 5, apps: Win32 apps with PSADT, Microsoft 365 Apps, app protection and app configuration for the phone",
-            "Phase 6, Intune Suite and automation: EPM, Remote Help, Cloud PKI, Microsoft Tunnel, Graph reports, remediations"
-          ]
-        }
       }
     ]
   },
