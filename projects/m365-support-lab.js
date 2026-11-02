@@ -5,11 +5,11 @@ window.PORTFOLIO_PROJECTS.push({
 
   title:    { de: "Microsoft 365 Support Lab", en: "Microsoft 365 support lab" },
   subtitle: { de: "Ein Firmen-Tenant mit den Abläufen eines Service Desks, vom Onboarding bis zum Ticket.", en: "A company tenant with real service desk workflows, from onboarding to tickets." },
-  context:  { de: "Praxis-Lab zur Konzernumgebung", en: "Hands-on lab mirroring the corporate environment" },
+  context:  { de: "Praxis-Lab zur Konzernumgebung und Vorbereitung auf die Microsoft MD-102", en: "Hands-on lab mirroring the corporate environment and preparing for Microsoft MD-102" },
   period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
 
   overview: {
-    lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID, Intune und Jira Service Desk aufgebaut und typische Support Fälle vom Onboarding bis zum Offboarding als Tickets gelöst.", en: "I built a Microsoft 365 tenant with Entra ID, Intune and a Jira service desk and solved typical support cases from onboarding to offboarding as tickets." },
+    lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID, Intune und Jira Service Desk aufgebaut und typische Support Fälle vom Onboarding bis zum Offboarding als Tickets gelöst. Das Lab bildet die Konzernumgebung nach und ist meine Praxis für die Microsoft MD-102.", en: "I built a Microsoft 365 tenant with Entra ID, Intune and a Jira service desk and solved typical support cases from onboarding to offboarding as tickets. The lab mirrors the corporate environment and is my hands-on preparation for Microsoft MD-102." },
     facts: [
       { value: "5", label: { de: "Testbenutzer", en: "test users" } },
       { value: "1", label: { de: "Windows 11 Gerät in Intune", en: "Windows 11 device in Intune" } },
@@ -22,8 +22,8 @@ window.PORTFOLIO_PROJECTS.push({
     }
   },
   text: {
-    de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets."],
-    en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets."]
+    de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "Das Lab hat zwei Ziele: Ich verstehe die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Und es ist meine Praxis für die Microsoft MD-102 (Endpoint Administrator). Deshalb baue ich es laufend aus, mit Autopilot, Endpoint Security, App-Verteilung und Automatisierung."],
+    en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "The lab has two goals: I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. And it is my hands-on preparation for Microsoft MD-102 (Endpoint Administrator). That is why I keep extending it with Autopilot, endpoint security, app deployment and automation."]
   },
   points: {
     de: [
