@@ -1,7 +1,7 @@
 window.PORTFOLIO_CERTIFICATES.push({
   order: 4,
   badge: "A+",
-  highlight: { de: "Passt zu ITIL: Tickets, Changes und Dokumentation", en: "Aligned with ITIL: tickets, changes and documentation" },
+  highlight: { de: "Nach ITIL-Grundsätzen: Tickets, Changes und Dokumentation", en: "Following ITIL principles: tickets, changes and documentation" },
   status: "passed",
   name: "CompTIA A+",
   fullName: { de: "Grundlagen des IT-Supports, Core 1 und Core 2", en: "IT support fundamentals, Core 1 and Core 2" },
@@ -23,10 +23,10 @@ window.PORTFOLIO_CERTIFICATES.push({
   },
   sections: [
     {
-      title: { de: "A+ und ITIL: dieselben Abläufe im Alltag", en: "A+ and ITIL: the same processes in daily work" },
+      title: { de: "Support nach ITIL-Grundsätzen", en: "Support following ITIL principles" },
       text: {
-        de: "Der Prüfungsteil «Betriebsabläufe» der A+ behandelt Ticketing, Change Management und Dokumentation. Das sind genau die Prozesse, die ITIL für den IT-Service beschreibt. So arbeite ich im Support von Anfang an prozessorientiert:",
-        en: "The operational procedures domain of A+ covers ticketing, change management and documentation. These are exactly the processes ITIL describes for IT service management. That is why I work process-driven in support from day one:"
+        de: "Der Prüfungsteil «Betriebsabläufe» der A+ behandelt Ticketing, Change Management und Dokumentation. Ich arbeite dabei nach den ITIL-Grundsätzen: auf den Nutzen für den Anwender fokussieren, dort beginnen, wo man steht, schrittweise mit Feedback vorgehen, zusammenarbeiten und Transparenz schaffen, ganzheitlich denken, einfach und praktisch bleiben sowie optimieren und automatisieren. Im Alltag heisst das:",
+        en: "The operational procedures domain of A+ covers ticketing, change management and documentation. I work following the ITIL guiding principles: focus on value, start where you are, progress iteratively with feedback, collaborate and promote visibility, think and work holistically, keep it simple and practical, and optimize and automate. In daily work that means:"
       },
       points: {
         de: [
