@@ -287,6 +287,8 @@ window.SITE = {
     diagramHint: { de: "Klicke oder tippe auf einen Baustein mit +, um zu sehen, was drin steckt. Auf dem Handy seitlich wischen.", en: "Click or tap a building block with + to see what is inside. On a phone, swipe sideways." },
     diagramEmpty: { de: "Noch nichts ausgewählt. Tippe oder klicke oben auf einen Baustein.", en: "Nothing selected yet. Tap or click a building block above." },
     diagramShow: { de: "Details anzeigen", en: "show details" },
+    diagramNow: { de: "Aktueller Stand", en: "Current state" },
+    diagramTarget: { de: "Ziel: MD-102 Lab", en: "Target: MD-102 lab" },
     copyLink: { de: "Link zu diesem Projekt kopieren", en: "Copy link to this project" },
     linkCopied: { de: "Link kopiert", en: "Link copied" },
     labelDate: { de: "Datum", en: "Date" },

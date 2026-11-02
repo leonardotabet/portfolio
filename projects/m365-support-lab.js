@@ -400,6 +400,602 @@ window.PORTFOLIO_PROJECTS.push({
       }
     ]
   },
+  diagramTarget: {
+    "w": 900,
+    "h": 520,
+    "alt": {
+      "de": "Ziel-Infrastruktur des MD-102 Labs: Hyper-V Host mit Domänencontroller, Tunnel Gateway und fünf Windows 11 VMs, Microsoft 365 Tenant mit Entra ID, Intune, Intune Suite und Defender for Endpoint, Betrieb mit Handy, Jira und Graph",
+      "en": "Target infrastructure of the MD-102 lab: Hyper-V host with domain controller, tunnel gateway and five Windows 11 VMs, Microsoft 365 tenant with Entra ID, Intune, Intune Suite and Defender for Endpoint, operations with phone, Jira and Graph"
+    },
+    "caption": {
+      "de": "Ziel: geplanter Ausbau als Vorbereitung auf die Microsoft MD-102 (Endpoint Administrator).",
+      "en": "Target: planned expansion as preparation for Microsoft MD-102 (Endpoint Administrator)."
+    },
+    "zones": [
+      {
+        "x": 20,
+        "y": 20,
+        "w": 330,
+        "h": 480,
+        "label": {
+          "de": "Hyper-V Host · eigenes Lab-Netz",
+          "en": "Hyper-V host · own lab network"
+        },
+        "tone": "local"
+      },
+      {
+        "x": 380,
+        "y": 20,
+        "w": 300,
+        "h": 480,
+        "label": {
+          "de": "Microsoft 365 Tenant",
+          "en": "Microsoft 365 Tenant"
+        },
+        "tone": "cloud"
+      },
+      {
+        "x": 710,
+        "y": 20,
+        "w": 170,
+        "h": 480,
+        "label": {
+          "de": "Betrieb",
+          "en": "Operations"
+        },
+        "tone": "corp"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "dc",
+        "x": 40,
+        "y": 58,
+        "w": 290,
+        "kind": "server",
+        "title": {
+          "de": "DC01 · Windows Server 2025",
+          "en": "DC01 · Windows Server 2025"
+        },
+        "lines": {
+          "de": [
+            "AD DS · DNS · DHCP",
+            "Intune Connector · Cloud Sync"
+          ],
+          "en": [
+            "AD DS · DNS · DHCP",
+            "Intune Connector · Cloud Sync"
+          ]
+        },
+        "details": {
+          "de": [
+            "Domäne für Hybrid Join mit Autopilot",
+            "Intune Connector für Active Directory",
+            "Entra Cloud Sync für die Benutzer",
+            "DHCP und DNS für das ganze Lab-Netz"
+          ],
+          "en": [
+            "Domain for hybrid join with Autopilot",
+            "Intune Connector for Active Directory",
+            "Entra Cloud Sync for the users",
+            "DHCP and DNS for the whole lab network"
+          ]
+        }
+      },
+      {
+        "id": "tun",
+        "x": 40,
+        "y": 392,
+        "w": 290,
+        "kind": "net",
+        "title": {
+          "de": "TUN01 · Ubuntu",
+          "en": "TUN01 · Ubuntu"
+        },
+        "lines": {
+          "de": [
+            "Microsoft Tunnel Gateway"
+          ],
+          "en": [
+            "Microsoft Tunnel Gateway"
+          ]
+        },
+        "details": {
+          "de": [
+            "Microsoft Tunnel Gateway auf Ubuntu",
+            "VPN für Apps auf dem Handy, ohne volle Geräteverwaltung"
+          ],
+          "en": [
+            "Microsoft Tunnel Gateway on Ubuntu",
+            "VPN for apps on the phone, without full device management"
+          ]
+        }
+      },
+      {
+        "id": "l1",
+        "x": 40,
+        "y": 232,
+        "w": 140,
+        "kind": "client",
+        "title": {
+          "de": "LAB01",
+          "en": "LAB01"
+        },
+        "lines": {
+          "de": [
+            "Richtlinien"
+          ],
+          "en": [
+            "Policies"
+          ]
+        },
+        "details": {
+          "de": [
+            "Testgerät für Richtlinien und Baselines",
+            "Autopilot Reset"
+          ],
+          "en": [
+            "Test device for policies and baselines",
+            "Autopilot reset"
+          ]
+        }
+      },
+      {
+        "id": "l2",
+        "x": 190,
+        "y": 232,
+        "w": 140,
+        "kind": "client",
+        "title": {
+          "de": "LAB02",
+          "en": "LAB02"
+        },
+        "lines": {
+          "de": [
+            "Autopilot"
+          ],
+          "en": [
+            "Autopilot"
+          ]
+        },
+        "details": {
+          "de": [
+            "Frisches Gerät nur über Autopilot ausgerollt",
+            "Namensvorlage und Enrollment Status Page",
+            "Vergleich mit Autopilot Device Preparation"
+          ],
+          "en": [
+            "Fresh device deployed only through Autopilot",
+            "Name template and enrollment status page",
+            "Comparison with Autopilot device preparation"
+          ]
+        }
+      },
+      {
+        "id": "l3",
+        "x": 40,
+        "y": 312,
+        "w": 140,
+        "kind": "client",
+        "title": {
+          "de": "LAB03",
+          "en": "LAB03"
+        },
+        "lines": {
+          "de": [
+            "Updates"
+          ],
+          "en": [
+            "Updates"
+          ]
+        },
+        "details": {
+          "de": [
+            "Update Rings Pilot und Broad",
+            "Feature Updates, Expedite Updates und Autopatch",
+            "Delivery Optimization"
+          ],
+          "en": [
+            "Update rings pilot and broad",
+            "Feature updates, expedited updates and Autopatch",
+            "Delivery Optimization"
+          ]
+        }
+      },
+      {
+        "id": "l4",
+        "x": 190,
+        "y": 312,
+        "w": 140,
+        "kind": "client",
+        "title": {
+          "de": "LAB04",
+          "en": "LAB04"
+        },
+        "lines": {
+          "de": [
+            "Hybrid Join"
+          ],
+          "en": [
+            "Hybrid join"
+          ]
+        },
+        "details": {
+          "de": [
+            "Autopilot mit Hybrid Join in die Domäne",
+            "Ziel für Defender-Onboarding und Tests"
+          ],
+          "en": [
+            "Autopilot with hybrid join to the domain",
+            "Target for Defender onboarding and tests"
+          ]
+        }
+      },
+      {
+        "id": "kiosk",
+        "x": 40,
+        "y": 152,
+        "w": 290,
+        "kind": "client",
+        "title": {
+          "de": "WIN11-KIOSK",
+          "en": "WIN11-KIOSK"
+        },
+        "lines": {
+          "de": [
+            "Kiosk · geteiltes Gerät"
+          ],
+          "en": [
+            "Kiosk · shared device"
+          ]
+        },
+        "details": {
+          "de": [
+            "Kiosk-Profil und geteiltes Gerät",
+            "Gerät für Empfang oder Produktion"
+          ],
+          "en": [
+            "Kiosk profile and shared device",
+            "Device for reception or production"
+          ]
+        }
+      },
+      {
+        "id": "entra",
+        "x": 400,
+        "y": 58,
+        "w": 260,
+        "kind": "cloud",
+        "title": {
+          "de": "Entra ID",
+          "en": "Entra ID"
+        },
+        "lines": {
+          "de": [
+            "Gruppen · CA mit Compliance",
+            "Windows Hello · LAPS"
+          ],
+          "en": [
+            "Groups · CA with compliance",
+            "Windows Hello · LAPS"
+          ]
+        },
+        "details": {
+          "de": [
+            "Conditional Access verlangt ein konformes Gerät",
+            "Windows Hello for Business",
+            "Windows LAPS für lokale Admin-Passwörter",
+            "Intune-Rollen mit Scope Tags und Multi Admin Approval"
+          ],
+          "en": [
+            "Conditional Access requires a compliant device",
+            "Windows Hello for Business",
+            "Windows LAPS for local admin passwords",
+            "Intune roles with scope tags and multi admin approval"
+          ]
+        }
+      },
+      {
+        "id": "intune",
+        "x": 400,
+        "y": 152,
+        "w": 260,
+        "kind": "shield",
+        "title": {
+          "de": "Intune",
+          "en": "Intune"
+        },
+        "lines": {
+          "de": [
+            "Autopilot · ESP · Updates",
+            "Win32 mit PSADT · App-Schutz"
+          ],
+          "en": [
+            "Autopilot · ESP · updates",
+            "Win32 with PSADT · app protection"
+          ]
+        },
+        "details": {
+          "de": [
+            "Autopilot mit Enrollment Status Page",
+            "Update Rings und Autopatch",
+            "Win32-Apps mit PSADT verpackt, Microsoft 365 Apps",
+            "App-Schutz und App-Konfiguration fürs Handy",
+            "ADMX-Import und Assignment Filter"
+          ],
+          "en": [
+            "Autopilot with enrollment status page",
+            "Update rings and Autopatch",
+            "Win32 apps packaged with PSADT, Microsoft 365 Apps",
+            "App protection and app configuration for the phone",
+            "ADMX import and assignment filters"
+          ]
+        }
+      },
+      {
+        "id": "suite",
+        "x": 400,
+        "y": 246,
+        "w": 260,
+        "kind": "app",
+        "title": {
+          "de": "Intune Suite",
+          "en": "Intune Suite"
+        },
+        "lines": {
+          "de": [
+            "EPM · Remote Help",
+            "Cloud PKI · Tunnel · Analytics"
+          ],
+          "en": [
+            "EPM · Remote Help",
+            "Cloud PKI · Tunnel · Analytics"
+          ]
+        },
+        "details": {
+          "de": [
+            "Endpoint Privilege Management: Installieren ohne Admin-Rechte",
+            "Remote Help für den Support",
+            "Cloud PKI mit SCEP-Zertifikaten",
+            "Microsoft Tunnel für App-Schutz",
+            "Advanced Analytics und Device Query mit KQL"
+          ],
+          "en": [
+            "Endpoint Privilege Management: installing without admin rights",
+            "Remote Help for support",
+            "Cloud PKI with SCEP certificates",
+            "Microsoft Tunnel for app protection",
+            "Advanced Analytics and device query with KQL"
+          ]
+        }
+      },
+      {
+        "id": "mde",
+        "x": 400,
+        "y": 340,
+        "w": 260,
+        "kind": "shield",
+        "title": {
+          "de": "Defender for Endpoint",
+          "en": "Defender for Endpoint"
+        },
+        "lines": {
+          "de": [
+            "EDR · ASR · Baselines",
+            "App Control for Business"
+          ],
+          "en": [
+            "EDR · ASR · baselines",
+            "App Control for Business"
+          ]
+        },
+        "details": {
+          "de": [
+            "Geräte in Defender for Endpoint onboarden",
+            "EDR, Attack Surface Reduction und Security Baselines",
+            "App Control for Business, zuerst im Audit-Modus",
+            "BitLocker mit Schlüsselrotation"
+          ],
+          "en": [
+            "Onboard devices to Defender for Endpoint",
+            "EDR, attack surface reduction and security baselines",
+            "App Control for Business, first in audit mode",
+            "BitLocker with key rotation"
+          ]
+        }
+      },
+      {
+        "id": "exo",
+        "x": 400,
+        "y": 434,
+        "w": 260,
+        "kind": "cloud",
+        "title": {
+          "de": "Exchange · Teams",
+          "en": "Exchange · Teams"
+        },
+        "lines": {
+          "de": [
+            "Lizenzen über Gruppen"
+          ],
+          "en": [
+            "Licenses through groups"
+          ]
+        },
+        "details": {
+          "de": [
+            "Lizenzen über Gruppen wie heute",
+            "Postfächer und Teams für alle Testbenutzer"
+          ],
+          "en": [
+            "Licenses through groups as today",
+            "Mailboxes and Teams for all test users"
+          ]
+        }
+      },
+      {
+        "id": "phone",
+        "x": 725,
+        "y": 58,
+        "w": 140,
+        "kind": "client",
+        "title": {
+          "de": "Handy",
+          "en": "Phone"
+        },
+        "lines": {
+          "de": [
+            "BYOD · App-Schutz"
+          ],
+          "en": [
+            "BYOD · app protection"
+          ]
+        },
+        "details": {
+          "de": [
+            "Eigenes Handy als BYOD",
+            "App-Schutz für Outlook und Teams",
+            "Conditional Access verlangt geschützte Apps"
+          ],
+          "en": [
+            "Own phone as BYOD",
+            "App protection for Outlook and Teams",
+            "Conditional Access requires protected apps"
+          ]
+        }
+      },
+      {
+        "id": "graph",
+        "x": 725,
+        "y": 152,
+        "w": 140,
+        "kind": "app",
+        "title": {
+          "de": "PowerShell",
+          "en": "PowerShell"
+        },
+        "lines": {
+          "de": [
+            "Graph · Remediations"
+          ],
+          "en": [
+            "Graph · remediations"
+          ]
+        },
+        "details": {
+          "de": [
+            "Berichte mit Microsoft Graph PowerShell",
+            "Remediation-Skripte und eigene Compliance per PowerShell"
+          ],
+          "en": [
+            "Reports with Microsoft Graph PowerShell",
+            "Remediation scripts and custom compliance with PowerShell"
+          ]
+        }
+      },
+      {
+        "id": "jira",
+        "x": 725,
+        "y": 246,
+        "w": 140,
+        "kind": "app",
+        "title": {
+          "de": "Jira",
+          "en": "Jira"
+        },
+        "lines": {
+          "de": [
+            "Tickets · KB"
+          ],
+          "en": [
+            "Tickets · KB"
+          ]
+        },
+        "details": {
+          "de": [
+            "Jeder Fall als Ticket mit Ursache und Lösung",
+            "Wissensdatenbank für wiederkehrende Fälle"
+          ],
+          "en": [
+            "Every case as a ticket with cause and solution",
+            "Knowledge base for recurring cases"
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "from": "dc",
+        "to": "entra",
+        "label": {
+          "de": "Cloud Sync",
+          "en": "Cloud Sync"
+        },
+        "fs": "r",
+        "ts": "l",
+        "fo": -8,
+        "to_": -8
+      },
+      {
+        "from": "l2",
+        "to": "intune",
+        "label": {
+          "de": "Autopilot",
+          "en": "Autopilot"
+        },
+        "fs": "r",
+        "ts": "l",
+        "to_": 10,
+        "mx": 362
+      },
+      {
+        "from": "suite",
+        "to": "tun",
+        "label": {
+          "de": "Tunnel",
+          "en": "Tunnel"
+        },
+        "fs": "l",
+        "ts": "r",
+        "mx": 362,
+        "fo": 12
+      },
+      {
+        "from": "intune",
+        "to": "entra",
+        "label": {
+          "de": "Compliance für CA",
+          "en": "Compliance for CA"
+        },
+        "fs": "t",
+        "ts": "b"
+      },
+      {
+        "from": "phone",
+        "to": "intune",
+        "label": {
+          "de": "App-Schutz",
+          "en": "App protection"
+        },
+        "fs": "l",
+        "ts": "r",
+        "to_": -10,
+        "mx": 692
+      },
+      {
+        "from": "graph",
+        "to": "intune",
+        "label": {
+          "de": "Graph API",
+          "en": "Graph API"
+        },
+        "fs": "l",
+        "ts": "r",
+        "to_": 12,
+        "mx": 692
+      }
+    ]
+  },
   text: {
     de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab baue ich die Administration dahinter selbst auf: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "Das Lab hat zwei Ziele: Ich verstehe die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Und es ist meine Praxis für die Microsoft MD-102 (Endpoint Administrator). Deshalb baue ich es laufend aus, mit Autopilot, Endpoint Security, App-Verteilung und Automatisierung."],
     en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I build the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "The lab has two goals: I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. And it is my hands-on preparation for Microsoft MD-102 (Endpoint Administrator). That is why I keep extending it with Autopilot, endpoint security, app deployment and automation."]

@@ -713,7 +713,28 @@
             lead.appendChild(document.createTextNode(pick(p.overview.lead)));
             box.appendChild(lead);
           }
-          if (p.diagram) renderDiagram(box, p.diagram);
+          if (p.diagram && p.diagramTarget) {
+            var dwrap = el("div", "dia-switch-wrap");
+            var tabs = el("div", "dia-tabs");
+            tabs.setAttribute("role", "group");
+            var holder = el("div", "dia-holder");
+            [["diagramNow", p.diagram], ["diagramTarget", p.diagramTarget]].forEach(function (pair, i) {
+              var bt = el("button", "dia-tab", ui(pair[0]));
+              bt.type = "button";
+              bt.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+              bt.addEventListener("click", function () {
+                Array.prototype.forEach.call(tabs.children, function (x) { x.setAttribute("aria-pressed", "false"); });
+                bt.setAttribute("aria-pressed", "true");
+                holder.textContent = "";
+                renderDiagram(holder, pair[1]);
+              });
+              tabs.appendChild(bt);
+            });
+            dwrap.appendChild(tabs);
+            dwrap.appendChild(holder);
+            renderDiagram(holder, p.diagram);
+            box.appendChild(dwrap);
+          } else if (p.diagram) renderDiagram(box, p.diagram);
           var cols = el("div", "detail-cols");
           var main = el("div", "detail-main");
           var body = main;
