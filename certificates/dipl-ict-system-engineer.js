@@ -61,15 +61,13 @@ window.PORTFOLIO_CERTIFICATES.push({
           "CompTIA A+: bestanden",
           "CompTIA Network+: bestanden",
           "Microsoft Azure Fundamentals (AZ-900): zusätzlich, bestanden",
-          "Microsoft Endpoint Administrator (MD-102): zusätzlich, in Vorbereitung",
-          "Microsoft Azure Administrator (AZ-104): nächstes Ziel nach dem Diplom"
+          "Microsoft Endpoint Administrator (MD-102): zusätzlich, in Vorbereitung"
         ],
         en: [
           "CompTIA A+: passed",
           "CompTIA Network+: passed",
           "Microsoft Azure Fundamentals (AZ-900): additional, passed",
-          "Microsoft Endpoint Administrator (MD-102): additional, in preparation",
-          "Microsoft Azure Administrator (AZ-104): next goal after the diploma"
+          "Microsoft Endpoint Administrator (MD-102): additional, in preparation"
         ]
       }
     },
