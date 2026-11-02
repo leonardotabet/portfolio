@@ -228,7 +228,7 @@ window.SITE = {
       when: { de: "2026 bis 2027", en: "2026 to 2027" },
       tag: { de: "Weiterbildung", en: "Education" },
       title: { de: "Dipl. ICT System Engineer", en: "Diploma ICT System Engineer" },
-      text: { de: "CompTIA A+, Network+ und Microsoft AZ-900 bestanden. Diplom im Januar 2027.", en: "Passed CompTIA A+, Network+ and Microsoft AZ-900. Diploma in January 2027." },
+      text: { de: "CompTIA A+ und Network+ im Lehrgang bestanden. Diplom im Januar 2027.", en: "Passed CompTIA A+ and Network+ within the program. Diploma in January 2027." },
       detail: {
         did: {
           de: ["Systemtechnik mit Windows Server 2022 und Windows Clients auf VMware, Active Directory, Gruppenrichtlinien und Azure", "IT-Betrieb mit Microsoft Intune und Entra ID", "Netzwerk-Technologien von DHCP, DNS und VPN bis zu Router, Switches und Sicherheit", "Projektmanagement und Kommunikation im Support", "Internationale Zertifikate im Lehrgang abgelegt"],
