@@ -9,7 +9,7 @@ window.SITE = {
 
   linkedin: "https://ch.linkedin.com/in/leonardo-tabet",
   cv: "TODO: cv/Leonardo_Tabet_Lebenslauf.pdf",
-  location: { de: "Aargau, Schweiz", en: "Aargau, Switzerland" },
+  location: { de: "Unterentfelden, Aargau, Schweiz", en: "Unterentfelden, Aargau, Switzerland" },
 
   pageTitle: {
     de: "Leonardo Tabet, IT Support und Systemtechnik",
@@ -33,7 +33,7 @@ window.SITE = {
     },
     photoAlt: { de: "Porträt von Leonardo Tabet", en: "Portrait of Leonardo Tabet" },
     facts: [
-      { label: { de: "Standort", en: "Location" }, value: { de: "Aargau, Schweiz", en: "Aargau, Switzerland" } },
+      { label: { de: "Standort", en: "Location" }, value: { de: "Unterentfelden, Aargau, Schweiz", en: "Unterentfelden, Aargau, Switzerland" } },
       { label: { de: "Fliessende Sprachen", en: "Fluent languages" }, value: { de: "Deutsch und Englisch", en: "German and English" } },
       { label: { de: "Praxis", en: "Experience" }, value: { de: "Konzern-IT mit Microsoft 365, Azure und Intune", en: "Corporate IT with Microsoft 365, Azure and Intune" } },
       { label: { de: "Weiterbildung", en: "Education" }, value: { de: "Dipl. ICT System Engineer, Abschluss Januar 2027", en: "Diploma ICT System Engineer, due January 2027" } }
