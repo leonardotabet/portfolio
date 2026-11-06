@@ -14,8 +14,8 @@ window.PORTFOLIO_CERTIFICATES.push({
     en: "That I know the basics of cloud and Microsoft Azure: services, identity and access with Entra ID, security, governance and management."
   },
   didThis: {
-    de: "TODO: Was habe ich dafür gemacht? Kurse, Labs, Lernzeit.",
-    en: "TODO: What did I do for it? Courses, labs, study time."
+    de: "Zusätzlich zum Lehrgang selbständig vorbereitet und abgelegt. Das Wissen habe ich danach im Azure Hybrid Lab praktisch umgesetzt.",
+    en: "Prepared and passed on my own, on top of the diploma program. I then put the knowledge into practice in my Azure hybrid lab."
   },
   atWork: {
     de: "Azure ist in meinem Konzern im Einsatz. Die Grundlagen habe ich direkt angewendet: Im Azure Hybrid Lab habe ich Ressourcengruppen, virtuelle Netzwerke, Identität mit Entra ID und Azure Files selbst aufgebaut.",
