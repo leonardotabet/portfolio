@@ -6,7 +6,7 @@ window.PORTFOLIO_PROJECTS.push({
   title:    { de: "WLAN und Netzwerk im Betrieb", en: "Wi-Fi and network operations" },
   subtitle: { de: "Netzwerkbetrieb in einem Konzernnetz, vom WLAN bis zur Firewall-Anfrage.", en: "Network operations inside a group network, from Wi-Fi to firewall requests." },
   context:  { de: "Umgesetzt im Konzernumfeld, im Team", en: "Delivered within the corporate group, as part of the team" },
-  period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
+  period:   { de: "2026", en: "2026" },
 
   overview: {
     lead: { de: "Ich habe im IT Team eines Schweizer Uhrenunternehmens am Netzwerkbetrieb mitgearbeitet: WLAN, Switches und Firewall Anfragen im Konzernnetz.", en: "In the IT team of a Swiss watch company I worked on network operations: Wi-Fi, switches and firewall requests in the group network." },

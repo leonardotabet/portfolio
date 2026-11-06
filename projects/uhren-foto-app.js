@@ -6,19 +6,19 @@ window.PORTFOLIO_PROJECTS.push({
   title:    { de: "App für die Foto-Dokumentation von Uhren", en: "Watch photo documentation app" },
   subtitle: { de: "Ein manueller Ablauf, ersetzt durch eine App mit automatischer Sicherung.", en: "A manual process, replaced by an app with automatic backups." },
   context:  { de: "Umgesetzt im Konzernumfeld", en: "Delivered within the corporate group" },
-  period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
+  period:   { de: "2026", en: "2026" },
 
   overview: {
     lead: { de: "Ich habe einen manuellen Foto Ablauf bei einem Schweizer Uhrenunternehmen selbständig durch eine App mit automatischer Sicherung ersetzt und das Team geschult.", en: "I replaced a manual photo process at a Swiss watch company with an app with automatic backups, on my own, and trained the team." },
     facts: [
       { value: "50%", label: { de: "weniger Aufwand pro Uhr", en: "less effort per watch" } },
-      { value: "Auto", label: { de: "Sicherung mit Power Automate", en: "backups with Power Automate" } },
-      { value: "1", label: { de: "Power App mit Kamera", en: "Power App with camera" } },
-      { value: "Team", label: { de: "geschult und dokumentiert", en: "trained and documented" } }
+      { value: "4", label: { de: "Rollen über Entra ID Sicherheitsgruppen", en: "roles through Entra ID security groups" } },
+      { value: "Auto", label: { de: "Sicherung aufs NAS mit Power Automate", en: "backups to the NAS with Power Automate" } },
+      { value: "Team", label: { de: "geschult und in Confluence dokumentiert", en: "trained and documented in Confluence" } }
     ],
     skills: {
-      de: ["Abläufe analysieren und neu aufbauen", "Power Apps und Power Automate", "SharePoint und Berechtigungen über Teams", "Schulung und Dokumentation in Confluence"],
-      en: ["Analyzing and rebuilding processes", "Power Apps and Power Automate", "SharePoint and permissions through Teams", "Training and documentation in Confluence"]
+      de: ["Abläufe analysieren und neu aufbauen", "Power Apps und Power Automate", "Rollenkonzept (RBAC) mit Entra ID Sicherheitsgruppen", "Schulung und Dokumentation in Confluence"],
+      en: ["Analyzing and rebuilding processes", "Power Apps and Power Automate", "Role model (RBAC) with Entra ID security groups", "Training and documentation in Confluence"]
     }
   },
   diagram: {
@@ -177,11 +177,11 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "details": {
           "de": [
-            "Power Automate sichert neue Fotos automatisch",
+            "Power Automate sichert neue Fotos automatisch auf das NAS",
             "Keine manuelle Sicherung mehr nötig"
           ],
           "en": [
-            "Power Automate backs up new photos automatically",
+            "Power Automate backs up new photos to the NAS automatically",
             "No more manual backups needed"
           ]
         }
@@ -207,12 +207,14 @@ window.PORTFOLIO_PROJECTS.push({
         "details": {
           "de": [
             "Zugriff über Teams",
-            "Berechtigungen über Benutzergruppen in Entra ID",
+            "Rollenkonzept mit vier Entra ID Sicherheitsgruppen: Fotos ansehen, Fotos erfassen, Einträge im Notfall löschen, Administration",
+            "Mitgliedschaften verwalte ich selbst",
             "Nur berechtigte Personen sehen die Fotos"
           ],
           "en": [
             "Access through Teams",
-            "Permissions through user groups in Entra ID",
+            "Role model with four Entra ID security groups: view photos, capture photos, delete entries in an emergency, administration",
+            "I manage the memberships myself",
             "Only authorized people can see the photos"
           ]
         }
@@ -311,19 +313,19 @@ window.PORTFOLIO_PROJECTS.push({
   text: {
     de: [
       "In einem Schweizer Uhrenunternehmen wird jede Uhr vor dem Versand fotografiert. Die Fotos lagen in einer einzigen OneNote-Datei, ohne Sicherung und ohne klare Ablage.",
-      "Ich habe den Ablauf selbständig neu geplant und umgesetzt. Eine Power App liest die Seriennummer mit der Kamera und speichert die Fotos in SharePoint. Power Automate erstellt die Sicherungen. Der Zugriff läuft über Teams und Benutzergruppen. Ich habe das Team geschult und die Dokumentation in Confluence geschrieben.",
+      "Ich habe den Ablauf selbständig neu geplant und umgesetzt. Eine Power App liest die Seriennummer mit der Kamera und speichert die Fotos in SharePoint. Power Automate sichert sie automatisch auf das NAS. Für den Zugriff habe ich ein Rollenkonzept mit vier Entra ID Sicherheitsgruppen geplant, von Ansehen bis Administration, und verwalte die Mitgliedschaften selbst. Ich habe das Team geschult und die Dokumentation in Confluence geschrieben.",
       "Der Aufwand pro Uhr hat sich halbiert, und jedes Foto ist sicher abgelegt und wiederauffindbar."
     ],
     en: [
       "At a Swiss watch company, every watch is photographed before shipping. The photos were kept in a single OneNote file, with no backup and no clear structure.",
-      "I planned and built a new process on my own. A Power App reads the serial number with the camera and saves the photos to SharePoint. Power Automate creates the backups. Access runs through Teams and user groups. I trained the team and wrote the documentation in Confluence.",
+      "I planned and built a new process on my own. A Power App reads the serial number with the camera and saves the photos to SharePoint. Power Automate backs them up to the NAS automatically. For access I planned a role model with four Entra ID security groups, from viewing to administration, and manage the memberships myself. I trained the team and wrote the documentation in Confluence.",
       "The effort per watch was cut in half, and every photo is now stored safely and easy to find."
     ]
   },
   points: { de: [], en: [] },
   note: { de: "", en: "" },
 
-  tools: ["Power Apps", "Power Automate", "SharePoint", "Teams", "Entra ID", "Confluence"],
+  tools: ["Power Apps", "Power Automate", "SharePoint", "Teams", "Entra ID", "NAS", "Confluence"],
 
   images: []
 });

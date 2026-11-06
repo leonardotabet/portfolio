@@ -70,6 +70,7 @@ window.SITE = {
       items: [
         { label: { de: "Onboarding und Offboarding", en: "Onboarding and offboarding" }, match: ["onboarding", "offboarding"] },
         { label: { de: "Benutzer und Gruppen", en: "Users and groups" }, match: ["benutzer", "gruppen", "users and groups", "user groups"] },
+        { label: { de: "Berechtigungskonzept (RBAC)", en: "Access model (RBAC)" }, match: ["rbac", "rollenkonzept", "role model"] },
         { label: { de: "Lizenzverwaltung", en: "License management" }, match: ["lizenz", "licenses", "license"] },
         { label: "MFA", match: ["mfa"] },
         { label: { de: "Berechtigungen in Dynamics 365", en: "Dynamics 365 permissions" }, match: ["dynamics 365"] },
@@ -204,7 +205,7 @@ window.SITE = {
             "Netzwerk mit VLAN, DHCP, Firewall und WLAN betreut, Telefonie-Ausfall über Ports und Subnetze gelöst",
             "Zugriffe über Entra ID Gruppen und Berechtigungen im Dynamics 365 ERP verwaltet",
             "Gemeinsam mit HR beim Onboarding und Offboarding von Mitarbeitenden mitgewirkt",
-            "ERP-System auf Hyper-V ohne Datenverlust wiederhergestellt",
+            "Ausgefallenes ERP-Archiv auf Hyper-V eingegrenzt und gemeinsam mit dem Konzern ohne Datenverlust wiederhergestellt",
             "Incidents, Service Requests und Changes über die Prozesse des Konzerns erfasst und eskaliert",
             "Foto-Dokumentation der Uhren mit Power Apps, Power Automate und SharePoint neu aufgebaut, inklusive Schulung"
           ],
@@ -215,7 +216,7 @@ window.SITE = {
             "Looked after the network with VLAN, DHCP, firewall and Wi-Fi, solved a phone outage through ports and subnets",
             "Managed access through Entra ID groups and permissions in the Dynamics 365 ERP",
             "Worked with HR on onboarding and offboarding of employees",
-            "Restored the ERP system on Hyper-V without data loss",
+            "Traced a failed ERP archive on Hyper-V and restored it together with the group, without data loss",
             "Logged and escalated incidents, service requests and changes through the group processes",
             "Rebuilt the watch photo documentation with Power Apps, Power Automate and SharePoint, including training"
           ]

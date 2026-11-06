@@ -6,7 +6,7 @@ window.PORTFOLIO_PROJECTS.push({
   title:    { de: "Microsoft 365 Support Lab", en: "Microsoft 365 support lab" },
   subtitle: { de: "Ein Firmen-Tenant mit den Abläufen eines Service Desks, vom Onboarding bis zum Ticket.", en: "A company tenant with real service desk workflows, from onboarding to tickets." },
   context:  { de: "Praxis-Lab zur Konzernumgebung und Vorbereitung auf die Microsoft MD-102", en: "Hands-on lab mirroring the corporate environment and preparing for Microsoft MD-102" },
-  period:   { de: "TODO: Zeitraum", en: "TODO: Period" },
+  period:   { de: "Seit Oktober 2026", en: "Since October 2026" },
 
   overview: {
     lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID, Intune und Jira Service Desk aufgebaut und typische Support Fälle vom Onboarding bis zum Offboarding als Tickets gelöst. Das Lab bildet die Konzernumgebung nach und ist meine Praxis für die Microsoft MD-102.", en: "I built a Microsoft 365 tenant with Entra ID, Intune and a Jira service desk and solved typical support cases from onboarding to offboarding as tickets. The lab mirrors the corporate environment and is my hands-on preparation for Microsoft MD-102." },
