@@ -495,9 +495,6 @@
           chip = el("button", "skill-chip to-cert", label);
           chip.type = "button";
           chip.title = pick(it.hint) || ui("skillCertHint");
-          var tag = el("span", "skill-count cert", it.cert);
-          tag.setAttribute("aria-hidden", "true");
-          chip.appendChild(tag);
           chip.addEventListener("click", function () { showCert(it.cert); });
         } else if (count) {
           chip = el("button", "skill-chip", label);
