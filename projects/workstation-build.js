@@ -134,12 +134,12 @@ window.PORTFOLIO_PROJECTS.push({
         },
         "details": {
           "de": [
-            "Windows 11 VMs für das Microsoft 365 und MD-102 Lab",
+            "Windows 11 VM für das Entra ID und Intune Lab",
             "Genug Kerne und Arbeitsspeicher für mehrere VMs gleichzeitig",
             "Checkpoints, um Tests in Minuten zurückzusetzen"
           ],
           "en": [
-            "Windows 11 VMs for the Microsoft 365 and MD-102 lab",
+            "Windows 11 VM for the Entra ID and Intune lab",
             "Enough cores and memory for several VMs at once",
             "Checkpoints to roll tests back in minutes"
           ]

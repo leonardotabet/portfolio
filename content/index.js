@@ -12,7 +12,7 @@ window.PORTFOLIO_FILES = {
     "comptia-network-plus",
     "comptia-cios",
     "microsoft-az-900",
-    "microsoft-md-102",
+    "microsoft-az-104",
     "dipl-ict-system-engineer"
   ]
 };

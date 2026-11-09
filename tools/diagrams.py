@@ -16,7 +16,7 @@ def K(a,b,label=None,**kw):
 D={}
 
 D["m365-support-lab"]={"w":800,"h":400,
- "alt":LL("Infrastruktur des Microsoft 365 Labs: Hyper-V VM, Microsoft 365 Tenant mit Entra ID, Intune und Exchange, Jira Service Desk","Infrastructure of the Microsoft 365 lab: Hyper-V VM, Microsoft 365 tenant with Entra ID, Intune and Exchange, Jira service desk"),
+ "alt":LL("Infrastruktur des Entra ID und Intune Labs: Hyper-V VM, Microsoft 365 Tenant mit Entra ID, Intune und Exchange, Jira Service Desk","Infrastructure of the Entra ID and Intune lab: Hyper-V VM, Microsoft 365 tenant with Entra ID, Intune and Exchange, Jira service desk"),
  "zones":[Z(20,20,220,210,LL("Hyper-V Host","Hyper-V host"),"local"),
           Z(270,20,290,360,L("Microsoft 365 Tenant"),"cloud"),
           Z(590,20,190,360,L("Service Desk"),"corp")],
@@ -169,8 +169,8 @@ DET={
        ["AMD Ryzen 9 9900X, 12 cores and 24 threads","64 GB DDR5-6000 CL30, EXPO active, timings 30, 36, 36, 76","NVMe, initialised with GPT and set up as an NTFS volume","Air cooling, sound-dampened case, AM5 platform for upgrades"]),
  "win":(["Windows 11 Pro als Hyper-V Host","Ohne LAN eingerichtet: WLAN-Treiber im Setup vom USB-Stick geladen","BIOS 1681 mit EXPO-Profil"],
         ["Windows 11 Pro as Hyper-V host","Set up without LAN: Wi-Fi driver loaded from the USB stick during setup","BIOS 1681 with EXPO profile"]),
- "vms":(["Windows 11 VMs für das Microsoft 365 und MD-102 Lab","Genug Kerne und Arbeitsspeicher für mehrere VMs gleichzeitig","Checkpoints, um Tests in Minuten zurückzusetzen"],
-        ["Windows 11 VMs for the Microsoft 365 and MD-102 lab","Enough cores and memory for several VMs at once","Checkpoints to roll tests back in minutes"]),
+ "vms":(["Windows 11 VM für das Entra ID und Intune Lab","Genug Kerne und Arbeitsspeicher für mehrere VMs gleichzeitig","Checkpoints, um Tests in Minuten zurückzusetzen"],
+        ["Windows 11 VM for the Entra ID and Intune lab","Enough cores and memory for several VMs at once","Checkpoints to roll tests back in minutes"]),
  "test":(["OCCT Speichertest ohne Fehler, WHEA-Zähler bei 0","CPU Volllast: maximal 84 °C bei rund 156 W","Nach dem Test: CPU 77 °C, VRM 49 °C, DIMM rund 66 °C","Werte als Referenz dokumentiert"],
          ["OCCT memory test without errors, WHEA counter at 0","CPU full load: 84 °C maximum at about 156 W","After the test: CPU 77 °C, VRM 49 °C, DIMMs about 66 °C","Values documented as a baseline"])}
 }
@@ -179,62 +179,12 @@ for pid,m in DET.items():
         if n["id"] in m:
             de,en=m[n["id"]]; n["details"]={"de":de,"en":en}
 
-TARGET={}
-TARGET["m365-support-lab"]={"w":900,"h":520,
- "alt":LL("Ziel-Infrastruktur des MD-102 Labs: Hyper-V Host mit Domänencontroller, Tunnel Gateway und fünf Windows 11 VMs, Microsoft 365 Tenant mit Entra ID, Intune, Intune Suite und Defender for Endpoint, Betrieb mit Handy, Jira und Graph","Target infrastructure of the MD-102 lab: Hyper-V host with domain controller, tunnel gateway and five Windows 11 VMs, Microsoft 365 tenant with Entra ID, Intune, Intune Suite and Defender for Endpoint, operations with phone, Jira and Graph"),
- "caption":LL("Ziel: geplanter Ausbau als Vorbereitung auf die Microsoft MD-102 (Endpoint Administrator).","Target: planned expansion as preparation for Microsoft MD-102 (Endpoint Administrator)."),
- "zones":[Z(20,20,330,480,LL("Hyper-V Host · eigenes Lab-Netz","Hyper-V host · own lab network"),"local"),
-          Z(380,20,300,480,L("Microsoft 365 Tenant"),"cloud"),
-          Z(710,20,170,480,LL("Betrieb","Operations"),"corp")],
- "nodes":[N("dc",40,58,290,"server",L("DC01 · Windows Server 2025"),LL(["AD DS · DNS · DHCP","Intune Connector · Cloud Sync"],["AD DS · DNS · DHCP","Intune Connector · Cloud Sync"])),
-          N("tun",40,392,290,"net",L("TUN01 · Ubuntu"),LL(["Microsoft Tunnel Gateway"],["Microsoft Tunnel Gateway"])),
-          N("l1",40,232,140,"client",L("LAB01"),LL(["Richtlinien"],["Policies"])),
-          N("l2",190,232,140,"client",L("LAB02"),LL(["Autopilot"],["Autopilot"])),
-          N("l3",40,312,140,"client",L("LAB03"),LL(["Updates"],["Updates"])),
-          N("l4",190,312,140,"client",L("LAB04"),LL(["Hybrid Join"],["Hybrid join"])),
-          N("kiosk",40,152,290,"client",L("WIN11-KIOSK"),LL(["Kiosk · geteiltes Gerät"],["Kiosk · shared device"])),
-          N("entra",400,58,260,"cloud",L("Entra ID"),LL(["Gruppen · CA mit Compliance","Windows Hello · LAPS"],["Groups · CA with compliance","Windows Hello · LAPS"])),
-          N("intune",400,152,260,"shield",L("Intune"),LL(["Autopilot · ESP · Updates","Win32 mit PSADT · App-Schutz"],["Autopilot · ESP · updates","Win32 with PSADT · app protection"])),
-          N("suite",400,246,260,"app",L("Intune Suite"),LL(["EPM · Remote Help","Cloud PKI · Tunnel · Analytics"],["EPM · Remote Help","Cloud PKI · Tunnel · Analytics"])),
-          N("mde",400,340,260,"shield",L("Defender for Endpoint"),LL(["EDR · ASR · Baselines","App Control for Business"],["EDR · ASR · baselines","App Control for Business"])),
-          N("exo",400,434,260,"cloud",L("Exchange · Teams"),LL(["Lizenzen über Gruppen"],["Licenses through groups"])),
-          N("phone",725,58,140,"client",LL("Handy","Phone"),LL(["BYOD · App-Schutz"],["BYOD · app protection"])),
-          N("graph",725,152,140,"app",L("PowerShell"),LL(["Graph · Remediations"],["Graph · remediations"])),
-          N("jira",725,246,140,"app",L("Jira"),LL(["Tickets · KB"],["Tickets · KB"]))],
- "links":[K("dc","entra",L("Cloud Sync"),fs="r",ts="l",fo=-8,to_=-8),
-          K("l2","intune",L("Autopilot"),fs="r",ts="l",to_=10,mx=362),
-          K("suite","tun",L("Tunnel"),fs="l",ts="r",mx=362,fo=12),
-          K("intune","entra",LL("Compliance für CA","Compliance for CA"),fs="t",ts="b"),
-          K("phone","intune",LL("App-Schutz","App protection"),fs="l",ts="r",to_=-10,mx=692),
-          K("graph","intune",L("Graph API"),fs="l",ts="r",to_=12,mx=692)]}
-TDET={
- "dc":(["Domäne für Hybrid Join mit Autopilot","Intune Connector für Active Directory","Entra Cloud Sync für die Benutzer","DHCP und DNS für das ganze Lab-Netz"],["Domain for hybrid join with Autopilot","Intune Connector for Active Directory","Entra Cloud Sync for the users","DHCP and DNS for the whole lab network"]),
- "tun":(["Microsoft Tunnel Gateway auf Ubuntu","VPN für Apps auf dem Handy, ohne volle Geräteverwaltung"],["Microsoft Tunnel Gateway on Ubuntu","VPN for apps on the phone, without full device management"]),
- "l1":(["Testgerät für Richtlinien und Baselines","Autopilot Reset"],["Test device for policies and baselines","Autopilot reset"]),
- "l2":(["Frisches Gerät nur über Autopilot ausgerollt","Namensvorlage und Enrollment Status Page","Vergleich mit Autopilot Device Preparation"],["Fresh device deployed only through Autopilot","Name template and enrollment status page","Comparison with Autopilot device preparation"]),
- "l3":(["Update Rings Pilot und Broad","Feature Updates, Expedite Updates und Autopatch","Delivery Optimization"],["Update rings pilot and broad","Feature updates, expedited updates and Autopatch","Delivery Optimization"]),
- "l4":(["Autopilot mit Hybrid Join in die Domäne","Ziel für Defender-Onboarding und Tests"],["Autopilot with hybrid join to the domain","Target for Defender onboarding and tests"]),
- "kiosk":(["Kiosk-Profil und geteiltes Gerät","Gerät für Empfang oder Produktion"],["Kiosk profile and shared device","Device for reception or production"]),
- "entra":(["Conditional Access verlangt ein konformes Gerät","Windows Hello for Business","Windows LAPS für lokale Admin-Passwörter","Intune-Rollen mit Scope Tags und Multi Admin Approval"],["Conditional Access requires a compliant device","Windows Hello for Business","Windows LAPS for local admin passwords","Intune roles with scope tags and multi admin approval"]),
- "intune":(["Autopilot mit Enrollment Status Page","Update Rings und Autopatch","Win32-Apps mit PSADT verpackt, Microsoft 365 Apps","App-Schutz und App-Konfiguration fürs Handy","ADMX-Import und Assignment Filter"],["Autopilot with enrollment status page","Update rings and Autopatch","Win32 apps packaged with PSADT, Microsoft 365 Apps","App protection and app configuration for the phone","ADMX import and assignment filters"]),
- "suite":(["Endpoint Privilege Management: Installieren ohne Admin-Rechte","Remote Help für den Support","Cloud PKI mit SCEP-Zertifikaten","Microsoft Tunnel für App-Schutz","Advanced Analytics und Device Query mit KQL"],["Endpoint Privilege Management: installing without admin rights","Remote Help for support","Cloud PKI with SCEP certificates","Microsoft Tunnel for app protection","Advanced Analytics and device query with KQL"]),
- "mde":(["Geräte in Defender for Endpoint onboarden","EDR, Attack Surface Reduction und Security Baselines","App Control for Business, zuerst im Audit-Modus","BitLocker mit Schlüsselrotation"],["Onboard devices to Defender for Endpoint","EDR, attack surface reduction and security baselines","App Control for Business, first in audit mode","BitLocker with key rotation"]),
- "exo":(["Lizenzen über Gruppen wie heute","Postfächer und Teams für alle Testbenutzer"],["Licenses through groups as today","Mailboxes and Teams for all test users"]),
- "phone":(["Eigenes Handy als BYOD","App-Schutz für Outlook und Teams","Conditional Access verlangt geschützte Apps"],["Own phone as BYOD","App protection for Outlook and Teams","Conditional Access requires protected apps"]),
- "graph":(["Berichte mit Microsoft Graph PowerShell","Remediation-Skripte und eigene Compliance per PowerShell"],["Reports with Microsoft Graph PowerShell","Remediation scripts and custom compliance with PowerShell"]),
- "jira":(["Jeder Fall als Ticket mit Ursache und Lösung","Wissensdatenbank für wiederkehrende Fälle"],["Every case as a ticket with cause and solution","Knowledge base for recurring cases"])}
-for n in TARGET["m365-support-lab"]["nodes"]:
-    if n["id"] in TDET:
-        de,en=TDET[n["id"]]; n["details"]={"de":de,"en":en}
-
 root=os.path.join(os.path.dirname(__file__),"..","projects")
 for pid,d in D.items():
     p=os.path.join(root,pid+".js"); s=open(p,encoding="utf-8").read()
     s=re.sub(r'\n  diagram(Target)?: \{.*?\n  \},\n', '\n', s, flags=re.S)
     s=re.sub(r'\n  diagram(Target)?: \{.*?\n  \},\n', '\n', s, flags=re.S)
     js="  diagram: "+json.dumps(d,ensure_ascii=False,indent=2).replace("\n","\n  ")+",\n"
-    if pid in TARGET:
-        js+="  diagramTarget: "+json.dumps(TARGET[pid],ensure_ascii=False,indent=2).replace("\n","\n  ")+",\n"
     i=s.index("  text:")
     s=s[:i]+js+s[i:]
     open(p,"w",encoding="utf-8").write(s)
