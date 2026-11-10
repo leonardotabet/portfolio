@@ -6,8 +6,8 @@ window.PORTFOLIO_PROJECTS.push({
     step: 4,
     label: { de: "Aktueller Stand", en: "Current state" },
     thought: {
-      de: "Im Konzern nutze ich Entra ID und Intune täglich im Support. Hier wollte ich die Admin-Seite dahinter verstehen. Meine Grundsätze daraus: Lizenzen und Richtlinien über Gruppen statt einzeln, neue Zugriffsregeln zuerst im Modus „Nur Bericht“, und bei Anmeldeproblemen zuerst die Sign-in-Logs lesen, bevor ich etwas ändere.",
-      en: "At work I use Entra ID and Intune every day in support. Here I wanted to understand the admin side behind it. My principles from it: licenses and policies via groups instead of one by one, new access rules in report-only mode first, and with sign-in problems read the sign-in logs before changing anything."
+      de: "In meinem Konzern laufen die Identitäten in Entra ID und die Geräte in Intune, administriert wird zentral. Ich wollte verstehen, was hinter den Abläufen steckt, mit denen ich im Support zu tun habe. Darum habe ich die Admin-Seite selbst aufgebaut. Meine Grundsätze daraus: Lizenzen und Richtlinien über Gruppen statt einzeln, neue Zugriffsregeln zuerst im Modus „Nur Bericht“, und bei Anmeldeproblemen zuerst die Sign-in-Logs lesen, bevor ich etwas ändere.",
+      en: "In my corporate group, identities run in Entra ID and devices in Intune, managed centrally. I wanted to understand what sits behind the workflows I deal with in support, so I built the admin side myself. My principles from it: licenses and policies via groups instead of one by one, new access rules in report-only mode first, and with sign-in problems read the sign-in logs before changing anything."
     }
   },
 
@@ -17,7 +17,7 @@ window.PORTFOLIO_PROJECTS.push({
   period:   { de: "Oktober bis November 2026", en: "October to November 2026" },
 
   overview: {
-    lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID und Intune aufgebaut: Benutzer und Gruppen, Lizenzen, ein verwaltetes Windows 11 Gerät und Zugriffsregeln. Typische Support Fälle vom Onboarding bis zum Offboarding habe ich als Tickets in Jira gelöst. Das Lab zeigt die Administration hinter dem, was ich im Konzern täglich im Support nutze.", en: "I built a Microsoft 365 tenant with Entra ID and Intune: users and groups, licenses, a managed Windows 11 device and access rules. I solved typical support cases from onboarding to offboarding as tickets in Jira. The lab shows the administration behind what I use every day in support at work." },
+    lead: { de: "Ich habe einen Microsoft 365 Tenant mit Entra ID und Intune aufgebaut: Benutzer und Gruppen, Lizenzen, ein verwaltetes Windows 11 Gerät und Zugriffsregeln. Typische Support Fälle vom Onboarding bis zum Offboarding habe ich als Tickets in Jira gelöst. Das Lab zeigt die Administration hinter der Umgebung, die ich im Konzern aus dem Support kenne.", en: "I built a Microsoft 365 tenant with Entra ID and Intune: users and groups, licenses, a managed Windows 11 device and access rules. I solved typical support cases from onboarding to offboarding as tickets in Jira. The lab shows the administration behind the environment I know from support in my corporate group." },
     facts: [
       { value: "5", label: { de: "Testbenutzer", en: "test users" } },
       { value: "1", label: { de: "Windows 11 Gerät in Intune", en: "Windows 11 device in Intune" } },
@@ -409,8 +409,8 @@ window.PORTFOLIO_PROJECTS.push({
     ]
   },
   text: {
-    de: ["Microsoft 365 und Intune sind in meinem Konzern täglich im Einsatz. In diesem Lab habe ich die Administration dahinter selbst aufgebaut: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "So verstehe ich die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Das Lab ist abgeschlossen und mit Screenshots dokumentiert."],
-    en: ["Microsoft 365 and Intune are in daily use in my corporate group. In this lab I built the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "This way I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. The lab is complete and documented with screenshots."]
+    de: ["In meinem Konzern laufen Microsoft 365, Entra ID und Intune, administriert wird zentral. In diesem Lab habe ich die Administration dahinter selbst aufgebaut: ein Microsoft 365 Tenant von Grund auf, mit den typischen Abläufen eines Service Desks für neue Mitarbeitende, Geräte, Zugriffsregeln, Austritte und Tickets.", "So verstehe ich die Konzernumgebung von der Admin-Seite her, also warum Richtlinien, Gruppen und Zugriffe so aufgebaut sind. Das Lab ist abgeschlossen und mit Screenshots dokumentiert."],
+    en: ["My corporate group runs Microsoft 365, Entra ID and Intune, managed centrally. In this lab I built the administration behind them myself: a Microsoft 365 tenant from scratch, with the typical service desk workflows for new staff, devices, access rules, leavers and tickets.", "This way I understand the corporate environment from the admin side, meaning why policies, groups and access are set up the way they are. The lab is complete and documented with screenshots."]
   },
   points: {
     de: [
