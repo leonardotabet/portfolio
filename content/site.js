@@ -42,11 +42,11 @@ window.SITE = {
 
   about: {
     de: [
-      "Heute arbeite ich in der IT eines Konzerns, mit Microsoft 365, Azure, hybridem Active Directory und Intune im täglichen Einsatz. Davor war ich in der Industrie und als Selbständiger tätig. Die Erfahrung aus 24/7-Betrieb und Kundenkontakt nehme ich bewusst mit.",
+      "Heute arbeite ich in der IT eines Konzerns und kenne Microsoft 365, Azure, hybrides Active Directory und Intune aus der Praxis im Support. Davor war ich in der Industrie und als Selbständiger tätig. Die Erfahrung aus 24/7-Betrieb und Kundenkontakt nehme ich bewusst mit.",
       "Der Pfad zeigt, was hinter jeder Station steckt: unten der Anfang, oben das Aktuelle. Die Details zeigen, was ich dort gemacht habe und welche Projekte und Zertifikate es belegen."
     ],
     en: [
-      "Today I work in IT within a corporate group, with Microsoft 365, Azure, hybrid Active Directory and Intune in daily use. Before that I worked in industry and ran my own business. I deliberately carry the experience from 24/7 operations and client work with me.",
+      "Today I work in IT within a corporate group and know Microsoft 365, Azure, hybrid Active Directory and Intune from hands-on support work. Before that I worked in industry and ran my own business. I deliberately carry the experience from 24/7 operations and client work with me.",
       "The path shows what lies behind each step: the start at the bottom, the present at the top. The details show what I did there and which projects and certifications prove it."
     ]
   },
