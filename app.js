@@ -201,15 +201,35 @@
     setTimeout(function () { dialog.classList.remove("closing"); dialog.close(); }, 180);
   }
   var HASH_PREFIX = "#p/";
-  function setHash(id) {
-    try { history.replaceState(null, "", location.pathname + location.search + HASH_PREFIX + encodeURIComponent(id)); } catch (e) {}
+  var STEP_PREFIX = "#w/";
+  var openPrefix = HASH_PREFIX;
+  function setHash(id, prefix) {
+    openPrefix = prefix || HASH_PREFIX;
+    try { history.replaceState(null, "", location.pathname + location.search + openPrefix + encodeURIComponent(id)); } catch (e) {}
   }
+  function hasOwnHash() { return location.hash.indexOf(HASH_PREFIX) === 0 || location.hash.indexOf(STEP_PREFIX) === 0; }
   function clearHash() {
-    if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
+    if (!hasOwnHash()) return;
     try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   }
   function projectUrl(id) { return location.origin + location.pathname + "?lang=" + lang + HASH_PREFIX + encodeURIComponent(id); }
-  function openDialog(build, opener, hashId) {
+  function stepUrl(id) { return location.origin + location.pathname + "?lang=" + lang + STEP_PREFIX + encodeURIComponent(id); }
+  function stepSlug(s) {
+    var t = (s.title && (s.title.de || s.title.en)) || s.tag && (s.tag.de || s.tag.en) || "";
+    return String(t).toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  function copyLinkButton(getUrl, labelKey) {
+    var cp = el("button", "copy-link", ui(labelKey));
+    cp.type = "button";
+    cp.addEventListener("click", function () {
+      var url = getUrl();
+      function done() { cp.textContent = ui("linkCopied"); setTimeout(function () { cp.textContent = ui(labelKey); }, 2000); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { window.prompt(ui(labelKey), url); });
+      else window.prompt(ui(labelKey), url);
+    });
+    return cp;
+  }
+  function openDialog(build, opener, hashId, prefix) {
     var d = getDialog();
     d.textContent = "";
     var inner = el("div", "detail-inner");
@@ -222,7 +242,7 @@
     d.appendChild(inner);
     lastFocus = opener || null;
     document.documentElement.classList.add("no-scroll");
-    if (hashId) setHash(hashId);
+    if (hashId) setHash(hashId, prefix);
     if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
     close.focus();
   }
@@ -420,6 +440,7 @@
       head.appendChild(tp);
       var h = el("h3", "", pick(s.title)); h.id = "detail-title"; head.appendChild(h);
       text(head, "p", s.text, "sub");
+      head.appendChild(copyLinkButton(function () { return stepUrl(stepSlug(s)); }, "copyLinkStep"));
       box.appendChild(head);
       var cols = el("div", "detail-cols");
       var main = el("div", "detail-main");
@@ -464,7 +485,7 @@
         cols.appendChild(side);
       }
       box.appendChild(cols);
-    }, opener);
+    }, opener, stepSlug(s), STEP_PREFIX);
   }
   var pathTimer = null;
   function showPath(skill) {
@@ -704,17 +725,7 @@
           head.appendChild(tp);
           var h = el("h3", "", pick(p.title)); h.id = "detail-title"; head.appendChild(h);
           text(head, "p", p.subtitle, "sub");
-          if (p.id) {
-            var cp = el("button", "copy-link", ui("copyLink"));
-            cp.type = "button";
-            cp.addEventListener("click", function () {
-              var url = projectUrl(p.id);
-              function done() { cp.textContent = ui("linkCopied"); setTimeout(function () { cp.textContent = ui("copyLink"); }, 2000); }
-              if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { window.prompt(ui("copyLink"), url); });
-              else window.prompt(ui("copyLink"), url);
-            });
-            head.appendChild(cp);
-          }
+          if (p.id) head.appendChild(copyLinkButton(function () { return projectUrl(p.id); }, "copyLink"));
           box.appendChild(head);
           var hasTarget = !!(p.diagram && p.diagramTarget);
           var tabs = null;
@@ -984,6 +995,7 @@
     steps.forEach(function (s) {
       var li = el("li", "step reveal" + (s.open ? " open" : "") + (s.current ? " current" : "") + (s.detail ? " has-detail" : ""));
       li.setAttribute("data-i", s._i);
+      if (s.detail) li.setAttribute("data-step", stepSlug(s));
       var dot = el("span", "dot");
       dot.setAttribute("aria-hidden", "true");
       li.appendChild(dot);
@@ -1105,9 +1117,10 @@
     .concat((FILES.projects || []).map(function (n) { return "projects/" + n + ".js?v=" + ASSET_V; }))
     .concat((FILES.certificates || []).map(function (n) { return "certificates/" + n + ".js?v=" + ASSET_V; }));
   function openFromHash() {
-    if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
-    var id = decodeURIComponent(location.hash.slice(HASH_PREFIX.length));
-    var t = document.querySelector('[data-proj="' + id.replace(/"/g, "") + '"]');
+    var isStep = location.hash.indexOf(STEP_PREFIX) === 0;
+    if (!isStep && location.hash.indexOf(HASH_PREFIX) !== 0) return;
+    var id = decodeURIComponent(location.hash.slice((isStep ? STEP_PREFIX : HASH_PREFIX).length)).replace(/"/g, "");
+    var t = document.querySelector((isStep ? '[data-step="' : '[data-proj="') + id + '"]');
     if (!t) return;
     if (dialog && dialog.open) return;
     t.classList.add("in");

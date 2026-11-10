@@ -324,6 +324,7 @@ window.SITE = {
     diagramNow: { de: "Aktueller Stand", en: "Current state" },
     skillUses: { de: "Projekte und Stationen", en: "projects and career steps" },
     copyLink: { de: "Link zu diesem Projekt kopieren", en: "Copy link to this project" },
+    copyLinkStep: { de: "Link zu diesem Abschnitt kopieren", en: "Copy link to this section" },
     linkCopied: { de: "Link kopiert", en: "Link copied" },
     labelDate: { de: "Datum", en: "Date" },
     labelIssuer: { de: "Aussteller", en: "Issuer" },
