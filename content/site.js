@@ -262,7 +262,7 @@ window.SITE = {
 
   lab: {
     now: {
-      title: { de: "Aktueller Stand: das deckt mein Lab ab", en: "Current state: what my lab covers" },
+      title: { de: "Das deckt mein Lab heute ab", en: "What my lab covers today" },
       points: {
         de: [
           "Basis: eigener Hyper-V Host mit 12 Kernen und 64 GB Arbeitsspeicher",

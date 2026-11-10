@@ -331,13 +331,13 @@
     return m.map(function (x) { return String(x).toLowerCase(); });
   }
   function matchingTiles(terms) {
-    return Array.prototype.filter.call(document.querySelectorAll(".tile[data-proj]"), function (t) {
+    return Array.prototype.filter.call(document.querySelectorAll("[data-proj]"), function (t) {
       var hay = t.getAttribute("data-search") || "";
       return terms.some(function (w) { return hay.indexOf(w) > -1; });
     });
   }
   function applySkillFilter(scroll) {
-    var tiles = document.querySelectorAll(".tile[data-proj]");
+    var tiles = document.querySelectorAll("[data-proj]");
     var bar = document.getElementById("skill-filter");
     Array.prototype.forEach.call(document.querySelectorAll(".skill-chip"), function (c) {
       c.setAttribute("aria-pressed", String(!!activeSkill && c.getAttribute("data-key") === activeSkill.key));
@@ -449,7 +449,7 @@
         if (projs.length) {
           side.appendChild(el("p", "proof-label", ui("pathProjects")));
           projs.forEach(function (p) {
-            side.appendChild(proofButton("", pick(p.title), clean(p.context), function () { openProof('.tile[data-proj="' + p.id + '"]'); }));
+            side.appendChild(proofButton("", pick(p.title), clean(p.context), function () { openProof('[data-proj="' + p.id + '"]'); }));
           });
         }
         if (certs.length) {
@@ -684,7 +684,7 @@
     box.appendChild(fig);
   }
 
-  function projectTile(p, extra) {
+  function projectOpts(p) {
       var st = PROJECT_STATUS[p.status] || PROJECT_STATUS.done;
       var o = {
         proj: p.id,
@@ -825,9 +825,9 @@
           if (shots.length) renderShots(shotBox, shots); else if (EDIT) todoLine(shotBox, ui("todoScreenshots"));
         }
       };
-      if (extra) for (var k in extra) if (extra.hasOwnProperty(k)) o[k] = extra[k];
-      return tile(o);
+      return o;
   }
+  function projectTile(p) { return tile(projectOpts(p)); }
   function renderProjects() {
     var root = document.getElementById("project-list");
     root.textContent = "";
@@ -841,27 +841,59 @@
     root.textContent = "";
     var labs = window.PORTFOLIO_PROJECTS.filter(function (p) { return p.lab; })
       .sort(function (a, b) { return (a.lab.step || 99) - (b.lab.step || 99); });
-    var ol = el("ol", "lab-steps");
+    var rows = el("div", "lab-rows");
     labs.forEach(function (p, i) {
-      var li = el("li", "lab-step" + (i === labs.length - 1 ? " latest" : ""));
-      var mk = el("span", "lab-mark", String(i + 1));
-      mk.setAttribute("aria-hidden", "true");
-      li.appendChild(mk);
+      var o = projectOpts(p);
+      var row = el("article", "lab-row reveal" + (i === labs.length - 1 ? " latest" : ""));
+      row.setAttribute("data-proj", p.id);
+      row.setAttribute("data-search", o.search);
+      var meta = el("div", "lab-meta");
+      var num = el("span", "lab-num", (i + 1 < 10 ? "0" : "") + (i + 1));
+      num.setAttribute("aria-hidden", "true");
+      meta.appendChild(num);
       var lbl = clean(p.lab.label);
-      if (lbl) li.appendChild(el("span", "lab-label", lbl));
-      li.appendChild(projectTile(p, { thought: clean(p.lab.thought) }));
-      ol.appendChild(li);
+      if (lbl) meta.appendChild(el("span", "lab-label", lbl));
+      if (o.when) meta.appendChild(el("span", "lab-when", o.when));
+      row.appendChild(meta);
+      var body = el("div", "lab-body");
+      body.appendChild(el("h3", "", o.title));
+      if (o.kicker) body.appendChild(el("p", "lab-kicker", o.kicker));
+      if (o.summary) body.appendChild(el("p", "lab-summary", o.summary));
+      var th = clean(p.lab.thought);
+      if (th) {
+        var tb = el("div", "lab-thought");
+        tb.appendChild(el("span", "lab-thought-label", ui("labThought")));
+        tb.appendChild(el("p", "", th));
+        body.appendChild(tb);
+      }
+      if (p.tools && p.tools.length) body.appendChild(el("p", "lab-tools", p.tools.join(" · ")));
+      var btn = el("button", "tile-btn", ui("details"));
+      btn.type = "button";
+      btn.setAttribute("aria-haspopup", "dialog");
+      btn.addEventListener("click", function () { openDialog(o.detail, btn, p.id); });
+      body.appendChild(btn);
+      row.addEventListener("click", function (e) {
+        if (e.target.closest("a,button")) return;
+        openDialog(o.detail, btn, p.id);
+      });
+      row.appendChild(body);
+      rows.appendChild(row);
     });
-    root.appendChild(ol);
+    root.appendChild(rows);
     var now = SITE.lab && SITE.lab.now;
     var pts = now ? list(now.points) : [];
     if (pts.length) {
       var box = el("div", "lab-now reveal");
       box.appendChild(el("h3", "", pick(now.title)));
-      text(box, "p", now.text, "lab-now-text");
-      var ul = el("ul", "lab-now-list");
-      pts.forEach(function (t) { ul.appendChild(el("li", "", t)); });
-      box.appendChild(ul);
+      var dl = el("dl", "lab-spec");
+      pts.forEach(function (t) {
+        var k = t.indexOf(": ");
+        var row = el("div");
+        row.appendChild(el("dt", "", k > 0 ? t.slice(0, k) : ""));
+        row.appendChild(el("dd", "", k > 0 ? t.slice(k + 2) : t));
+        dl.appendChild(row);
+      });
+      box.appendChild(dl);
       root.appendChild(box);
     }
   }
@@ -1075,7 +1107,7 @@
   function openFromHash() {
     if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
     var id = decodeURIComponent(location.hash.slice(HASH_PREFIX.length));
-    var t = document.querySelector('.tile[data-proj="' + id.replace(/"/g, "") + '"]');
+    var t = document.querySelector('[data-proj="' + id.replace(/"/g, "") + '"]');
     if (!t) return;
     if (dialog && dialog.open) return;
     t.classList.add("in");
