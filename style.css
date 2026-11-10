@@ -351,3 +351,24 @@ dialog.detail.closing{animation:detail-out .18s ease forwards}
 .show-target .tgt-only{display:block}
 .show-target .cur-only{display:none}
 .show-target p.tgt-only{display:block}
+
+/* lab section: start to current state */
+#projekte,#zertifikate{background:var(--tint)}
+#lab,#kontakt{background:var(--bg)}
+.lab-steps{list-style:none;margin:0;padding:0;max-width:880px}
+.lab-step{position:relative;padding-left:3.4rem;padding-bottom:1.75rem}
+.lab-step::before{content:"";position:absolute;left:1.12rem;top:2.6rem;bottom:.2rem;width:2px;background:var(--rule)}
+.lab-step:last-child::before{display:none}
+.lab-mark{position:absolute;left:0;top:.1rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);color:var(--navy);border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1rem}
+.lab-step.latest .lab-mark{background:var(--navy);color:#fff}
+.lab-label{display:block;margin:.45rem 0 .7rem;font-size:.8125rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lab-step.latest .lab-label{color:#1F5E37}
+.lab-thought{margin:0 0 1rem;padding:.8rem 1rem .85rem;border-left:3px solid var(--navy);background:var(--tint);border-radius:0 6px 6px 0}
+.lab-thought strong{display:block;margin-bottom:.25rem;font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;color:var(--navy)}
+.lab-thought p{margin:0;font-size:.9375rem;max-width:none}
+.lab-now{max-width:880px;margin-top:.5rem;padding:1.4rem 1.5rem;border:1px solid var(--rule);border-radius:6px;background:var(--tint)}
+.lab-now h3{font-size:1.25rem;margin-bottom:.75rem}
+.lab-now-list{list-style:none;display:grid;gap:.5rem}
+.lab-now-list li{position:relative;padding-left:1.2rem;font-size:.9688rem}
+.lab-now-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:#1F8A4C}
+@media (max-width:520px){.lab-step{padding-left:2.5rem}.lab-step::before{left:.95rem}.lab-mark{width:2rem;height:2rem;font-size:.9rem}.lab-step .tile{padding:1.1rem 1rem 1rem}.lab-thought{padding:.7rem .8rem}}

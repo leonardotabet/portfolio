@@ -2,6 +2,14 @@ window.PORTFOLIO_PROJECTS.push({
   id: "m365-support-lab",
   order: 1,
   status: "done",
+  lab: {
+    step: 4,
+    label: { de: "Aktueller Stand", en: "Current state" },
+    thought: {
+      de: "Im Konzern nutze ich Entra ID und Intune täglich im Support. Hier wollte ich die Admin-Seite dahinter verstehen. Meine Grundsätze daraus: Lizenzen und Richtlinien über Gruppen statt einzeln, neue Zugriffsregeln zuerst im Modus „Nur Bericht“, und bei Anmeldeproblemen zuerst die Sign-in-Logs lesen, bevor ich etwas ändere.",
+      en: "At work I use Entra ID and Intune every day in support. Here I wanted to understand the admin side behind it. My principles from it: licenses and policies via groups instead of one by one, new access rules in report-only mode first, and with sign-in problems read the sign-in logs before changing anything."
+    }
+  },
 
   title:    { de: "Entra ID und Intune Lab", en: "Entra ID and Intune lab" },
   subtitle: { de: "Ein Firmen-Tenant mit Entra ID und Intune: Benutzer, Geräte, Zugriffsregeln und Support Fälle.", en: "A company tenant with Entra ID and Intune: users, devices, access rules and support cases." },

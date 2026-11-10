@@ -260,6 +260,30 @@ window.SITE = {
 
   contactIntro: { de: "Ich antworte auf Deutsch oder Englisch.", en: "I reply in German or English." },
 
+  lab: {
+    now: {
+      title: { de: "Aktueller Stand: das deckt mein Lab ab", en: "Current state: what my lab covers" },
+      points: {
+        de: [
+          "Basis: eigener Hyper-V Host mit 12 Kernen und 64 GB Arbeitsspeicher",
+          "Identität: Active Directory, Entra ID und hybride Synchronisierung mit Entra Connect",
+          "Geräte: Windows 11 in Entra ID und Intune, Compliance-Richtlinie, Konfigurationsprofil und App-Zuweisung",
+          "Netzwerk: DNS, DHCP und Gruppenrichtlinien in der eigenen Domäne, OPNsense als Firewall",
+          "Cloud: Azure VMs, virtuelle Netzwerke, Azure Files und Azure Virtual Desktop",
+          "Support: Jira Service Management mit Anfragetypen, Warteschlangen und Prioritäten"
+        ],
+        en: [
+          "Foundation: my own Hyper-V host with 12 cores and 64 GB of memory",
+          "Identity: Active Directory, Entra ID and hybrid sync with Entra Connect",
+          "Devices: Windows 11 in Entra ID and Intune, compliance policy, configuration profile and app assignment",
+          "Network: DNS, DHCP and Group Policy in my own domain, OPNsense as firewall",
+          "Cloud: Azure VMs, virtual networks, Azure Files and Azure Virtual Desktop",
+          "Support: Jira Service Management with request types, queues and priorities"
+        ]
+      }
+    }
+  },
+
   ui: {
     skip: { de: "Zum Inhalt springen", en: "Skip to content" },
     navProjects: { de: "Projekte", en: "Projects" },
@@ -276,7 +300,11 @@ window.SITE = {
     ctaContact: { de: "Kontakt aufnehmen", en: "Get in touch" },
     ctaProjects: { de: "Projekte ansehen", en: "View projects" },
     projectsTitle: { de: "Projekte", en: "Projects" },
-    projectsIntro: { de: "Die neuesten Projekte zuerst. Ein Klick öffnet Details und Screenshots.", en: "Latest projects first. One click opens details and screenshots." },
+    projectsIntro: { de: "Projekte aus dem Konzernumfeld. Ein Klick öffnet Details und Screenshots.", en: "Projects from my work in the corporate group. One click opens details and screenshots." },
+    navLab: { de: "Lab", en: "Lab" },
+    labTitle: { de: "Lab", en: "Lab" },
+    labIntro: { de: "Das baue ich selbständig: vom ersten Cloud-Lab bis zum heutigen Stand. Zu jedem Schritt steht, was ich mir technisch dabei gedacht habe. Ein Klick öffnet Details und Screenshots.", en: "What I build on my own: from my first cloud lab to where it stands today. Each step shows my technical thinking behind it. One click opens details and screenshots." },
+    labThought: { de: "Mein technischer Gedanke", en: "My technical thinking" },
     certsTitle: { de: "Zertifikate", en: "Certifications" },
     certsIntro: { de: "Die neuesten Zertifikate zuerst. In den Details steht, was sie bestätigen, wie ich mich vorbereitet habe und was sie mir im Job bringen.", en: "Latest certifications first. The details show what they confirm, how I prepared and what they bring to my work." },
     aboutTitle: { de: "Über mich", en: "About me" },

@@ -253,6 +253,7 @@
     if (opts.search) art.setAttribute("data-search", opts.search);
     if (opts.badge) art.setAttribute("data-badge", opts.badge);
     if (opts.id) art.setAttribute("data-id", opts.id);
+    if (opts.proj) art.setAttribute("data-proj", opts.proj);
     var top = el("div", "tile-top");
     if (opts.badge) {
       var b = el("span", "tile-badge", opts.badge);
@@ -267,6 +268,12 @@
     if (opts.kicker) art.appendChild(el("p", "tile-kicker", opts.kicker));
     if (opts.highlight) art.appendChild(el("p", "tile-highlight", opts.highlight));
     if (opts.summary) art.appendChild(el("p", "tile-summary", opts.summary));
+    if (opts.thought) {
+      var th = el("div", "lab-thought");
+      th.appendChild(el("strong", "", ui("labThought")));
+      th.appendChild(el("p", "", opts.thought));
+      art.appendChild(th);
+    }
     if (opts.chips && opts.chips.length) {
       var ul = el("ul", "chips");
       opts.chips.slice(0, 4).forEach(function (c) { ul.appendChild(el("li", "", c)); });
@@ -324,13 +331,13 @@
     return m.map(function (x) { return String(x).toLowerCase(); });
   }
   function matchingTiles(terms) {
-    return Array.prototype.filter.call(document.querySelectorAll("#project-list .tile"), function (t) {
+    return Array.prototype.filter.call(document.querySelectorAll(".tile[data-proj]"), function (t) {
       var hay = t.getAttribute("data-search") || "";
       return terms.some(function (w) { return hay.indexOf(w) > -1; });
     });
   }
   function applySkillFilter(scroll) {
-    var tiles = document.querySelectorAll("#project-list .tile");
+    var tiles = document.querySelectorAll(".tile[data-proj]");
     var bar = document.getElementById("skill-filter");
     Array.prototype.forEach.call(document.querySelectorAll(".skill-chip"), function (c) {
       c.setAttribute("aria-pressed", String(!!activeSkill && c.getAttribute("data-key") === activeSkill.key));
@@ -356,7 +363,10 @@
       pb.hidden = !nPath;
       pb.textContent = ui("pathInPath") + " (" + nPath + ")";
     }
-    if (scroll) document.getElementById("projekte").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    var inProj = hits.filter(function (t) { return t.closest("#project-list"); }).length;
+    var host = document.getElementById(inProj || !hits.length ? "project-list" : "lab-list");
+    if (bar && host && bar.nextSibling !== host) host.parentNode.insertBefore(bar, host);
+    if (scroll && host) host.closest("section").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
   function showCert(badge) {
     var t = document.querySelector('#cert-list .tile[data-badge="' + badge + '"]');
@@ -439,7 +449,7 @@
         if (projs.length) {
           side.appendChild(el("p", "proof-label", ui("pathProjects")));
           projs.forEach(function (p) {
-            side.appendChild(proofButton("", pick(p.title), clean(p.context), function () { openProof('#project-list .tile[data-id="' + p.id + '"]'); }));
+            side.appendChild(proofButton("", pick(p.title), clean(p.context), function () { openProof('.tile[data-proj="' + p.id + '"]'); }));
           });
         }
         if (certs.length) {
@@ -674,13 +684,10 @@
     box.appendChild(fig);
   }
 
-  function renderProjects() {
-    var root = document.getElementById("project-list");
-    root.textContent = "";
-    var grid = el("div", "tiles");
-    sorted(window.PORTFOLIO_PROJECTS).forEach(function (p) {
+  function projectTile(p, extra) {
       var st = PROJECT_STATUS[p.status] || PROJECT_STATUS.done;
-      grid.appendChild(tile({
+      var o = {
+        proj: p.id,
         statusKind: st[0], statusKey: st[1],
         when: clean(p.period),
         title: pick(p.title),
@@ -817,9 +824,46 @@
           box.appendChild(shotBox);
           if (shots.length) renderShots(shotBox, shots); else if (EDIT) todoLine(shotBox, ui("todoScreenshots"));
         }
-      }));
-    });
+      };
+      if (extra) for (var k in extra) if (extra.hasOwnProperty(k)) o[k] = extra[k];
+      return tile(o);
+  }
+  function renderProjects() {
+    var root = document.getElementById("project-list");
+    root.textContent = "";
+    var grid = el("div", "tiles");
+    sorted(window.PORTFOLIO_PROJECTS).filter(function (p) { return !p.lab; }).forEach(function (p) { grid.appendChild(projectTile(p)); });
     root.appendChild(grid);
+  }
+  function renderLab() {
+    var root = document.getElementById("lab-list");
+    if (!root) return;
+    root.textContent = "";
+    var labs = window.PORTFOLIO_PROJECTS.filter(function (p) { return p.lab; })
+      .sort(function (a, b) { return (a.lab.step || 99) - (b.lab.step || 99); });
+    var ol = el("ol", "lab-steps");
+    labs.forEach(function (p, i) {
+      var li = el("li", "lab-step" + (i === labs.length - 1 ? " latest" : ""));
+      var mk = el("span", "lab-mark", String(i + 1));
+      mk.setAttribute("aria-hidden", "true");
+      li.appendChild(mk);
+      var lbl = clean(p.lab.label);
+      if (lbl) li.appendChild(el("span", "lab-label", lbl));
+      li.appendChild(projectTile(p, { thought: clean(p.lab.thought) }));
+      ol.appendChild(li);
+    });
+    root.appendChild(ol);
+    var now = SITE.lab && SITE.lab.now;
+    var pts = now ? list(now.points) : [];
+    if (pts.length) {
+      var box = el("div", "lab-now reveal");
+      box.appendChild(el("h3", "", pick(now.title)));
+      text(box, "p", now.text, "lab-now-text");
+      var ul = el("ul", "lab-now-list");
+      pts.forEach(function (t) { ul.appendChild(el("li", "", t)); });
+      box.appendChild(ul);
+      root.appendChild(box);
+    }
   }
 
   function renderCertificates() {
@@ -1007,6 +1051,7 @@
     renderHero();
     renderAbout();
     renderProjects();
+    renderLab();
     renderSkills();
     if (activeSkill) applySkillFilter(false);
     renderCertificates();
@@ -1030,7 +1075,7 @@
   function openFromHash() {
     if (location.hash.indexOf(HASH_PREFIX) !== 0) return;
     var id = decodeURIComponent(location.hash.slice(HASH_PREFIX.length));
-    var t = document.querySelector('#project-list .tile[data-id="' + id.replace(/"/g, "") + '"]');
+    var t = document.querySelector('.tile[data-proj="' + id.replace(/"/g, "") + '"]');
     if (!t) return;
     if (dialog && dialog.open) return;
     t.classList.add("in");

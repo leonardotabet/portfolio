@@ -2,6 +2,14 @@ window.PORTFOLIO_PROJECTS.push({
   id: "windows-server-ad-lab",
   order: 2,
   status: "done",
+  lab: {
+    step: 3,
+    label: { de: "Fundament der Firmenumgebung", en: "Foundation of a company network" },
+    thought: {
+      de: "Jede Firmenumgebung steht auf einer sauberen Domäne: ohne DNS keine Anmeldung, ohne DHCP keine Adressen. Ich habe vieles mit PowerShell gebaut, weil Skripte wiederholbar sind und gleich die Dokumentation liefern. Jeden Schritt prüfe ich mit dcdiag, nslookup und gpresult. Der zweite DHCP-Server auf der OPNsense hat mir gezeigt: bei Netzwerkfehlern zuerst ipconfig /all.",
+      en: "Every company environment rests on a clean domain: no DNS, no sign-in; no DHCP, no addresses. I built much of it with PowerShell, because scripts are repeatable and double as documentation. I verify every step with dcdiag, nslookup and gpresult. The second DHCP server on the OPNsense taught me: with network faults, start with ipconfig /all."
+    }
+  },
 
   title:    { de: "Windows-Server-Infrastruktur: AD DS, DNS, DHCP und GPO", en: "Windows Server infrastructure: AD DS, DNS, DHCP and GPO" },
   subtitle: { de: "Eine komplette Domäne von Grund auf, weitgehend per PowerShell aufgebaut.", en: "A complete domain built from scratch, largely with PowerShell." },

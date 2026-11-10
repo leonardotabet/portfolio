@@ -2,6 +2,14 @@ window.PORTFOLIO_PROJECTS.push({
   id: "workstation-build",
   order: 6,
   status: "done",
+  lab: {
+    step: 2,
+    label: { de: "Eigener Unterbau", en: "My own foundation" },
+    thought: {
+      de: "Für Labs zählen Kerne und Arbeitsspeicher, nicht Grafik: mehrere VMs laufen gleichzeitig. Darum 12 Kerne und 64 GB DDR5 auf AM5, damit ich später aufrüsten kann. Lokal statt in der Cloud, weil VMs dauerhaft laufen dürfen und ich mit Checkpoints jederzeit zum letzten guten Zustand zurückkomme. Jeden Messwert habe ich festgehalten, damit ich bei Problemen eine Referenz habe.",
+      en: "For labs, cores and memory matter, not graphics: several VMs run at once. So 12 cores and 64 GB DDR5 on AM5, so I can upgrade later. Local instead of cloud, because VMs can run permanently and checkpoints bring me back to the last good state at any time. I recorded every measurement so I have a reference when something goes wrong."
+    }
+  },
 
   title:    { de: "Workstation für Hyper-V Labs: Aufbau, BIOS und Stabilitätstest", en: "Workstation for Hyper-V labs: build, BIOS and stability testing" },
   subtitle: { de: "Eine eigene Workstation von der Planung bis zum Messprotokoll, als Unterbau für meine Labs.", en: "My own workstation from planning to measurement log, as the foundation for my labs." },

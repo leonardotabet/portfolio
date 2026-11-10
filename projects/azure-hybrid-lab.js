@@ -2,6 +2,14 @@ window.PORTFOLIO_PROJECTS.push({
   id: "azure-hybrid-lab",
   order: 4,
   status: "done",
+  lab: {
+    step: 1,
+    label: { de: "Start", en: "Start" },
+    thought: {
+      de: "Viele Schweizer KMU arbeiten hybrid: Active Directory im Haus, Microsoft 365 in der Cloud. Ich wollte verstehen, wie ein Benutzer mit einem Passwort vom AD bis in die Cloud kommt. Darum Entra Connect mit Kennwort-Hash-Synchronisierung und OU-Filter, damit nur die gewünschten Konten synchronisieren. Für die Dateifreigabe habe ich Kerberos statt Speicherschlüssel gewählt, weil die Rechte so an Gruppen hängen und nicht an einem geteilten Schlüssel.",
+      en: "Many Swiss SMEs work hybrid: Active Directory on site, Microsoft 365 in the cloud. I wanted to understand how one user with one password gets from AD into the cloud. So I chose Entra Connect with password hash sync and an OU filter, so only the intended accounts sync. For the file share I chose Kerberos instead of a storage key, because access then follows groups, not a shared key."
+    }
+  },
 
   title:    { de: "Azure Hybrid Lab", en: "Azure hybrid lab" },
   subtitle: { de: "Active Directory in Azure, synchronisiert mit Entra ID, mit Dateifreigabe und virtuellen Desktops.", en: "Active Directory in Azure, synced with Entra ID, with a file share and virtual desktops." },
