@@ -138,7 +138,7 @@ window.SITE = {
   // detail: opens with "Details ansehen"; projects = project ids, certs = badges
   path: [
     {
-      when: { de: "2018 bis 2022", en: "2018 to 2022" },
+      when: { de: "August 2018 bis Juli 2022", en: "August 2018 to July 2022" },
       tag: { de: "Industrie", en: "Industry" },
       title: { de: "Kunststofftechnologe EFZ", en: "Plastics technologist, Swiss VET diploma" },
       text: { de: "Grossanlagen im 24/7-Betrieb. Störungen eingrenzen und beheben, damit die Produktion weiterläuft.", en: "Large production lines running 24/7. Isolating and fixing faults so production keeps running." },
@@ -155,7 +155,7 @@ window.SITE = {
       }
     },
     {
-      when: { de: "2023 bis 2025", en: "2023 to 2025" },
+      when: { de: "August 2023 bis März 2025", en: "August 2023 to March 2025" },
       tag: { de: "Selbständig", en: "Self-employed" },
       title: { de: "Eigenes Unternehmen, E-Mail-Automatisierung", en: "Own business, email automation" },
       text: { de: "B2B-Kampagnen mit direktem Kundenkontakt. Domains und DNS-Einträge selbst eingerichtet.", en: "B2B campaigns working directly with clients. Set up domains and DNS records myself." },
@@ -173,7 +173,7 @@ window.SITE = {
       }
     },
     {
-      when: { de: "2025", en: "2025" },
+      when: { de: "Mai bis November 2025", en: "May to November 2025" },
       tag: { de: "IT-Ausbildung", en: "IT training" },
       title: { de: "Start in der IT", en: "Starting in IT" },
       text: { de: "IT-Ausbildung neben der Arbeit als Mechaniker. Erste Labs zu Windows, Netzwerk und Cloud.", en: "IT training alongside work as a mechanic. First labs on Windows, networking and cloud." },
@@ -192,7 +192,7 @@ window.SITE = {
     },
     {
       current: true,
-      when: { de: "2026 bis heute", en: "2026 to today" },
+      when: { de: "Februar 2026 bis heute", en: "February 2026 to today" },
       tag: { de: "Konzern-IT", en: "Corporate IT" },
       title: { de: "IT im Konzernumfeld", en: "IT within a corporate group" },
       text: { de: "Schweizer Uhrenunternehmen in einem internationalen Konzern. Microsoft 365, Azure, hybrides Active Directory, Intune für iPhone und iPad, Netzwerk und Telefonie.", en: "Swiss watch company within an international corporate group. Microsoft 365, Azure, hybrid Active Directory, Intune for iPhone and iPad, networking and telephony." },
@@ -231,7 +231,7 @@ window.SITE = {
       }
     },
     {
-      when: { de: "2026 bis 2027", en: "2026 to 2027" },
+      when: { de: "Mai 2025 bis Januar 2027", en: "May 2025 to January 2027" },
       tag: { de: "Weiterbildung", en: "Education" },
       title: { de: "Dipl. ICT System Engineer", en: "Diploma ICT System Engineer" },
       text: { de: "CompTIA A+ und Network+ im Lehrgang bestanden. Diplom im Januar 2027.", en: "Passed CompTIA A+ and Network+ within the program. Diploma in January 2027." },
