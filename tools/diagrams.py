@@ -114,6 +114,20 @@ D["workstation-build"]={"w":800,"h":330,
           K("win","vms",L("Hyper-V"),fs="r",ts="l"),
           K("win","test",LL("OCCT · HWiNFO","OCCT · HWiNFO"),fs="b",ts="t")]}
 
+D["hybrid-lab-2"]={"w":800,"h":390,
+ "alt":LL("Infrastruktur des Hybrid Labs 2: Domänencontroller DC01 mit Baseline-GPOs, Export als XML, Group Policy analytics und Settings-Katalog-Profile in Intune, Zuweisung an eine Pilotgruppe mit einem Windows 11 Gerät","Infrastructure of hybrid lab 2: domain controller DC01 with baseline GPOs, XML export, Group Policy analytics and Settings catalog profiles in Intune, assigned to a pilot group with one Windows 11 device"),
+ "zones":[Z(20,20,250,350,LL("Hyper-V Host","Hyper-V host"),"local"),
+          Z(300,20,480,350,LL("Microsoft Intune · Tenant tabetlab","Microsoft Intune · tabetlab tenant"),"cloud")],
+ "nodes":[N("dc",40,64,210,"server",L("DC01"),LL(["Server 2022 · AD DS · DNS","ad.leonardotabet.ch","6 Baseline-GPOs importiert"],["Server 2022 · AD DS · DNS","ad.leonardotabet.ch","6 baseline GPOs imported"])),
+          N("cl",40,250,210,"client",L("WIN11-LAB01"),LL(["Windows 11 26H2","Pilotgerät in Intune"],["Windows 11 26H2","Pilot device in Intune"])),
+          N("gpa",320,64,210,"cloud",L("Group Policy analytics"),LL(["XML-Import · MDM-Abdeckung","Migrations-Assistent"],["XML import · MDM coverage","Migration wizard"])),
+          N("prof",560,64,200,"shield",LL("Settings-Katalog","Settings catalog"),LL(["2 Profile · 24 Einstellungen","Computer · Defender"],["2 profiles · 24 settings","Computer · Defender"])),
+          N("grp",320,250,210,"user",L("Lab-Pilot-Clients"),LL(["Entra Sicherheitsgruppe","1 Gerät"],["Entra security group","1 device"]))],
+ "links":[K("dc","gpa",LL("XML-Export","XML export"),fs="r",ts="l"),
+          K("gpa","prof",LL("Migration","Migration"),fs="r",ts="l"),
+          K("prof","grp",LL("Zuweisung","Assignment"),fs="b",ts="r"),
+          K("grp","cl",LL("Richtlinien","Policies"),fs="l",ts="r")]}
+
 DET={
 "m365-support-lab":{
  "vm":(["Windows 11 Enterprise (Evaluation) als Hyper-V VM der Generation 2","Virtueller TPM und Secure Boot aktiv","Entra ID beigetreten und automatisch in Intune registriert","Als Unternehmensgerät eingetragen","Edge-Richtlinie WIN-Edge-Basics wirkt, geprüft in edge://policy","Checkpoints vor dem Setup und nach der Registrierung für schnelle Tests"],
@@ -164,6 +178,12 @@ DET={
  "s2":(["Eigenes WLAN für Gäste, getrennt vom Mitarbeitenden-WLAN"],["Separate Wi-Fi for guests, separated from the staff Wi-Fi"]),
  "zy":(["Telefonie hinter einer Zyxel Firewall","Ausfall über Ports und Subnetze eingegrenzt und gelöst"],["Telephony behind a Zyxel firewall","Outage narrowed down and solved through ports and subnets"]),
  "tel":(["Telefone der Mitarbeitenden"],["Phones of the employees"])},
+"hybrid-lab-2":{
+ "dc":(["Windows Server 2022 Evaluation als VM in Hyper-V","Forest ad.leonardotabet.ch mit Install-ADDSForest, NetBIOS-Name LAB","Eigene Subdomain statt .local, weil .local für mDNS reserviert ist","Microsoft Windows 11 v26H2 Security Baseline per Skript importiert","OU Test-Clients angelegt, die GPOs sind nicht verlinkt und dienen als Quelle für die Analyse"],["Windows Server 2022 Evaluation as a VM in Hyper-V","Forest ad.leonardotabet.ch with Install-ADDSForest, NetBIOS name LAB","Own subdomain instead of .local, because .local is reserved for mDNS","Microsoft Windows 11 v26H2 Security Baseline imported with a script","OU Test-Clients created, the GPOs are not linked and serve as the source for the analysis"]),
+ "gpa":(["Sechs GPOs mit Get-GPOReport als XML exportiert","Import in Group Policy analytics, MDM-Abdeckung pro GPO","Computer 91 %, Defender 77 %, BitLocker 85 %, Domain Security 28 %","Credential Guard und User bei 100 %, aber veraltete Einstellungen sind nicht migrierbar"],["Six GPOs exported as XML with Get-GPOReport","Import into Group Policy analytics, MDM coverage per GPO","Computer 91%, Defender 77%, BitLocker 85%, Domain Security 28%","Credential Guard and User at 100%, but deprecated settings cannot be migrated"]),
+ "prof":(["Hybrid Lab2 Baseline Pilot Computer: 19 von 148 Einstellungen","Hybrid Lab2 Baseline Pilot Defender: 5 von 18 Einstellungen","Nicht unterstützte Einstellungen sind im Assistenten gesperrt"],["Hybrid Lab2 Baseline Pilot Computer: 19 of 148 settings","Hybrid Lab2 Baseline Pilot Defender: 5 of 18 settings","Unsupported settings are locked in the wizard"]),
+ "grp":(["Sicherheitsgruppe mit festen Mitgliedern","Beide Profile nur dieser Gruppe zugewiesen","Neue Richtlinien treffen zuerst nur das Pilotgerät"],["Security group with assigned members","Both profiles assigned to this group only","New policies hit only the pilot device first"]),
+ "cl":(["Windows 11 26H2 als VM, in Entra ID eingebunden und in Intune verwaltet","In Intune als DESKTOP-JRH58VT sichtbar, in Hyper-V heisst die VM WIN11-LAB01","Beide Profile mit Status Erfolgreich"],["Windows 11 26H2 as a VM, joined to Entra ID and managed in Intune","Shown in Intune as DESKTOP-JRH58VT, the VM is called WIN11-LAB01 in Hyper-V","Both profiles with status Succeeded"])},
 "workstation-build":{
  "hw":(["AMD Ryzen 9 9900X, 12 Kerne und 24 Threads","64 GB DDR5-6000 CL30, EXPO aktiv, Timings 30, 36, 36, 76","NVMe, mit GPT initialisiert und als NTFS Volume eingerichtet","Luftkühlung, gedämmtes Gehäuse, AM5 Plattform zum Aufrüsten"],
        ["AMD Ryzen 9 9900X, 12 cores and 24 threads","64 GB DDR5-6000 CL30, EXPO active, timings 30, 36, 36, 76","NVMe, initialised with GPT and set up as an NTFS volume","Air cooling, sound-dampened case, AM5 platform for upgrades"]),

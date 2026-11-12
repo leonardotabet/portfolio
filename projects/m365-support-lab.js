@@ -4,7 +4,7 @@ window.PORTFOLIO_PROJECTS.push({
   status: "done",
   lab: {
     step: 4,
-    label: { de: "Aktueller Stand", en: "Current state" },
+    label: { de: "Cloud-Verwaltung", en: "Cloud management" },
     thought: {
       de: "In meinem Konzern laufen die Identitäten in Entra ID und die Geräte in Intune, administriert wird zentral. Ich wollte verstehen, was hinter den Abläufen steckt, mit denen ich im Support zu tun habe. Darum habe ich die Admin-Seite selbst aufgebaut. Meine Grundsätze daraus: Lizenzen und Richtlinien über Gruppen statt einzeln, neue Zugriffsregeln zuerst im Modus „Nur Bericht“, und bei Anmeldeproblemen zuerst die Sign-in-Logs lesen, bevor ich etwas ändere.",
       en: "In my corporate group, identities run in Entra ID and devices in Intune, managed centrally. I wanted to understand what sits behind the workflows I deal with in support, so I built the admin side myself. My principles from it: licenses and policies via groups instead of one by one, new access rules in report-only mode first, and with sign-in problems read the sign-in logs before changing anything."
