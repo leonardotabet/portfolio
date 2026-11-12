@@ -851,15 +851,16 @@
     if (!root) return;
     root.textContent = "";
     var labs = window.PORTFOLIO_PROJECTS.filter(function (p) { return p.lab; })
-      .sort(function (a, b) { return (a.lab.step || 99) - (b.lab.step || 99); });
+      .sort(function (a, b) { return (b.lab.step || 0) - (a.lab.step || 0); });
     var rows = el("div", "lab-rows");
     labs.forEach(function (p, i) {
       var o = projectOpts(p);
-      var row = el("article", "lab-row reveal" + (i === labs.length - 1 ? " latest" : ""));
+      var row = el("article", "lab-row reveal" + (i === 0 ? " latest" : ""));
       row.setAttribute("data-proj", p.id);
       row.setAttribute("data-search", o.search);
       var meta = el("div", "lab-meta");
-      var num = el("span", "lab-num", (i + 1 < 10 ? "0" : "") + (i + 1));
+      var n = labs.length - i;
+      var num = el("span", "lab-num", (n < 10 ? "0" : "") + n);
       num.setAttribute("aria-hidden", "true");
       meta.appendChild(num);
       var lbl = clean(p.lab.label);

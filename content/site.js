@@ -303,7 +303,7 @@ window.SITE = {
     projectsIntro: { de: "Projekte aus dem Konzernumfeld. Ein Klick öffnet Details und Screenshots.", en: "Projects from my work in the corporate group. One click opens details and screenshots." },
     navLab: { de: "Lab", en: "Lab" },
     labTitle: { de: "Lab", en: "Lab" },
-    labIntro: { de: "Das baue ich selbständig: vom ersten Cloud-Lab bis zum heutigen Stand. Zu jedem Schritt steht, was ich mir technisch dabei gedacht habe. Ein Klick öffnet Details und Screenshots.", en: "What I build on my own: from my first cloud lab to where it stands today. Each step shows my technical thinking behind it. One click opens details and screenshots." },
+    labIntro: { de: "Das baue ich selbständig: oben der heutige Stand, unten mein erstes Cloud-Lab. Zu jedem Schritt steht, was ich mir technisch dabei gedacht habe. Ein Klick öffnet Details und Screenshots.", en: "What I build on my own: where it stands today at the top, my first cloud lab at the bottom. Each step shows my technical thinking behind it. One click opens details and screenshots." },
     labThought: { de: "Mein technischer Gedanke", en: "My technical thinking" },
     certsTitle: { de: "Zertifikate", en: "Certifications" },
     certsIntro: { de: "Die neuesten Zertifikate zuerst. In den Details steht, was sie bestätigen, wie ich mich vorbereitet habe und was sie mir im Job bringen.", en: "Latest certifications first. The details show what they confirm, how I prepared and what they bring to my work." },
